@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Digital Marketing Apprenticeship</title>
+<meta name="description" content="Digital marketing apprenticeship portfolio: KSB evidence, project work, and CV.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="rail" id="rail">
+  <a class="rail-mark" href="#top" aria-label="Back to top">
+    <span class="rail-mark-code">PF</span>
+  </a>
+  <nav class="rail-nav" aria-label="Section navigation">
+    <a href="#brief" class="rail-link" data-section="brief"><span class="rail-num">00</span>Brief</a>
+    <a href="#evidence" class="rail-link" data-section="evidence"><span class="rail-num">01</span>Evidence</a>
+    <a href="#work" class="rail-link" data-section="work"><span class="rail-num">02</span>The Work</a>
+    <a href="#cv" class="rail-link" data-section="cv"><span class="rail-num">03</span>CV</a>
+  </nav>
+  <button class="rail-toggle" id="railToggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+
+<main id="top">
+
+  <!-- ============ HERO / CAMPAIGN BRIEF ============ -->
+  <section class="cover" id="brief">
+    <div class="cover-inner">
+      <p class="eyebrow">Portfolio of Evidence — <span id="epaYear"></span></p>
+      <h1 class="cover-name" id="coverName">Your Name</h1>
+      <p class="cover-role" id="coverRole">Digital Marketing Apprentice</p>
+
+      <dl class="brief-meta">
+        <div>
+          <dt>Client</dt>
+          <dd id="briefInstitution">University of Portsmouth</dd>
+        </div>
+        <div>
+          <dt>Brief</dt>
+          <dd id="briefStandard">Digital Marketer (Integrated Degree), Level 6</dd>
+        </div>
+        <div>
+          <dt>Objective</dt>
+          <dd id="briefTagline">Evidence competence against every KSB in the standard.</dd>
+        </div>
+      </dl>
+
+      <div class="stat-strip" id="statStrip" aria-label="Portfolio statistics"></div>
+
+      <div class="cover-actions">
+        <a href="#evidence" class="btn btn-primary">View KSB evidence</a>
+        <a href="#cv" class="btn btn-ghost">Jump to CV</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KSB EVIDENCE ============ -->
+  <section class="section" id="evidence">
+    <header class="section-head">
+      <p class="section-eyebrow">01 / Evidence</p>
+      <h2>KSB Evidence Log</h2>
+      <p class="section-lede">Every Knowledge, Skill and Behaviour from ST0481, tagged and tracked like a campaign — filter by category or status to see what's covered and what's next.</p>
+    </header>
+
+    <div class="filter-bar" role="group" aria-label="Filter KSBs">
+      <div class="filter-group">
+        <span class="filter-label">Category</span>
+        <button class="chip is-active" data-filter-cat="all">All</button>
+        <button class="chip chip-knowledge" data-filter-cat="knowledge">Knowledge</button>
+        <button class="chip chip-skill" data-filter-cat="skill">Skill</button>
+        <button class="chip chip-behaviour" data-filter-cat="behaviour">Behaviour</button>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Status</span>
+        <button class="chip is-active" data-filter-status="all">All</button>
+        <button class="chip" data-filter-status="complete">Complete</button>
+        <button class="chip" data-filter-status="in-progress">In progress</button>
+        <button class="chip" data-filter-status="not-started">Not started</button>
+      </div>
+    </div>
+
+    <div class="ksb-grid" id="ksbGrid"></div>
+  </section>
+
+  <!-- ============ THE WORK ============ -->
+  <section class="section section-dark" id="work">
+    <header class="section-head">
+      <p class="section-eyebrow">02 / The Work</p>
+      <h2>Day-to-Day Projects</h2>
+      <p class="section-lede">The campaigns, content and analysis behind the evidence above — this is what the KSB tags actually point back to.</p>
+    </header>
+
+    <div class="project-grid" id="projectGrid"></div>
+  </section>
+
+  <!-- ============ CV ============ -->
+  <section class="section" id="cv">
+    <header class="section-head">
+      <p class="section-eyebrow">03 / CV</p>
+      <h2>Curriculum Vitae</h2>
+      <p class="section-lede" id="cvSummary"></p>
+    </header>
+
+    <div class="cv-grid">
+      <div class="cv-block">
+        <h3 class="cv-block-title">Experience</h3>
+        <div id="cvExperience"></div>
+      </div>
+      <div class="cv-block">
+        <h3 class="cv-block-title">Education</h3>
+        <div id="cvEducation"></div>
+      </div>
+      <div class="cv-block">
+        <h3 class="cv-block-title">Skills</h3>
+        <div class="skill-tags" id="cvSkills"></div>
+        <a href="#" id="cvDownload" class="btn btn-ghost btn-small" hidden>Download CV (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>
+      <p class="footer-name" id="footerName">Your Name</p>
+      <p class="footer-sub">Built as a living portfolio — updated as work happens.</p>
+    </div>
+    <div class="footer-links" id="footerLinks"></div>
+  </footer>
+
+</main>
+
+<!-- ============ KSB DETAIL MODAL ============ -->
+<div class="modal-backdrop" id="modalBackdrop" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+    <p class="modal-eyebrow" id="modalCode"></p>
+    <h3 id="modalTitle"></h3>
+    <p class="modal-status" id="modalStatus"></p>
+    <p class="modal-desc" id="modalDesc"></p>
+    <div class="modal-project" id="modalProject"></div>
+    <div class="modal-evidence" id="modalEvidence"></div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
