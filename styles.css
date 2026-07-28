@@ -3,20 +3,20 @@
    ============================================================ */
 :root{
   /* Mirõ MKT brand palette */
-  --ink: #12213A;            /* Ink navy — primary, grounding */
+  --ink: #12213A;            /* Ink navy – primary, grounding */
   --ink-soft: #1B2E4D;       /* lighter navy for alternating dark sections */
-  --paper: #F7F5F0;          /* Chalk white — warm off-white background */
+  --paper: #F7F5F0;          /* Chalk white – warm off-white background */
   --paper-dim: #EFEAE0;
   --line: rgba(18,33,58,0.12);
   --line-dark: rgba(247,245,240,0.16);
-  --slate: #6B7280;          /* Slate grey — neutral/secondary text */
+  --slate: #6B7280;          /* Slate grey – neutral/secondary text */
   --slate-light: #A7AEBB;
 
-  --knowledge: #12213A;      /* Ink navy — Knowledge tag */
+  --knowledge: #12213A;      /* Ink navy – Knowledge tag */
   --knowledge-ink: #F7F5F0;
-  --skill: #FF6B4A;          /* Wonder coral — primary accent, used generously */
+  --skill: #FF6B4A;          /* Wonder coral – primary accent, used generously */
   --skill-ink: #3A1206;
-  --behaviour: #7C5CFC;      /* Electric violet — secondary accent, used sparingly */
+  --behaviour: #7C5CFC;      /* Electric violet – secondary accent, used sparingly */
   --behaviour-ink: #F7F5F0;
 
   --font-display: 'Space Grotesk', sans-serif;
@@ -132,7 +132,7 @@ main{ margin-left: var(--rail-w); }
 }
 
 /* ============================================================
-   COVER / HERO — the "campaign brief"
+   COVER / HERO – the "campaign brief"
    ============================================================ */
 .cover{
   background: var(--ink);
