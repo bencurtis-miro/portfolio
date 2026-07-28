@@ -2,23 +2,24 @@
    TOKENS
    ============================================================ */
 :root{
-  --ink: #10121A;
-  --ink-soft: #1B1E2A;
-  --paper: #EDEEE7;
-  --paper-dim: #E1E3D9;
-  --line: rgba(16,18,26,0.12);
-  --line-dark: rgba(237,238,231,0.14);
-  --slate: #62666F;
-  --slate-light: #9BA0AE;
+  /* Mirõ MKT brand palette */
+  --ink: #12213A;            /* Ink navy — primary, grounding */
+  --ink-soft: #1B2E4D;       /* lighter navy for alternating dark sections */
+  --paper: #F7F5F0;          /* Chalk white — warm off-white background */
+  --paper-dim: #EFEAE0;
+  --line: rgba(18,33,58,0.12);
+  --line-dark: rgba(247,245,240,0.16);
+  --slate: #6B7280;          /* Slate grey — neutral/secondary text */
+  --slate-light: #A7AEBB;
 
-  --knowledge: #4C6FFF;
-  --knowledge-ink: #0D1440;
-  --skill: #FF3B5C;
-  --skill-ink: #4A0512;
-  --behaviour: #A6E22E;
-  --behaviour-ink: #1C2B04;
+  --knowledge: #12213A;      /* Ink navy — Knowledge tag */
+  --knowledge-ink: #F7F5F0;
+  --skill: #FF6B4A;          /* Wonder coral — primary accent, used generously */
+  --skill-ink: #3A1206;
+  --behaviour: #7C5CFC;      /* Electric violet — secondary accent, used sparingly */
+  --behaviour-ink: #F7F5F0;
 
-  --font-display: 'Archivo', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
 
@@ -46,7 +47,7 @@ a{ color: inherit; }
 h1,h2,h3{ font-family: var(--font-display); margin: 0; letter-spacing: -0.01em; }
 
 :focus-visible{
-  outline: 3px solid var(--knowledge);
+  outline: 3px solid var(--skill);
   outline-offset: 3px;
 }
 
@@ -148,7 +149,7 @@ main{ margin-left: var(--rail-w); }
   position:absolute;
   right:-10%; top:-20%;
   width:60%; height:140%;
-  background: radial-gradient(circle, rgba(76,111,255,0.18) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(255,107,74,0.16) 0%, rgba(124,92,252,0.10) 45%, transparent 70%);
   pointer-events:none;
 }
 .cover-inner{ max-width: 780px; position:relative; }
@@ -162,7 +163,7 @@ main{ margin-left: var(--rail-w); }
 }
 .cover-name{
   font-size: clamp(2.6rem, 6vw, 5rem);
-  font-weight: 900;
+  font-weight: 700;
   line-height: 0.98;
 }
 .cover-role{
@@ -200,7 +201,7 @@ main{ margin-left: var(--rail-w); }
   font-family: var(--font-mono);
   font-size: 2rem;
   font-weight: 600;
-  color: var(--behaviour);
+  color: var(--skill);
 }
 .stat-label{
   font-size: 12px;
@@ -321,7 +322,7 @@ main{ margin-left: var(--rail-w); }
   background: var(--slate-light);
 }
 .status-dot.complete{ background: var(--behaviour); }
-.status-dot.in-progress{ background: #F5A524; }
+.status-dot.in-progress{ background: var(--skill); }
 .ksb-status-label{ font-family: var(--font-mono); font-size: 11px; color: var(--slate); display:flex; align-items:center; gap:6px; }
 
 /* ============================================================
@@ -433,6 +434,6 @@ main{ margin-left: var(--rail-w); }
 .modal-status{ font-family: var(--font-mono); font-size: 12px; color: var(--slate); margin-bottom: 18px; }
 .modal-desc{ color: var(--ink); font-size: 15px; margin-bottom: 20px; }
 .modal-project{ margin-bottom: 16px; }
-.modal-project a{ font-family: var(--font-mono); font-size: 13px; color: var(--knowledge); text-decoration:none; }
+.modal-project a{ font-family: var(--font-mono); font-size: 13px; color: var(--behaviour); text-decoration:none; }
 .modal-evidence{ border-top: 1px solid var(--line); padding-top: 16px; }
 .modal-evidence-empty{ color: var(--slate-light); font-size: 13.5px; font-style: italic; }
