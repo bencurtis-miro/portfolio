@@ -2,7 +2,7 @@
    PORTFOLIO CONTENT
    ------------------------------------------------------------
    This is the only file you should need to edit day-to-day.
-   Everything here feeds the site — nothing below this file
+   Everything here feeds the site – nothing below this file
    needs to change unless you want to alter the design.
 
    STATUS values for KSBs: "not-started" | "in-progress" | "complete"
@@ -12,7 +12,7 @@ const SITE = {
   name: "Ben Curtis",
   role: "Digital Marketing Apprentice",
   institution: "University of Portsmouth",
-  standard: "Digital Marketer (Integrated Degree), Level 6 — ST0481",
+  standard: "Digital Marketer (Integrated Degree), Level 6 – ST0481",
   tagline:
     "Building and evidencing a digital marketing practice, one campaign and one KSB at a time.",
   location: "Wiltshire, UK",
@@ -23,7 +23,7 @@ const SITE = {
 };
 
 /* ------------------------------------------------------------
-   KSBs — pre-filled with the official ST0481 standard wording,
+   KSBs – pre-filled with the official ST0481 standard wording,
    paraphrased into plain first-person prompts. Replace the
    `evidence` array entries as you complete work, and update
    `status` as you go. Add real project links via `linkedProject`
@@ -31,7 +31,7 @@ const SITE = {
    ------------------------------------------------------------ */
 
 const KSBS = [
-  // SKILLS — listed first: this is where the real evidence sits
+  // SKILLS – listed first: this is where the real evidence sits
   { code: "S1", category: "skill", title: "Apply marketing theory", description: "Develop and critically apply the concepts, principles and theories of marketing relevant to the interdisciplinary topics of digital marketing.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "S2", category: "skill", title: "Apply the 4 Ps", description: "Apply the 4 marketing principles (product, price, place, promotion) and considerations of the business / marketing campaign.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "S3", category: "skill", title: "Write for audience & channel", description: "Write and create content for the different audiences, online channels and create clear \u201cCall to Actions\u201d and user journeys.", status: "not-started", linkedProject: null, evidence: [] },
@@ -64,7 +64,7 @@ const KSBS = [
   { code: "K13", category: "knowledge", title: "Funnels, segmentation & attribution", description: "Segmentation, targeting and application of sales funnel, path to purchase, and customer attribution.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "K14", category: "knowledge", title: "E-commerce fundamentals", description: "E-commerce and the importance of product descriptions, images, site layout and what makes a good online shopping experience.", status: "not-started", linkedProject: null, evidence: [] },
 
-  // BEHAVIOURS — part of the standard, so kept for completeness, but
+  // BEHAVIOURS – part of the standard, so kept for completeness, but
   // deliberately not the focus of this portfolio (see filter default in script.js)
   { code: "B1", category: "behaviour", title: "Communication", description: "Ability to communicate and actively listen at all levels.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "B2", category: "behaviour", title: "Resilience & teamwork", description: "Ability to work under pressure and unsupervised, and interact effectively within teams.", status: "not-started", linkedProject: null, evidence: [] },
@@ -78,7 +78,7 @@ const KSBS = [
 /* ------------------------------------------------------------
    PROJECTS / DAY-TO-DAY WORK
    Add one entry per project or ongoing piece of work. `ksbs`
-   should list codes from KSBS above — this is what links your
+   should list codes from KSBS above – this is what links your
    evidence together across the site.
    ------------------------------------------------------------ */
 
@@ -89,7 +89,7 @@ const PROJECTS = [
     period: "Sep 2024 – Feb 2025",
     role: "Project Manager",
     summary:
-      "Led the end-to-end implementation of HubSpot CRM at OutsideClinic — building live assets, dynamic customer journeys and sales pipelines from scratch, while keeping stakeholders from employee level through to SLT and suppliers informed throughout. Delivered on time, with staff training built in to ensure a smooth handover into day-to-day use.",
+      "Led the end-to-end implementation of HubSpot CRM at OutsideClinic – building live assets, dynamic customer journeys and sales pipelines from scratch, while keeping stakeholders from employee level through to SLT and suppliers informed throughout. Delivered on time, with staff training built in to ensure a smooth handover into day-to-day use.",
     tags: ["CRM Implementation", "Lifecycle Automation", "Stakeholder Management"],
     link: "",
   },
@@ -109,14 +109,14 @@ const PROJECTS = [
     period: "2026 – ongoing, launching Oct 2026",
     role: "Project Lead",
     summary:
-      "Leading OutsideClinic's full website rebuild alongside a partner design agency — creating and proofing concepts and content, aligning internal stakeholders to secure approvals, and setting and enforcing the delivery timeline to keep the project on track for its October 2026 launch.",
+      "Leading OutsideClinic's full website rebuild alongside a partner design agency – creating and proofing concepts and content, aligning internal stakeholders to secure approvals, and setting and enforcing the delivery timeline to keep the project on track for its October 2026 launch.",
     tags: ["Website Design", "Agency Management", "Stakeholder Alignment"],
     link: "",
   },
   {
     id: "brand-refresh",
     title: "Brand Refresh",
-    period: "Dates TBC — update in data.js",
+    period: "Mar 2026 – Oct 2026",
     role: "Co-Lead (Client-Side)",
     summary:
       "Co-led the client side of a full brand identity relaunch for OutsideClinic alongside an external design agency partner. Managed sign-off across internal stakeholders on assets and copy, flagged and requested changes where needed, and held the line on deadlines once designs were locked.",
@@ -157,7 +157,7 @@ const CV = {
     {
       role: "Digital Marketing Executive",
       org: "OutsideClinic",
-      period: "Sep 2024 — Current",
+      period: "Sep 2024 – Current",
       points: [
         "Oversaw multi-channel acquisition strategy across Direct Mail, Paid Social, PPC, SEO and CRM, leading Direct Mail campaigns generating ~£400k in monthly revenue using CPA, CVR and ROI analysis.",
         "Led the end-to-end implementation of HubSpot, designing bespoke pipelines, funnels and automated workflows across email, SMS and print to improve repeat purchase rate and customer lifetime value.",
@@ -173,7 +173,7 @@ const CV = {
     {
       role: "Data Administrator / Scheduling Assistant",
       org: "OutsideClinic",
-      period: "Sep 2021 — Sep 2024",
+      period: "Sep 2021 – Sep 2024",
       points: [
         "Managed UK-wide clinician schedules, balancing geography, availability and patient needs.",
         "Handled 100+ inbound calls per day, delivering clinical support and updating customer records.",
@@ -185,7 +185,7 @@ const CV = {
     {
       role: "Football Coaching",
       org: "Volunteering",
-      period: "Oct 2018 — Sep 2024",
+      period: "Oct 2018 – Sep 2024",
       points: [
         "Planned and delivered tailored training for young players, including 1-to-1 sessions.",
         "Led mixed-age teams, promoting teamwork and aligning different personalities toward shared goals.",
@@ -195,7 +195,7 @@ const CV = {
 
   education: [
     {
-      qualification: "BA (Hons) Digital Marketing — Degree Apprenticeship, Level 6",
+      qualification: "BA (Hons) Digital Marketing – Degree Apprenticeship, Level 6",
       org: "University of Portsmouth",
       period: "Expected completion 2027/28",
       points: [
@@ -207,19 +207,19 @@ const CV = {
       org: "Royal Wootton Bassett Sixth Form",
       period: "",
       points: [
-        "AQA Business A-Level — B",
-        "BTEC Level 4 in Travel and Tourism — B",
-        "AQA Psychology — D",
+        "AQA Business A-Level – B",
+        "BTEC Level 4 in Travel and Tourism – B",
+        "AQA Psychology – D",
       ],
     },
     {
-      qualification: "GCSEs — all subjects passed (Grade 5 or above)",
+      qualification: "GCSEs – all subjects passed (Grade 5 or above)",
       org: "Royal Wootton Bassett Academy",
       period: "",
       points: [
-        "Pearson BTEC Level 2 in Engineering — Distinction 2* (A*)",
-        "Business — 7 · Combined Science — 6/6 · Geography — 6",
-        "Mathematics — 6 · English Language — 6 · English Literature — 5 · History — 5",
+        "Pearson BTEC Level 2 in Engineering – Distinction 2* (A*)",
+        "Business – 7 · Combined Science – 6/6 · Geography – 6",
+        "Mathematics – 6 · English Language – 6 · English Literature – 5 · History – 5",
       ],
     },
   ],
