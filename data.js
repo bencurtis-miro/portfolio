@@ -15,9 +15,10 @@ const SITE = {
   standard: "Digital Marketer (Integrated Degree), Level 6 — ST0481",
   tagline:
     "Building and evidencing a digital marketing practice, one campaign and one KSB at a time.",
-  location: "Portsmouth, UK",
-  email: "up2304084@myport.ac.uk",
-  linkedin: "www.linkedin.com/in/bentcurtismarketing",
+  location: "Wiltshire, UK",
+  email: "curtis_btc@hotmail.com",
+  phone: "07504 552093",
+  linkedin: "https://www.linkedin.com/in/bentcurtismarketing",
   cvPdf: "", // put a filename here (e.g. "cv.pdf") if you add a downloadable CV to the folder
 };
 
@@ -110,27 +111,96 @@ const PROJECTS = [
 
 const CV = {
   summary:
-    "A short professional summary — who you are, what you focus on, and what you're aiming at next.",
+    "Digital Marketing Executive with experience leading multi-channel acquisition, CRM and lifecycle marketing strategy within a £40m business. Led the end-to-end implementation of HubSpot, developing automated customer journeys across email, SMS and print to improve engagement, retention and customer lifetime value. Experienced in managing high-performing acquisition channels including Direct Mail campaigns generating circa £400k in monthly revenue, alongside PPC and Paid Social campaigns with monthly revenues of circa £350k, focused on data-driven optimisation to improve ROI, CVR and overall campaign performance.",
+
+  skills: {
+    technical: [
+      "CRM & Lifecycle Automation (HubSpot, MBA Pulse, DotDigital)",
+      "Multi-channel Acquisition (PPC, Paid Social, Direct Mail, SEO)",
+      "Analytics & Reporting (GA4, Power BI, Excel, Infinity)",
+      "Paid Media (Google Ads, Microsoft Ads/Bing)",
+      "Technical SEO & Organic Growth Strategy",
+      "Landing Page Development & CMS (Craft CMS, Unbounce)",
+      "Project Management (ClickUp, Monday.com)",
+      "Content Production & Video Editing (Adobe Express, Premiere Pro)",
+    ],
+    soft: [
+      "Communication & Collaboration",
+      "Initiative & Autonomy",
+      "Organisation & Time Management",
+      "Creativity & Adaptability",
+      "Customer-Centric Mindset",
+    ],
+  },
+
   experience: [
     {
-      role: "Digital Marketing Apprentice",
-      org: "Your Employer",
-      period: "2024 — Present",
+      role: "Digital Marketing Executive",
+      org: "OutsideClinic",
+      period: "Sep 2024 — Current",
       points: [
-        "Replace with a real, specific responsibility or achievement.",
-        "Use numbers where you can (reach, CTR, conversion, budget managed).",
+        "Oversaw multi-channel acquisition strategy across Direct Mail, Paid Social, PPC, SEO and CRM, leading Direct Mail campaigns generating ~£400k in monthly revenue using CPA, CVR and ROI analysis.",
+        "Led the end-to-end implementation of HubSpot, designing bespoke pipelines, funnels and automated workflows across email, SMS and print to improve repeat purchase rate and customer lifetime value.",
+        "Managed Google Ads and Microsoft (Bing) campaigns generating ~£350k in monthly revenue, optimising targeting, spend and bidding to reduce CPA and maximise ROI.",
+        "Used GA4, Power BI, SEMrush, Google Search Console and Infinity to analyse cross-channel performance and report on key business KPIs.",
+        "Managed supplier and partner relationships (Sagacity, StudioCertain, MBA Group, Paragon), aligning delivery with commercial objectives.",
+        "Delivered segmented, A/B-tested email campaigns across acquisition and retention audiences via HubSpot, DotDigital and MBA Pulse.",
+        "Managed technical SEO and keyword-led content strategy, delivering sustained month-on-month and year-on-year organic growth.",
+        "Built and optimised high-converting landing pages using Unbounce and Craft CMS through structured testing and UX optimisation.",
+        "Managed multi-channel social presence across Facebook, Instagram, LinkedIn, TikTok and YouTube to support brand awareness.",
+      ],
+    },
+    {
+      role: "Data Administrator / Scheduling Assistant",
+      org: "OutsideClinic",
+      period: "Sep 2021 — Sep 2024",
+      points: [
+        "Managed UK-wide clinician schedules, balancing geography, availability and patient needs.",
+        "Handled 100+ inbound calls per day, delivering clinical support and updating customer records.",
+        "Logged and processed inbound mail, ensuring data was entered correctly and GDPR-compliant.",
+        "Created performance reports and dashboards in Excel to track call volumes, customer trends and team output.",
+        "Worked with management to launch employee engagement initiatives, including a reward-based point system.",
+      ],
+    },
+    {
+      role: "Football Coaching",
+      org: "Volunteering",
+      period: "Oct 2018 — Sep 2024",
+      points: [
+        "Planned and delivered tailored training for young players, including 1-to-1 sessions.",
+        "Led mixed-age teams, promoting teamwork and aligning different personalities toward shared goals.",
       ],
     },
   ],
+
   education: [
     {
       qualification: "BA (Hons) Digital Marketing — Degree Apprenticeship, Level 6",
       org: "University of Portsmouth",
-      period: "2024 — Expected 2027/28",
+      period: "Expected completion 2027/28",
+      points: [
+        "Modules including Marketing Essentials, Digital Content Creation, Consumer Insights, Business Management, User Experience and Search Marketing.",
+      ],
     },
-  ],
-  skills: [
-    "SEO", "PPC", "Email Marketing", "Social Media", "Content Strategy",
-    "Google Analytics", "CRM", "Campaign Reporting",
+    {
+      qualification: "3 A-Levels",
+      org: "Royal Wootton Bassett Sixth Form",
+      period: "",
+      points: [
+        "AQA Business A-Level — B",
+        "BTEC Level 4 in Travel and Tourism — B",
+        "AQA Psychology — D",
+      ],
+    },
+    {
+      qualification: "GCSEs — all subjects passed (Grade 5 or above)",
+      org: "Royal Wootton Bassett Academy",
+      period: "",
+      points: [
+        "Pearson BTEC Level 2 in Engineering — Distinction 2* (A*)",
+        "Business — 7 · Combined Science — 6/6 · Geography — 6",
+        "Mathematics — 6 · English Language — 6 · English Literature — 5 · History — 5",
+      ],
+    },
   ],
 };
