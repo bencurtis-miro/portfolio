@@ -5,7 +5,7 @@
   const $all = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
   /* ---------------- SITE / COVER ---------------- */
-  document.title = `${SITE.name} — ${SITE.role}`;
+  document.title = `${SITE.name} – ${SITE.role}`;
   $("#coverName").textContent = SITE.name;
   $("#coverRole").textContent = `${SITE.role} · ${SITE.institution}`;
   $("#briefInstitution").textContent = SITE.institution;
@@ -123,7 +123,7 @@
       });
       evEl.appendChild(ul);
     } else {
-      evEl.innerHTML = `<p class="modal-evidence-empty">No evidence logged yet — add entries to this KSB's "evidence" array in data.js.</p>`;
+      evEl.innerHTML = `<p class="modal-evidence-empty">No evidence logged yet – add entries to this KSB's "evidence" array in data.js.</p>`;
     }
 
     lastFocused = document.activeElement;
