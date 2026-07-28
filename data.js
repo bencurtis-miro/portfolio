@@ -84,23 +84,43 @@ const KSBS = [
 
 const PROJECTS = [
   {
-    id: "project-1",
-    title: "Example: Q3 Email Re-engagement Campaign",
-    period: "Jul 2026",
+    id: "hubspot-implementation",
+    title: "HubSpot CRM Implementation",
+    period: "Sep 2024 – Feb 2025",
+    role: "Project Manager",
     summary:
-      "Replace this with a one-paragraph summary of a real project: the objective, your role, and the outcome.",
-    tags: ["Email Marketing", "Segmentation", "Analytics"],
-    ksbs: ["K5", "S11", "S12", "B4"],
+      "Led the end-to-end implementation of HubSpot CRM at OutsideClinic — building live assets, dynamic customer journeys and sales pipelines from scratch, while keeping stakeholders from employee level through to SLT and suppliers informed throughout. Delivered on time, with staff training built in to ensure a smooth handover into day-to-day use.",
+    tags: ["CRM Implementation", "Lifecycle Automation", "Stakeholder Management"],
     link: "",
   },
   {
-    id: "project-2",
-    title: "Example: Organic Social Content Pillar",
-    period: "Jun 2026",
+    id: "webform-relaunch",
+    title: "Webform Relaunch",
+    period: "Dec 2025 – Feb 2026",
+    role: "Project Lead",
     summary:
-      "Replace this with a real project — what channel, what content system, what result.",
-    tags: ["Content", "Social Media", "Brand"],
-    ksbs: ["K3", "S3", "S4"],
+      "Led the redesign and relaunch of the company webform, working alongside an external agency and internal IT to rebuild it from the ground up. Used market-relevant insight and data to inform the new design before implementing it live on the website.",
+    tags: ["UX & Conversion", "Landing Pages", "Agency Management"],
+    link: "",
+  },
+  {
+    id: "website-revamp",
+    title: "Website Revamp",
+    period: "2026 – ongoing, launching Oct 2026",
+    role: "Project Lead",
+    summary:
+      "Leading OutsideClinic's full website rebuild alongside a partner design agency — creating and proofing concepts and content, aligning internal stakeholders to secure approvals, and setting and enforcing the delivery timeline to keep the project on track for its October 2026 launch.",
+    tags: ["Website Design", "Agency Management", "Stakeholder Alignment"],
+    link: "",
+  },
+  {
+    id: "brand-refresh",
+    title: "Brand Refresh",
+    period: "Dates TBC — update in data.js",
+    role: "Co-Lead (Client-Side)",
+    summary:
+      "Co-led the client side of a full brand identity relaunch for OutsideClinic alongside an external design agency partner. Managed sign-off across internal stakeholders on assets and copy, flagged and requested changes where needed, and held the line on deadlines once designs were locked.",
+    tags: ["Brand Identity", "Agency Management", "Stakeholder Alignment"],
     link: "",
   },
 ];
