@@ -17,9 +17,9 @@
     <span class="rail-mark-code">PF</span>
   </a>
   <nav class="rail-nav" aria-label="Section navigation">
-    <a href="#brief" class="rail-link" data-section="brief"><span class="rail-num">00</span>Brief</a>
-    <a href="#evidence" class="rail-link" data-section="evidence"><span class="rail-num">01</span>Evidence</a>
-    <a href="#work" class="rail-link" data-section="work"><span class="rail-num">02</span>The Work</a>
+    <a href="#brief" class="rail-link" data-section="brief"><span class="rail-num">00</span>Overview</a>
+    <a href="#evidence" class="rail-link" data-section="evidence"><span class="rail-num">01</span>University</a>
+    <a href="#work" class="rail-link" data-section="work"><span class="rail-num">02</span>Projects</a>
     <a href="#cv" class="rail-link" data-section="cv"><span class="rail-num">03</span>CV</a>
   </nav>
   <button class="rail-toggle" id="railToggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -54,7 +54,8 @@
       <div class="stat-strip" id="statStrip" aria-label="Portfolio statistics"></div>
 
       <div class="cover-actions">
-        <a href="#evidence" class="btn btn-primary">View KSB evidence</a>
+        <a href="#evidence" class="btn btn-primary">View University evidence</a>
+        <a href="#work" class="btn btn-ghost">View Projects</a>
         <a href="#cv" class="btn btn-ghost">Jump to CV</a>
       </div>
     </div>
@@ -63,9 +64,9 @@
   <!-- ============ KSB EVIDENCE ============ -->
   <section class="section" id="evidence">
     <header class="section-head">
-      <p class="section-eyebrow">01 / Evidence</p>
+      <p class="section-eyebrow">01 / University</p>
       <h2>KSB Evidence Log</h2>
-      <p class="section-lede">Every Knowledge, Skill and Behaviour from ST0481, tagged and tracked like a campaign — filter by category or status to see what's covered and what's next.</p>
+      <p class="section-lede">Every Knowledge, Skill and Behaviour from ST0481, tagged and tracked like a campaign — filter by category or status to see what's covered and what's next. This section is EPA-facing; see Projects for the work itself.</p>
     </header>
 
     <div class="filter-bar" role="group" aria-label="Filter KSBs">
@@ -91,9 +92,9 @@
   <!-- ============ THE WORK ============ -->
   <section class="section section-dark" id="work">
     <header class="section-head">
-      <p class="section-eyebrow">02 / The Work</p>
-      <h2>Day-to-Day Projects</h2>
-      <p class="section-lede">The campaigns, content and analysis behind the evidence above — this is what the KSB tags actually point back to.</p>
+      <p class="section-eyebrow">02 / Projects</p>
+      <h2>Projects</h2>
+      <p class="section-lede">Major projects I've led or project-managed — a standalone showcase of the work itself, independent of the apprenticeship standard.</p>
     </header>
 
     <div class="project-grid" id="projectGrid"></div>
@@ -145,7 +146,6 @@
     <h3 id="modalTitle"></h3>
     <p class="modal-status" id="modalStatus"></p>
     <p class="modal-desc" id="modalDesc"></p>
-    <div class="modal-project" id="modalProject"></div>
     <div class="modal-evidence" id="modalEvidence"></div>
   </div>
 </div>
