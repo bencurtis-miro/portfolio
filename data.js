@@ -9,15 +9,15 @@
    ============================================================ */
 
 const SITE = {
-  name: "Your Name",
+  name: "Ben Curtis",
   role: "Digital Marketing Apprentice",
   institution: "University of Portsmouth",
   standard: "Digital Marketer (Integrated Degree), Level 6 — ST0481",
   tagline:
     "Building and evidencing a digital marketing practice, one campaign and one KSB at a time.",
   location: "Portsmouth, UK",
-  email: "you@example.com",
-  linkedin: "https://linkedin.com/in/yourprofile",
+  email: "up2304084@myport.ac.uk",
+  linkedin: "www.linkedin.com/in/bentcurtismarketing",
   cvPdf: "", // put a filename here (e.g. "cv.pdf") if you add a downloadable CV to the folder
 };
 
@@ -30,47 +30,48 @@ const SITE = {
    ------------------------------------------------------------ */
 
 const KSBS = [
+  // SKILLS — listed first: this is where the real evidence sits
+  { code: "S1", category: "skill", title: "Apply marketing theory", description: "Develop and critically apply the concepts, principles and theories of marketing relevant to the interdisciplinary topics of digital marketing.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "S2", category: "skill", title: "Apply the 4 Ps", description: "Apply the 4 marketing principles (product, price, place, promotion) and considerations of the business / marketing campaign.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "S3", category: "skill", title: "Write for audience & channel", description: "Write and create content for the different audiences, online channels and create clear \u201cCall to Actions\u201d and user journeys.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "S4", category: "skill", title: "Apply content marketing", description: "Demonstrate how to promote and apply content marketing effectively through the appropriate media channels, relationship management systems and communication platforms to ensure brand and cultural awareness are maintained throughout marketing strategies.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "S5", category: "skill", title: "Select research methods", description: "Select a variety of appropriate research methodologies, platforms and technologies to synthesise information and apply to the organisation's digital marketing strategies, drivers and customer behaviours.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "S6", category: "skill", title: "Manage & report on projects", description: "Manage, plan, specify, lead and report on digital marketing projects.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "S7", category: "skill", title: "Optimise channels & content", description: "Manage and optimise key channels and content within a digital marketing plan.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "S8", category: "skill", title: "Apply e-commerce strategy", description: "Manage interfaces and the supply network of the organisation and customer by applying the appropriate E-commerce strategies and models available and whenever appropriate taking global engagements into account.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "S9", category: "skill", title: "Apply the marketing mix", description: "Apply a marketing mix / digital marketing mix to meet customer expectations.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "S10", category: "skill", title: "Analyse campaign performance", description: "Accurately observe, record and draw conclusions from all types statistical analysis of campaign performance, recognising inherent uncertainties and limitations with financial and budgetary requirements to demonstrate Return on Investment (ROI).", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "S11", category: "skill", title: "Engage via email & social", description: "Engage communities through Email Marketing and Social Media to stimulate and encourage communication through positive discussion and engagement.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "S12", category: "skill", title: "Apply data-led analysis", description: "Apply the appropriate tools for a data-led approach to analyse marketing information and platforms, data and social media and recognise what is actually important for insights and optimisation to provide solutions for marketing decisions.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "S13", category: "skill", title: "Contribute to strategy", description: "Contribute to business, planning and marketing strategies to recognise and respond quickly to opportunities and customer requirements whilst embracing change.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "S14", category: "skill", title: "Read business intelligence", description: "Identify, recognise and understand internal and external business intelligence and factors that may impact future operations.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "S15", category: "skill", title: "Brief stakeholders", description: "Interpret, communicate and brief internal or external stakeholders on digital business requirements.", status: "not-started", linkedProject: null, evidence: [] },
+
   // KNOWLEDGE
-  { code: "K1", category: "knowledge", title: "The disruptive digital environment", description: "Understanding the strategic implications of constantly shifting digital technology on marketing.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K2", category: "knowledge", title: "Organic vs paid visibility", description: "How natural/organic and paid marketing combine to increase a website's visibility and promotion.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K3", category: "knowledge", title: "Brand theory in practice", description: "Leading marketing theorists and practitioners relevant to brand equity, awareness and strategic brand management.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K4", category: "knowledge", title: "Professional bodies & emerging trends", description: "How professional bodies track emerging technologies, trends and themes in digital marketing.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K5", category: "knowledge", title: "Customer insight & retention", description: "Customer insight, strategic relationships, acquisition and retention/loyalty, including customer experience.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K6", category: "knowledge", title: "B2B relationships via social", description: "Fostering B2B marketing relationships through social media, including price and popularity-based launches.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K7", category: "knowledge", title: "Paid, owned & earned media", description: "The types of online and offline paid, owned and earned media, and how they work together.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K8", category: "knowledge", title: "Regulation, data protection & ethics", description: "Digital marketing regulatory requirements, data protection, compliance and ethics — national and international.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K9", category: "knowledge", title: "International & multichannel marketing", description: "The digital marketing environment for international and multichannel marketing, agency-side and client-side.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K10", category: "knowledge", title: "Stakeholder & commercial awareness", description: "Stakeholder and customer requirements, commercial awareness and business improvement relevant to campaigns.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "K1", category: "knowledge", title: "The disruptive digital environment", description: "The strategic implications of the disruptive digital environment.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "K2", category: "knowledge", title: "Organic vs paid visibility", description: "Natural/organic and paid marketing to increase the visibility and promotion of websites.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "K3", category: "knowledge", title: "Brand theory in practice", description: "The leading marketing theorists and practitioners when managing and implementing brand equity, brand awareness and strategic brand management.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "K4", category: "knowledge", title: "Professional bodies & emerging trends", description: "Professional bodies and their insights into emerging technologies, trends and themes within the digital marketing environment.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "K5", category: "knowledge", title: "Customer insight & retention", description: "Customer insight, strategic relationships, acquisition and focus of customers, taking into account the customer experience and retention/loyalty.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "K6", category: "knowledge", title: "B2B relationships via social", description: "How to foster business-to-business (B2B) marketing relationships through social media to launch products based on price and popularity.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "K7", category: "knowledge", title: "Paid, owned & earned media", description: "The types of online and offline paid, owned and earned media, and how this works together.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "K8", category: "knowledge", title: "Regulation, data protection & ethics", description: "Digital marketing regulatory requirements, data protection, compliance and ethics, both national and international.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "K9", category: "knowledge", title: "International & multichannel marketing", description: "The Digital Marketing environment for International marketing and multichannel marketing, for agencies as well as client.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "K10", category: "knowledge", title: "Stakeholder & commercial awareness", description: "Stakeholder and customer requirements, commercial awareness and business improvement processes that are relevant to campaign management.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "K11", category: "knowledge", title: "Digital & interface design", description: "Digital graphic design, interface design, and authoring.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K12", category: "knowledge", title: "User experience", description: "User experience principles, and how to maximise engagement.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K13", category: "knowledge", title: "Funnels, segmentation & attribution", description: "Segmentation, targeting, sales funnels, path to purchase, and customer attribution.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K14", category: "knowledge", title: "E-commerce fundamentals", description: "E-commerce, and what makes product descriptions, imagery and site layout convert well.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "K12", category: "knowledge", title: "User experience", description: "The user experience, and how to maximise engagement.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "K13", category: "knowledge", title: "Funnels, segmentation & attribution", description: "Segmentation, targeting and application of sales funnel, path to purchase, and customer attribution.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "K14", category: "knowledge", title: "E-commerce fundamentals", description: "E-commerce and the importance of product descriptions, images, site layout and what makes a good online shopping experience.", status: "not-started", linkedProject: null, evidence: [] },
 
-  // SKILLS
-  { code: "S1", category: "skill", title: "Apply marketing theory", description: "Developing and critically applying marketing concepts, principles and theories across digital marketing topics.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S2", category: "skill", title: "Apply the 4 Ps", description: "Applying product, price, place and promotion considerations to a business or marketing campaign.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S3", category: "skill", title: "Write for audience & channel", description: "Writing and creating content for different audiences and channels, with clear CTAs and user journeys.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S4", category: "skill", title: "Apply content marketing", description: "Promoting content effectively through the right media channels, CRM systems and communication platforms.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S5", category: "skill", title: "Select research methods", description: "Choosing appropriate research methodologies, platforms and technologies to inform strategy.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S6", category: "skill", title: "Manage & report on projects", description: "Managing, planning, specifying, leading and reporting on digital marketing projects.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S7", category: "skill", title: "Optimise channels & content", description: "Managing and optimising key channels and content within a digital marketing plan.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S8", category: "skill", title: "Apply e-commerce strategy", description: "Managing interfaces and supply networks by applying appropriate e-commerce strategies and models.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S9", category: "skill", title: "Apply the marketing mix", description: "Applying a marketing/digital marketing mix to meet customer expectations.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S10", category: "skill", title: "Analyse campaign performance", description: "Observing, recording and drawing conclusions from statistical analysis of campaign performance and ROI.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S11", category: "skill", title: "Engage via email & social", description: "Engaging communities through email marketing and social media to encourage positive engagement.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S12", category: "skill", title: "Apply data-led analysis", description: "Applying the appropriate tools for a data-led approach to marketing information, spotting what matters for insight.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S13", category: "skill", title: "Contribute to strategy", description: "Contributing to business, planning and marketing strategies, and responding quickly to opportunities.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S14", category: "skill", title: "Read business intelligence", description: "Identifying and understanding internal and external business intelligence that may affect operations.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S15", category: "skill", title: "Brief stakeholders", description: "Interpreting, communicating and briefing internal or external stakeholders on digital business requirements.", status: "not-started", linkedProject: null, evidence: [] },
-
-  // BEHAVIOURS
-  { code: "B1", category: "behaviour", title: "Communication", description: "Communicating and actively listening at all levels.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "B2", category: "behaviour", title: "Resilience & teamwork", description: "Working under pressure and unsupervised, and interacting effectively within teams.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "B3", category: "behaviour", title: "Inclusion & impact awareness", description: "Considering the impact of work on others, especially around culture, diversity and equality.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "B4", category: "behaviour", title: "Quality & deadlines", description: "Demonstrating business discipline and compliance, with attention to detail and the ability to meet deadlines.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "B5", category: "behaviour", title: "Integrity & data security", description: "Showing integrity and respect for confidentiality and data security, at work and beyond.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "B6", category: "behaviour", title: "CPD & enthusiasm", description: "Being enthusiastic, flexible, and committed to continuing professional development and lifelong learning.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "B7", category: "behaviour", title: "Structured problem solving", description: "Applying logical thinking and a creative, structured approach to complex problems.", status: "not-started", linkedProject: null, evidence: [] },
+  // BEHAVIOURS — part of the standard, so kept for completeness, but
+  // deliberately not the focus of this portfolio (see filter default in script.js)
+  { code: "B1", category: "behaviour", title: "Communication", description: "Ability to communicate and actively listen at all levels.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "B2", category: "behaviour", title: "Resilience & teamwork", description: "Ability to work under pressure and unsupervised, and interact effectively within teams.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "B3", category: "behaviour", title: "Inclusion & impact awareness", description: "Consider the impact of work on others, especially where related to culture, diversity and equality.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "B4", category: "behaviour", title: "Quality & deadlines", description: "Demonstrate business disciplines and compliance with procedures and principles to ensure work is of high quality and fit for purpose, with high attention to detail and the ability to work to deadlines.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "B5", category: "behaviour", title: "Integrity & data security", description: "Show integrity and respect for confidentiality and data security in work and personal situations.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "B6", category: "behaviour", title: "CPD & enthusiasm", description: "Be enthusiastic and have a thorough and flexible approach to work and to personal development through CPD and life-long learning.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "B7", category: "behaviour", title: "Structured problem solving", description: "Logical thinking and a creative approach to problem solving to systematically analyse and apply structured techniques to complex systems and situations.", status: "not-started", linkedProject: null, evidence: [] },
 ];
 
 /* ------------------------------------------------------------
