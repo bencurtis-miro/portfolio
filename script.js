@@ -12,11 +12,13 @@
   $("#briefStandard").textContent = SITE.standard;
   $("#briefTagline").textContent = SITE.tagline;
   $("#footerName").textContent = SITE.name;
+  if (SITE.location) $("#footerLocation").textContent = SITE.location;
   $("#epaYear").textContent = new Date().getFullYear();
 
   const footerLinks = $("#footerLinks");
   const linkDefs = [
     ["Email", SITE.email ? `mailto:${SITE.email}` : null],
+    ["Phone", SITE.phone ? `tel:${SITE.phone.replace(/\s+/g, "")}` : null],
     ["LinkedIn", SITE.linkedin || null],
   ];
   linkDefs.forEach(([label, href]) => {
@@ -198,17 +200,26 @@
     div.innerHTML = `
       <p class="cv-role">${e.qualification}</p>
       <p class="cv-org">${e.org}</p>
-      <p class="cv-period">${e.period}</p>
+      ${e.period ? `<p class="cv-period">${e.period}</p>` : ""}
+      ${e.points && e.points.length ? `<ul class="cv-points">${e.points.map(pt => `<li>${pt}</li>`).join("")}</ul>` : ""}
     `;
     eduEl.appendChild(div);
   });
 
-  const skillsEl = $("#cvSkills");
-  CV.skills.forEach(s => {
+  const technicalEl = $("#cvSkillsTechnical");
+  (CV.skills.technical || []).forEach(s => {
     const span = document.createElement("span");
     span.className = "tag";
     span.textContent = s;
-    skillsEl.appendChild(span);
+    technicalEl.appendChild(span);
+  });
+
+  const softEl = $("#cvSkillsSoft");
+  (CV.skills.soft || []).forEach(s => {
+    const span = document.createElement("span");
+    span.className = "tag";
+    span.textContent = s;
+    softEl.appendChild(span);
   });
 
   if (SITE.cvPdf) {
