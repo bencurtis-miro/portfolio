@@ -340,6 +340,7 @@ main{ margin-left: var(--rail-w); }
   background: var(--ink);
 }
 .project-period{ font-family: var(--font-mono); font-size: 12px; color: var(--skill); margin-bottom: 10px; }
+.project-role{ color: var(--behaviour); font-weight: 600; }
 .project-title{ font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; margin-bottom: 12px; }
 .project-summary{ color: var(--slate-light); font-size: 14.5px; margin-bottom: 18px; }
 .project-tags{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom: 14px; }
@@ -351,8 +352,6 @@ main{ margin-left: var(--rail-w); }
   padding: 4px 10px;
   border-radius: 100px;
 }
-.project-ksbs{ display:flex; flex-wrap:wrap; gap:6px; }
-.project-ksbs .ksb-code{ font-size: 10.5px; padding: 2px 8px; }
 
 /* ============================================================
    CV
@@ -442,7 +441,5 @@ main{ margin-left: var(--rail-w); }
 .modal h3{ font-size: 1.4rem; margin-bottom: 10px; }
 .modal-status{ font-family: var(--font-mono); font-size: 12px; color: var(--slate); margin-bottom: 18px; }
 .modal-desc{ color: var(--ink); font-size: 15px; margin-bottom: 20px; }
-.modal-project{ margin-bottom: 16px; }
-.modal-project a{ font-family: var(--font-mono); font-size: 13px; color: var(--behaviour); text-decoration:none; }
 .modal-evidence{ border-top: 1px solid var(--line); padding-top: 16px; }
 .modal-evidence-empty{ color: var(--slate-light); font-size: 13.5px; font-style: italic; }
