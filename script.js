@@ -109,19 +109,6 @@
     $("#modalStatus").innerHTML = `<span class="status-dot ${k.status}" style="margin-right:6px;"></span>${statusLabel(k.status)}`;
     $("#modalDesc").textContent = k.description;
 
-    const projectEl = $("#modalProject");
-    projectEl.innerHTML = "";
-    if (k.linkedProject) {
-      const proj = PROJECTS.find(p => p.id === k.linkedProject);
-      if (proj) {
-        const a = document.createElement("a");
-        a.href = `#work`;
-        a.textContent = `→ Linked project: ${proj.title}`;
-        a.addEventListener("click", closeModal);
-        projectEl.appendChild(a);
-      }
-    }
-
     const evEl = $("#modalEvidence");
     evEl.innerHTML = "";
     if (k.evidence && k.evidence.length) {
@@ -164,15 +151,10 @@
     const card = document.createElement("article");
     card.className = "project-card";
     card.innerHTML = `
-      <p class="project-period">${p.period}</p>
+      <p class="project-period">${p.period}${p.role ? ` · <span class="project-role">${p.role}</span>` : ""}</p>
       <h3 class="project-title">${p.title}</h3>
       <p class="project-summary">${p.summary}</p>
       <div class="project-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
-      <div class="project-ksbs">${p.ksbs.map(code => {
-        const k = KSBS.find(x => x.code === code);
-        const cat = k ? k.category : "knowledge";
-        return `<span class="ksb-code ${cat}">${code}</span>`;
-      }).join("")}</div>
     `;
     projectGrid.appendChild(card);
   });
