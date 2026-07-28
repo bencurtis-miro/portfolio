@@ -379,6 +379,15 @@ main{ margin-left: var(--rail-w); }
 .cv-points li{ margin-bottom: 6px; }
 .skill-tags{ display:flex; flex-wrap:wrap; gap:8px; }
 .skill-tags .tag{ color: var(--ink); border-color: var(--line); }
+.skill-subhead{
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--slate);
+  margin: 20px 0 10px;
+}
+.skill-subhead:first-of-type{ margin-top: 0; }
 
 @media (max-width: 900px){
   .cv-grid{ grid-template-columns: 1fr; }
