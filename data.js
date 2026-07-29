@@ -23,6 +23,37 @@ const SITE = {
 };
 
 /* ------------------------------------------------------------
+   ABOUT / INTRODUCTION
+   ------------------------------------------------------------
+   First-draft copy, grounded in what's on your CV – but this is
+   the one section on the site that should sound like you, not
+   like a template. Treat every paragraph below as a starting
+   point to rewrite in your own words, not final copy.
+
+   `photo`: put a filename here (e.g. "profile.jpg") once you've
+   added an image to the folder. Until then, an initials avatar
+   displays automatically.
+   ------------------------------------------------------------ */
+
+const ABOUT = {
+  photo: "profile.jpg",
+  paragraphs: [
+    {
+      heading: "Who I am",
+      text: "I'm Ben — co-founder of Mirõ MKT, a brand and data marketing agency, and a Digital Marketing Executive at OutsideClinic. I've been in the industry for three-plus years now and I'm nearing the end of an undergraduate degree in Digital Marketing. Along the way I've been fortunate to work across most corners of the discipline — direct acquisition, paid media, organic content, project management and account management.",
+    },
+    {
+      heading: "Why marketing",
+      text: "Marketing was never really in question for me. I studied Business and Psychology at A-Level and got hooked on the overlap between the two — the more I understood how a brain is actually wired, the more I could see how to apply that business knowledge properly.",
+    },
+    {
+      heading: "Outside of work",
+      text: "Outside the day job I'm a fairly committed fitness enthusiast — bouldering, sport and the gym all feature regularly. I'm also into film and music, with a habit of picking things apart properly rather than just watching or listening. Wes Anderson is up there as a bit of an idol.",
+    },
+  ],
+};
+
+/* ------------------------------------------------------------
    KSBs – pre-filled with the official ST0481 standard wording,
    paraphrased into plain first-person prompts. Replace the
    `evidence` array entries as you complete work, and update
