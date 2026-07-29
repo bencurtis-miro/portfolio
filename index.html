@@ -18,9 +18,9 @@
   </a>
   <nav class="rail-nav" aria-label="Section navigation">
     <a href="#brief" class="rail-link" data-section="brief"><span class="rail-num">00</span>Overview</a>
-    <a href="#evidence" class="rail-link" data-section="evidence"><span class="rail-num">01</span>University</a>
-    <a href="#work" class="rail-link" data-section="work"><span class="rail-num">02</span>Projects</a>
-    <a href="#cv" class="rail-link" data-section="cv"><span class="rail-num">03</span>CV</a>
+    <a href="#work" class="rail-link" data-section="work"><span class="rail-num">01</span>Projects</a>
+    <a href="#cv" class="rail-link" data-section="cv"><span class="rail-num">02</span>Curriculum Vitae</a>
+    <a href="#evidence" class="rail-link" data-section="evidence"><span class="rail-num">03</span>University</a>
   </nav>
   <button class="rail-toggle" id="railToggle" aria-label="Toggle navigation" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -54,9 +54,9 @@
       <div class="stat-strip" id="statStrip" aria-label="Portfolio statistics"></div>
 
       <div class="cover-actions">
-        <a href="#evidence" class="btn btn-primary">View University evidence</a>
-        <a href="#work" class="btn btn-ghost">View Projects</a>
+        <a href="#work" class="btn btn-primary">View Projects</a>
         <a href="#cv" class="btn btn-ghost">Jump to CV</a>
+        <a href="#evidence" class="btn btn-ghost">View University evidence</a>
       </div>
     </div>
 
@@ -67,38 +67,10 @@
     </aside>
   </section>
 
-  <!-- ============ KSB EVIDENCE ============ -->
-  <section class="section" id="evidence">
-    <header class="section-head">
-      <p class="section-eyebrow">01 / University</p>
-      <h2>KSB Evidence Log</h2>
-      <p class="section-lede">Every Knowledge, Skill and Behaviour from ST0481, tagged and tracked like a campaign – filter by category or status to see what's covered and what's next. This section is EPA-facing; see Projects for the work itself.</p>
-    </header>
-
-    <div class="filter-bar" role="group" aria-label="Filter KSBs">
-      <div class="filter-group">
-        <span class="filter-label">Category</span>
-        <button class="chip is-active" data-filter-cat="all">All</button>
-        <button class="chip chip-skill" data-filter-cat="skill">Skill</button>
-        <button class="chip chip-knowledge" data-filter-cat="knowledge">Knowledge</button>
-        <button class="chip chip-behaviour" data-filter-cat="behaviour">Behaviour</button>
-      </div>
-      <div class="filter-group">
-        <span class="filter-label">Status</span>
-        <button class="chip is-active" data-filter-status="all">All</button>
-        <button class="chip" data-filter-status="complete">Complete</button>
-        <button class="chip" data-filter-status="in-progress">In progress</button>
-        <button class="chip" data-filter-status="not-started">Not started</button>
-      </div>
-    </div>
-
-    <div class="ksb-grid" id="ksbGrid"></div>
-  </section>
-
-  <!-- ============ THE WORK ============ -->
+  <!-- ============ PROJECTS ============ -->
   <section class="section section-dark" id="work">
     <header class="section-head">
-      <p class="section-eyebrow">02 / Projects</p>
+      <p class="section-eyebrow">01 / Projects</p>
       <h2>Projects</h2>
       <p class="section-lede">Major projects I've led or project-managed – a standalone showcase of the work itself, independent of the apprenticeship standard.</p>
     </header>
@@ -109,7 +81,7 @@
   <!-- ============ CV ============ -->
   <section class="section" id="cv">
     <header class="section-head">
-      <p class="section-eyebrow">03 / CV</p>
+      <p class="section-eyebrow">02 / Curriculum Vitae</p>
       <h2>Curriculum Vitae</h2>
       <p class="section-lede" id="cvSummary"></p>
     </header>
@@ -132,6 +104,34 @@
         <a href="#" id="cvDownload" class="btn btn-ghost btn-small" hidden>Download CV (PDF)</a>
       </div>
     </div>
+  </section>
+
+  <!-- ============ KSB EVIDENCE ============ -->
+  <section class="section" id="evidence">
+    <header class="section-head">
+      <p class="section-eyebrow">03 / University</p>
+      <h2>KSB Evidence Log</h2>
+      <p class="section-lede">Every Knowledge, Skill and Behaviour from ST0481, tagged and tracked like a campaign – filter by category or status to see what's covered and what's next. This section is EPA-facing; see Projects for the work itself.</p>
+    </header>
+
+    <div class="filter-bar" role="group" aria-label="Filter KSBs">
+      <div class="filter-group">
+        <span class="filter-label">Category</span>
+        <button class="chip is-active" data-filter-cat="all">All</button>
+        <button class="chip chip-skill" data-filter-cat="skill">Skill</button>
+        <button class="chip chip-knowledge" data-filter-cat="knowledge">Knowledge</button>
+        <button class="chip chip-behaviour" data-filter-cat="behaviour">Behaviour</button>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Status</span>
+        <button class="chip is-active" data-filter-status="all">All</button>
+        <button class="chip" data-filter-status="complete">Complete</button>
+        <button class="chip" data-filter-status="in-progress">In progress</button>
+        <button class="chip" data-filter-status="not-started">Not started</button>
+      </div>
+    </div>
+
+    <div class="ksb-grid" id="ksbGrid"></div>
   </section>
 
   <footer class="footer">
