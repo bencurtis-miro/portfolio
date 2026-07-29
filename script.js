@@ -48,6 +48,33 @@
     statStrip.appendChild(el);
   });
 
+  /* ---------------- HERO BREAKDOWN PANEL ---------------- */
+  const skillCount = KSBS.filter(k => k.category === "skill").length;
+  const knowledgeCount = KSBS.filter(k => k.category === "knowledge").length;
+  const behaviourCount = KSBS.filter(k => k.category === "behaviour").length;
+  const maxCount = Math.max(skillCount, knowledgeCount, behaviourCount);
+
+  const panelData = [
+    ["Skills", skillCount, "var(--skill)"],
+    ["Knowledge", knowledgeCount, "var(--knowledge-bright)"],
+    ["Behaviours", behaviourCount, "var(--behaviour)"],
+  ];
+  const panelRows = $("#panelRows");
+  panelData.forEach(([label, count, color]) => {
+    const row = document.createElement("div");
+    row.className = "panel-row";
+    const pct = Math.round((count / maxCount) * 100);
+    row.innerHTML = `
+      <div class="panel-row-top">
+        <span class="panel-row-label">${label}</span>
+        <span class="panel-row-count">${count}</span>
+      </div>
+      <div class="panel-track"><div class="panel-fill" style="width:${pct}%; background:${color};"></div></div>
+    `;
+    panelRows.appendChild(row);
+  });
+  $("#panelFoot").textContent = `${total} KSBs total · tracked live from University section`;
+
   /* ---------------- KSB GRID ---------------- */
   const ksbGrid = $("#ksbGrid");
   let activeCat = "all";
