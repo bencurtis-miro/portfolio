@@ -48,7 +48,7 @@ const ABOUT = {
     },
     {
       heading: "Outside of work",
-      text: "Outside the day job I'm a fitness enthusiast - bouldering, football and the powerlifting all featuring regularly. I'm also into film and music, with a habit of picking things apart properly rather than just watching or listening. Wes Anderson is up there as a bit of an idol.",
+      text: "Outside of work I'm a fitness enthusiast - bouldering, football and the powerlifting all featuring regularly. I'm also into film and music, with a habit of picking things apart properly rather than just watching or listening. Wes Anderson is up there as a bit of an idol.",
     },
   ],
 };
