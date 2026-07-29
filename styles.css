@@ -19,6 +19,7 @@
   --behaviour: #7C5CFC;      /* Electric violet – secondary accent, used sparingly */
   --behaviour-ink: #F7F5F0;
 
+  --rail-bg: #0A1120;         /* deeper than Ink navy – keeps the rail distinct from every section */
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
@@ -60,7 +61,8 @@ main{ margin-left: var(--rail-w); }
   position: fixed;
   top:0; left:0; bottom:0;
   width: var(--rail-w);
-  background: var(--ink);
+  background: var(--rail-bg);
+  border-right: 2px solid var(--skill);
   color: var(--paper);
   display:flex;
   flex-direction: column;
@@ -79,7 +81,7 @@ main{ margin-left: var(--rail-w); }
   border-radius: 4px;
   margin-bottom: 48px;
 }
-.rail-nav{ display:flex; flex-direction:column; gap: 4px; }
+.rail-nav{ flex: 1; display:flex; flex-direction:column; justify-content:center; gap: 4px; }
 .rail-link{
   text-decoration:none;
   color: var(--slate-light);
@@ -112,7 +114,8 @@ main{ margin-left: var(--rail-w); }
   .rail-nav{
     position: fixed;
     top: 64px; left:0; right:0;
-    background: var(--ink);
+    background: var(--rail-bg);
+    border-bottom: 2px solid var(--skill);
     flex-direction: column;
     padding: 8px 16px 20px;
     display: none;
@@ -147,9 +150,8 @@ main{ margin-left: var(--rail-w); }
 .cover::after{
   content:"";
   position:absolute;
-  right:-10%; top:-20%;
-  width:60%; height:140%;
-  background: radial-gradient(circle, rgba(255,107,74,0.16) 0%, rgba(124,92,252,0.10) 45%, transparent 70%);
+  inset:0;
+  background: radial-gradient(circle at 82% 20%, rgba(255,107,74,0.16) 0%, rgba(124,92,252,0.09) 32%, transparent 62%);
   pointer-events:none;
 }
 .cover-inner{ max-width: 780px; position:relative; }
