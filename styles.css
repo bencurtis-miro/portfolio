@@ -315,6 +315,61 @@ main{ margin-left: var(--rail-w); }
 }
 
 /* ============================================================
+   INTRODUCTION / ABOUT
+   ============================================================ */
+.about-grid{
+  display:grid;
+  grid-template-columns: 260px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.about-photo-frame{
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  padding: 6px;
+  background: var(--skill);
+  flex-shrink: 0;
+}
+.about-photo{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--ink);
+  overflow: hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.about-photo img{ width:100%; height:100%; object-fit: cover; display:block; }
+.about-photo-initials{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 3.2rem;
+  color: var(--paper);
+  background: linear-gradient(135deg, var(--skill), var(--behaviour));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.about-copy{ display:flex; flex-direction:column; gap: 32px; }
+.about-block-heading{
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--skill);
+  margin: 0 0 10px;
+}
+.about-block-text{ font-size: 15.5px; color: var(--ink); max-width: 680px; }
+
+@media (max-width: 700px){
+  .about-grid{ grid-template-columns: 1fr; }
+  .about-photo{ max-width: 220px; }
+}
+
+/* ============================================================
    FILTER BAR + KSB GRID
    ============================================================ */
 .filter-bar{
