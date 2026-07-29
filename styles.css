@@ -286,8 +286,15 @@ main{ margin-left: var(--rail-w); }
 /* ============================================================
    SECTIONS (general)
    ============================================================ */
-.section{ padding: 96px 64px; max-width: 1400px; }
+.section{ padding: 96px 0; width: 100%; }
+.section-inner{ max-width: 1400px; padding: 0 64px; }
 .section-dark{ background: var(--ink-soft); color: var(--paper); }
+.section-alt{ background: var(--paper-dim); }
+.section-divider{
+  height: 4px;
+  width: 100%;
+  background: var(--skill);
+}
 .section-head{ max-width: 640px; margin-bottom: 48px; }
 .section-eyebrow{
   font-family: var(--font-mono);
@@ -302,7 +309,9 @@ main{ margin-left: var(--rail-w); }
 .section-dark .section-lede{ color: var(--slate-light); }
 
 @media (max-width: 860px){
-  .cover, .section{ padding: 56px 24px; }
+  .cover{ padding: 56px 24px; }
+  .section{ padding: 56px 0; }
+  .section-inner{ padding: 0 24px; }
 }
 
 /* ============================================================
