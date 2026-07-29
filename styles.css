@@ -20,6 +20,7 @@
   --behaviour-ink: #F7F5F0;
 
   --rail-bg: #0A1120;         /* deeper than Ink navy – keeps the rail distinct from every section */
+  --knowledge-bright: #5B7FFF; /* lighter knowledge tint, for use on dark backgrounds only */
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
@@ -143,6 +144,9 @@ main{ margin-left: var(--rail-w); }
   min-height: 88vh;
   display:flex;
   align-items:center;
+  justify-content:center;
+  gap: 72px;
+  flex-wrap: wrap;
   padding: 80px 64px;
   position:relative;
   overflow:hidden;
@@ -154,7 +158,58 @@ main{ margin-left: var(--rail-w); }
   background: radial-gradient(circle at 82% 20%, rgba(255,107,74,0.16) 0%, rgba(124,92,252,0.09) 32%, transparent 62%);
   pointer-events:none;
 }
-.cover-inner{ max-width: 780px; position:relative; }
+.cover-inner{ max-width: 780px; width: 100%; position:relative; }
+
+.cover-panel{
+  position:relative;
+  width: 100%;
+  max-width: 340px;
+  background: rgba(247,245,240,0.04);
+  border: 1px solid var(--line-dark);
+  border-radius: 12px;
+  padding: 28px;
+  backdrop-filter: blur(2px);
+}
+.panel-eyebrow{
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--slate-light);
+  margin: 0 0 22px;
+}
+.panel-row{ margin-bottom: 18px; }
+.panel-row:last-of-type{ margin-bottom: 0; }
+.panel-row-top{
+  display:flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  margin-bottom: 8px;
+}
+.panel-row-label{ color: var(--slate-light); }
+.panel-row-count{ color: var(--paper); font-weight: 600; }
+.panel-track{
+  height: 6px;
+  background: rgba(247,245,240,0.08);
+  border-radius: 100px;
+  overflow:hidden;
+}
+.panel-fill{ height: 100%; border-radius: 100px; }
+.panel-foot{
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--slate-light);
+  margin: 24px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-dark);
+}
+
+@media (max-width: 1100px){
+  .cover{ justify-content: flex-start; }
+  .cover-panel{ max-width: 480px; }
+}
 .eyebrow{
   font-family: var(--font-mono);
   font-size: 13px;
@@ -231,7 +286,7 @@ main{ margin-left: var(--rail-w); }
 /* ============================================================
    SECTIONS (general)
    ============================================================ */
-.section{ padding: 96px 64px; max-width: 1400px; }
+.section{ padding: 96px 64px; max-width: 1400px; margin: 0 auto; }
 .section-dark{ background: var(--ink-soft); color: var(--paper); }
 .section-head{ max-width: 640px; margin-bottom: 48px; }
 .section-eyebrow{
