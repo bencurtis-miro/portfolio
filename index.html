@@ -69,69 +69,77 @@
 
   <!-- ============ PROJECTS ============ -->
   <section class="section section-dark" id="work">
-    <header class="section-head">
-      <p class="section-eyebrow">01 / Projects</p>
-      <h2>Projects</h2>
-      <p class="section-lede">Major projects I've led or project-managed – a standalone showcase of the work itself, independent of the apprenticeship standard.</p>
-    </header>
+    <div class="section-inner">
+      <header class="section-head">
+        <p class="section-eyebrow">01 / Projects</p>
+        <h2>Projects</h2>
+        <p class="section-lede">Major projects I've led or project-managed – a standalone showcase of the work itself, independent of the apprenticeship standard.</p>
+      </header>
 
-    <div class="project-grid" id="projectGrid"></div>
+      <div class="project-grid" id="projectGrid"></div>
+    </div>
   </section>
 
   <!-- ============ CV ============ -->
   <section class="section" id="cv">
-    <header class="section-head">
-      <p class="section-eyebrow">02 / Curriculum Vitae</p>
-      <h2>Curriculum Vitae</h2>
-      <p class="section-lede" id="cvSummary"></p>
-    </header>
+    <div class="section-inner">
+      <header class="section-head">
+        <p class="section-eyebrow">02 / Curriculum Vitae</p>
+        <h2>Curriculum Vitae</h2>
+        <p class="section-lede" id="cvSummary"></p>
+      </header>
 
-    <div class="cv-grid">
-      <div class="cv-block">
-        <h3 class="cv-block-title">Experience</h3>
-        <div id="cvExperience"></div>
-      </div>
-      <div class="cv-block">
-        <h3 class="cv-block-title">Education</h3>
-        <div id="cvEducation"></div>
-      </div>
-      <div class="cv-block">
-        <h3 class="cv-block-title">Skills</h3>
-        <p class="skill-subhead">Technical</p>
-        <div class="skill-tags" id="cvSkillsTechnical"></div>
-        <p class="skill-subhead">Soft Skills</p>
-        <div class="skill-tags" id="cvSkillsSoft"></div>
-        <a href="#" id="cvDownload" class="btn btn-ghost btn-small" hidden>Download CV (PDF)</a>
+      <div class="cv-grid">
+        <div class="cv-block">
+          <h3 class="cv-block-title">Experience</h3>
+          <div id="cvExperience"></div>
+        </div>
+        <div class="cv-block">
+          <h3 class="cv-block-title">Education</h3>
+          <div id="cvEducation"></div>
+        </div>
+        <div class="cv-block">
+          <h3 class="cv-block-title">Skills</h3>
+          <p class="skill-subhead">Technical</p>
+          <div class="skill-tags" id="cvSkillsTechnical"></div>
+          <p class="skill-subhead">Soft Skills</p>
+          <div class="skill-tags" id="cvSkillsSoft"></div>
+          <a href="#" id="cvDownload" class="btn btn-ghost btn-small" hidden>Download CV (PDF)</a>
+        </div>
       </div>
     </div>
   </section>
 
+  <div class="section-divider" aria-hidden="true"></div>
+
   <!-- ============ KSB EVIDENCE ============ -->
-  <section class="section" id="evidence">
-    <header class="section-head">
-      <p class="section-eyebrow">03 / University</p>
-      <h2>KSB Evidence Log</h2>
-      <p class="section-lede">Every Knowledge, Skill and Behaviour from ST0481, tagged and tracked like a campaign – filter by category or status to see what's covered and what's next. This section is EPA-facing; see Projects for the work itself.</p>
-    </header>
+  <section class="section section-alt" id="evidence">
+    <div class="section-inner">
+      <header class="section-head">
+        <p class="section-eyebrow">03 / University</p>
+        <h2>KSB Evidence Log</h2>
+        <p class="section-lede">Every Knowledge, Skill and Behaviour from ST0481, tagged and tracked like a campaign – filter by category or status to see what's covered and what's next. This section is EPA-facing; see Projects for the work itself.</p>
+      </header>
 
-    <div class="filter-bar" role="group" aria-label="Filter KSBs">
-      <div class="filter-group">
-        <span class="filter-label">Category</span>
-        <button class="chip is-active" data-filter-cat="all">All</button>
-        <button class="chip chip-skill" data-filter-cat="skill">Skill</button>
-        <button class="chip chip-knowledge" data-filter-cat="knowledge">Knowledge</button>
-        <button class="chip chip-behaviour" data-filter-cat="behaviour">Behaviour</button>
+      <div class="filter-bar" role="group" aria-label="Filter KSBs">
+        <div class="filter-group">
+          <span class="filter-label">Category</span>
+          <button class="chip is-active" data-filter-cat="all">All</button>
+          <button class="chip chip-skill" data-filter-cat="skill">Skill</button>
+          <button class="chip chip-knowledge" data-filter-cat="knowledge">Knowledge</button>
+          <button class="chip chip-behaviour" data-filter-cat="behaviour">Behaviour</button>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Status</span>
+          <button class="chip is-active" data-filter-status="all">All</button>
+          <button class="chip" data-filter-status="complete">Complete</button>
+          <button class="chip" data-filter-status="in-progress">In progress</button>
+          <button class="chip" data-filter-status="not-started">Not started</button>
+        </div>
       </div>
-      <div class="filter-group">
-        <span class="filter-label">Status</span>
-        <button class="chip is-active" data-filter-status="all">All</button>
-        <button class="chip" data-filter-status="complete">Complete</button>
-        <button class="chip" data-filter-status="in-progress">In progress</button>
-        <button class="chip" data-filter-status="not-started">Not started</button>
-      </div>
+
+      <div class="ksb-grid" id="ksbGrid"></div>
     </div>
-
-    <div class="ksb-grid" id="ksbGrid"></div>
   </section>
 
   <footer class="footer">
