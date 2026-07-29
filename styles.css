@@ -286,7 +286,7 @@ main{ margin-left: var(--rail-w); }
 /* ============================================================
    SECTIONS (general)
    ============================================================ */
-.section{ padding: 96px 64px; max-width: 1400px; margin: 0 auto; }
+.section{ padding: 96px 64px; max-width: 1400px; }
 .section-dark{ background: var(--ink-soft); color: var(--paper); }
 .section-head{ max-width: 640px; margin-bottom: 48px; }
 .section-eyebrow{
