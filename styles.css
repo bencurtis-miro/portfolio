@@ -288,6 +288,7 @@ main{ margin-left: var(--rail-w); }
    ============================================================ */
 .section{ padding: 96px 0; width: 100%; }
 .section-inner{ max-width: 1400px; padding: 0 64px; }
+#work .section-inner{ max-width: none; }
 .section-dark{ background: var(--ink-soft); color: var(--paper); }
 .section-alt{ background: var(--paper-dim); }
 .section-divider{
