@@ -457,6 +457,8 @@ main{ margin-left: var(--rail-w); }
 }
 .project-track{
   display:flex;
+  flex: 1;
+  min-width: 0;
   gap: 22px;
   overflow-x:auto;
   scroll-snap-type: x mandatory;
