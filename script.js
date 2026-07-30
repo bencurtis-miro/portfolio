@@ -206,6 +206,27 @@
     projectGrid.appendChild(card);
   });
 
+  /* Carousel controls */
+  const projPrev = $("#projPrev");
+  const projNext = $("#projNext");
+  const scrollStep = () => (projectGrid.querySelector(".project-card")?.offsetWidth || 340) + 22;
+
+  function updateCarouselButtons() {
+    const maxScroll = projectGrid.scrollWidth - projectGrid.clientWidth - 2;
+    projPrev.disabled = projectGrid.scrollLeft <= 0;
+    projNext.disabled = projectGrid.scrollLeft >= maxScroll || maxScroll <= 0;
+  }
+
+  projPrev.addEventListener("click", () => {
+    projectGrid.scrollBy({ left: -scrollStep(), behavior: "smooth" });
+  });
+  projNext.addEventListener("click", () => {
+    projectGrid.scrollBy({ left: scrollStep(), behavior: "smooth" });
+  });
+  projectGrid.addEventListener("scroll", updateCarouselButtons);
+  window.addEventListener("resize", updateCarouselButtons);
+  updateCarouselButtons();
+
   /* ---------------- CV ---------------- */
   $("#cvSummary").textContent = CV.summary;
 
