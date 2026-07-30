@@ -287,7 +287,7 @@ main{ margin-left: var(--rail-w); }
    SECTIONS (general)
    ============================================================ */
 .section{ padding: 96px 0; width: 100%; }
-.section-inner{ max-width: 1400px; padding: 0 64px; }
+.section-inner{ max-width: 1400px; padding: 0 64px; margin: 0 auto; }
 #work .section-inner{ max-width: none; }
 .section-dark{ background: var(--ink-soft); color: var(--paper); }
 .section-alt{ background: var(--paper-dim); }
