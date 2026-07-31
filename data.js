@@ -10,17 +10,37 @@
 
 const SITE = {
   name: "Ben Curtis",
-  role: "Digital Marketing Apprentice",
-  institution: "University of Portsmouth",
-  standard: "Digital Marketer (Integrated Degree), Level 6 – ST0481",
-  tagline:
-    "Building and evidencing a digital marketing practice, one campaign and one KSB at a time.",
-  location: "Wiltshire, UK",
+  title: "Digital Marketing Executive",
+  location: "United Kingdom", // consolidated from a specific county for a public-facing site
+  client: "OutsideClinic", // feeds the "Client" field in the hero
+  brief:
+    "Marketing built on data, driven by curiosity – that's the throughline running through everything here.", // feeds "Brief" – your personal statement
+  currentFocus:
+    "Scaling acquisition and lifecycle marketing at OutsideClinic, while building Mirõ MKT alongside it.", // feeds "Objective" – what you're actually doing right now
+  secondaryTitle: "Co-Founder",
+  secondaryOrg: "Mirõ MKT",
   email: "curtis_btc@hotmail.com",
   phone: "07504 552093",
   linkedin: "https://www.linkedin.com/in/bentcurtismarketing",
   cvPdf: "", // put a filename here (e.g. "cv.pdf") if you add a downloadable CV to the folder
 };
+
+/* ------------------------------------------------------------
+   HERO STATS
+   ------------------------------------------------------------
+   Four values shown in the hero stat strip. "Projects logged"
+   stays dynamic (pulled from PROJECTS below) – the other three
+   are yours to edit directly. NOTE: the "hours of film analysed"
+   figure is a placeholder from your brief – swap in a number
+   you'd actually stand behind if asked about it. Your own brand
+   voice guide says the joke should land because it's true.
+   ------------------------------------------------------------ */
+
+const HERO_STATS = [
+  { value: "3+", label: "Years in industry" },
+  { value: "2", label: "Marketing ventures" },
+  { value: "1,500+", label: "Hours of film analysed" },
+];
 
 /* ------------------------------------------------------------
    ABOUT / INTRODUCTION
@@ -40,15 +60,15 @@ const ABOUT = {
   paragraphs: [
     {
       heading: "Who I am",
-      text: "I'm Ben - co-founder of Mirõ MKT, a brand and data marketing agency, and a Digital Marketing Executive at OutsideClinic. I've been in the industry for three-plus years now and I'm nearing the end of an undergraduate degree in Digital Marketing. Along the way I've been fortunate to work across most corners of the industry - direct acquisition (direct mail, digital), paid media, organic content, project management and account management.",
+      text: "I'm Ben — co-founder of Mirõ MKT, a brand and data marketing agency, and a Digital Marketing Executive at OutsideClinic. I've been in the industry for three-plus years now and I'm nearing the end of an undergraduate degree in Digital Marketing. Along the way I've been fortunate to work across most corners of the discipline — direct acquisition, paid media, organic content, project management and account management.",
     },
     {
-      heading: "Why marketing?",
-      text: "Marketing was never really in question for me. I studied Business and Psychology at A-Level and got hooked on the overlap between the two - the more I understood how a brain is actually wired, the more I could see how to apply that business knowledge properly.",
+      heading: "Why marketing",
+      text: "Marketing was never really in question for me. I studied Business and Psychology at A-Level and got hooked on the overlap between the two — the more I understood how a brain is actually wired, the more I could see how to apply that business knowledge properly.",
     },
     {
       heading: "Outside of work",
-      text: "Outside of work I'm a fitness enthusiast - bouldering, football and the powerlifting all featuring regularly. I'm also into film and music, with a habit of picking things apart properly rather than just watching or listening. Wes Anderson is up there as a bit of an idol.",
+      text: "Outside the day job I'm a fairly committed fitness enthusiast — bouldering, sport and the gym all feature regularly. I'm also into film and music, with a habit of picking things apart properly rather than just watching or listening. Wes Anderson is up there as a bit of an idol.",
     },
   ],
 };
@@ -130,7 +150,7 @@ const PROJECTS = [
     period: "Dec 2025 – Feb 2026",
     role: "Project Lead",
     summary:
-      "Led the redesign and relaunch of the company webform, working alongside an external agency and internal IT teams to rebuild it from the ground up. Used market-relevant insight and data to inform the new design before implementing it live on the website.",
+      "Led the redesign and relaunch of the company webform, working alongside an external agency and internal IT to rebuild it from the ground up. Used market-relevant insight and data to inform the new design before implementing it live on the website.",
     tags: ["UX & Conversion", "Landing Pages", "Agency Management"],
     link: "",
   },
