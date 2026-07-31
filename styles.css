@@ -601,3 +601,30 @@ main{ margin-left: var(--rail-w); }
 .modal-desc{ color: var(--ink); font-size: 15px; margin-bottom: 20px; }
 .modal-evidence{ border-top: 1px solid var(--line); padding-top: 16px; }
 .modal-evidence-empty{ color: var(--slate-light); font-size: 13.5px; font-style: italic; }
+.evidence-item{ margin-bottom: 20px; }
+.evidence-item:last-child{ margin-bottom: 0; }
+.evidence-date{
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--skill);
+  margin: 0 0 6px;
+}
+.evidence-text{ font-size: 14px; color: var(--ink); margin: 0 0 10px; line-height: 1.5; }
+.evidence-image-link{ display:block; }
+.evidence-image{
+  width: 100%;
+  max-width: 260px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  display: block;
+  transition: opacity .15s ease;
+}
+.evidence-image-link:hover .evidence-image{ opacity: 0.85; }
+.evidence-caption{
+  font-size: 12px;
+  color: var(--slate);
+  margin: 6px 0 0;
+  font-style: italic;
+}
