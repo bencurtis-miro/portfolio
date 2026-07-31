@@ -178,25 +178,23 @@ main{ margin-left: var(--rail-w); }
   color: var(--slate-light);
   margin: 0 0 22px;
 }
-.panel-row{ margin-bottom: 18px; }
-.panel-row:last-of-type{ margin-bottom: 0; }
-.panel-row-top{
-  display:flex;
-  justify-content: space-between;
-  align-items: baseline;
+.panel-role{ margin-bottom: 18px; }
+.panel-role-secondary{
+  margin-bottom: 22px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line-dark);
+}
+.panel-role-title{ font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; margin: 0 0 2px; }
+.panel-role-org{ font-family: var(--font-mono); font-size: 12.5px; color: var(--skill); margin: 0; }
+.panel-subhead{
   font-family: var(--font-mono);
-  font-size: 12.5px;
-  margin-bottom: 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--slate-light);
+  margin: 0 0 10px;
 }
-.panel-row-label{ color: var(--slate-light); }
-.panel-row-count{ color: var(--paper); font-weight: 600; }
-.panel-track{
-  height: 6px;
-  background: rgba(247,245,240,0.08);
-  border-radius: 100px;
-  overflow:hidden;
-}
-.panel-fill{ height: 100%; border-radius: 100px; }
+.cover-panel .skill-tags .tag{ color: var(--paper); border-color: var(--line-dark); }
 .panel-foot{
   font-family: var(--font-mono);
   font-size: 11px;
