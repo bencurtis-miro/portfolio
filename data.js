@@ -75,10 +75,25 @@ const ABOUT = {
 
 /* ------------------------------------------------------------
    KSBs – pre-filled with the official ST0481 standard wording,
-   paraphrased into plain first-person prompts. Replace the
-   `evidence` array entries as you complete work, and update
-   `status` as you go. Add real project links via `linkedProject`
-   (matching a PROJECTS id below) to connect evidence to work.
+   paraphrased into plain first-person prompts. Update `status`
+   as you go, and add real evidence via the `evidence` array.
+   Add real project links via `linkedProject` (matching a
+   PROJECTS id below) to connect evidence to work.
+
+   EVIDENCE ENTRIES – each item in `evidence` can be either:
+   - A plain string (quick text-only note), or
+   - An object for anything with a date, or a supporting image:
+       {
+         date: "25 Jul 2025",              // any display format you like
+         text: "What you did and why it counts as evidence.",
+         image: "evidence/filename.jpg",   // optional – omit if none
+         imageCaption: "One-line caption", // optional, only used with image
+       }
+   To add an image: save the file into the `evidence/` folder
+   in this project (create it if it doesn't exist), then
+   reference it by filename as shown above. Keep images
+   reasonably sized (compress before uploading) so the site
+   stays fast to load.
    ------------------------------------------------------------ */
 
 const KSBS = [
@@ -86,14 +101,28 @@ const KSBS = [
   { code: "S1", category: "skill", title: "Apply marketing theory", description: "Develop and critically apply the concepts, principles and theories of marketing relevant to the interdisciplinary topics of digital marketing.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "S2", category: "skill", title: "Apply the 4 Ps", description: "Apply the 4 marketing principles (product, price, place, promotion) and considerations of the business / marketing campaign.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "S3", category: "skill", title: "Write for audience & channel", description: "Write and create content for the different audiences, online channels and create clear \u201cCall to Actions\u201d and user journeys.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S4", category: "skill", title: "Apply content marketing", description: "Demonstrate how to promote and apply content marketing effectively through the appropriate media channels, relationship management systems and communication platforms to ensure brand and cultural awareness are maintained throughout marketing strategies.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "S4", category: "skill", title: "Apply content marketing", description: "Demonstrate how to promote and apply content marketing effectively through the appropriate media channels, relationship management systems and communication platforms to ensure brand and cultural awareness are maintained throughout marketing strategies.", status: "complete", linkedProject: null, evidence: [
+    {
+      date: "25 Jul 2025",
+      text: "This way of working with field-staff photography has developed over several years, but this specific piece of evidence was logged on 25/07/2025. Used social media and photography taken by OutsideClinic field staff to depict the emotion of seeing clearly again for the first time – using storytelling to create an emotion-led post that highlights the value of the service without directly claiming it. Show, don't tell.",
+      image: "evidence/s4-outsideclinic-emotion-post.jpg",
+      imageCaption: "OutsideClinic Instagram post, featuring a patient's story following a home eye test.",
+    },
+  ] },
   { code: "S5", category: "skill", title: "Select research methods", description: "Select a variety of appropriate research methodologies, platforms and technologies to synthesise information and apply to the organisation's digital marketing strategies, drivers and customer behaviours.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "S6", category: "skill", title: "Manage & report on projects", description: "Manage, plan, specify, lead and report on digital marketing projects.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "S7", category: "skill", title: "Optimise channels & content", description: "Manage and optimise key channels and content within a digital marketing plan.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "S8", category: "skill", title: "Apply e-commerce strategy", description: "Manage interfaces and the supply network of the organisation and customer by applying the appropriate E-commerce strategies and models available and whenever appropriate taking global engagements into account.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "S9", category: "skill", title: "Apply the marketing mix", description: "Apply a marketing mix / digital marketing mix to meet customer expectations.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "S10", category: "skill", title: "Analyse campaign performance", description: "Accurately observe, record and draw conclusions from all types statistical analysis of campaign performance, recognising inherent uncertainties and limitations with financial and budgetary requirements to demonstrate Return on Investment (ROI).", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S11", category: "skill", title: "Engage via email & social", description: "Engage communities through Email Marketing and Social Media to stimulate and encourage communication through positive discussion and engagement.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "S11", category: "skill", title: "Engage via email & social", description: "Engage communities through Email Marketing and Social Media to stimulate and encourage communication through positive discussion and engagement.", status: "complete", linkedProject: null, evidence: [
+    {
+      date: "25 Jul 2025",
+      text: "This way of working with field-staff photography has developed over several years, but this specific piece of evidence was logged on 25/07/2025. Used social media and photography taken by OutsideClinic field staff to depict the emotion of seeing clearly again for the first time – using storytelling to create an emotion-led post that highlights the value of the service without directly claiming it. Show, don't tell.",
+      image: "evidence/s4-outsideclinic-emotion-post.jpg",
+      imageCaption: "OutsideClinic Instagram post, featuring a patient's story following a home eye test.",
+    },
+  ] },
   { code: "S12", category: "skill", title: "Apply data-led analysis", description: "Apply the appropriate tools for a data-led approach to analyse marketing information and platforms, data and social media and recognise what is actually important for insights and optimisation to provide solutions for marketing decisions.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "S13", category: "skill", title: "Contribute to strategy", description: "Contribute to business, planning and marketing strategies to recognise and respond quickly to opportunities and customer requirements whilst embracing change.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "S14", category: "skill", title: "Read business intelligence", description: "Identify, recognise and understand internal and external business intelligence and factors that may impact future operations.", status: "not-started", linkedProject: null, evidence: [] },
