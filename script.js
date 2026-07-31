@@ -144,16 +144,26 @@
     const evEl = $("#modalEvidence");
     evEl.innerHTML = "";
     if (k.evidence && k.evidence.length) {
-      const ul = document.createElement("ul");
-      ul.style.paddingLeft = "18px";
       k.evidence.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        li.style.marginBottom = "6px";
-        li.style.fontSize = "14px";
-        ul.appendChild(li);
+        const entry = document.createElement("div");
+        entry.className = "evidence-item";
+        if (typeof item === "string") {
+          // legacy plain-text evidence, still supported
+          entry.innerHTML = `<p class="evidence-text">${item}</p>`;
+        } else {
+          entry.innerHTML = `
+            ${item.date ? `<p class="evidence-date">${item.date}</p>` : ""}
+            ${item.text ? `<p class="evidence-text">${item.text}</p>` : ""}
+            ${item.image ? `
+              <a href="${item.image}" target="_blank" rel="noopener" class="evidence-image-link">
+                <img class="evidence-image" src="${item.image}" alt="${item.imageCaption || k.title + ' evidence'}">
+              </a>
+              ${item.imageCaption ? `<p class="evidence-caption">${item.imageCaption}</p>` : ""}
+            ` : ""}
+          `;
+        }
+        evEl.appendChild(entry);
       });
-      evEl.appendChild(ul);
     } else {
       evEl.innerHTML = `<p class="modal-evidence-empty">No evidence logged yet – add entries to this KSB's "evidence" array in data.js.</p>`;
     }
