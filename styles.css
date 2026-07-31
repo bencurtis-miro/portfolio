@@ -611,7 +611,17 @@ main{ margin-left: var(--rail-w); }
   color: var(--skill);
   margin: 0 0 6px;
 }
-.evidence-text{ font-size: 14px; color: var(--ink); margin: 0 0 10px; line-height: 1.5; }
+.evidence-text{
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.5;
+  margin: 0 0 12px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--skill);
+  background: rgba(255,107,74,0.05);
+  border-radius: 0 4px 4px 0;
+}
 .evidence-image-link{ display:block; }
 .evidence-image{
   width: 100%;
