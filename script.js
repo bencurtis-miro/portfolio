@@ -5,15 +5,14 @@
   const $all = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
   /* ---------------- SITE / COVER ---------------- */
-  document.title = `${SITE.name} – ${SITE.role}`;
+  document.title = `${SITE.name} – ${SITE.title}`;
   $("#coverName").textContent = SITE.name;
-  $("#coverRole").textContent = `${SITE.role} · ${SITE.institution}`;
-  $("#briefInstitution").textContent = SITE.institution;
-  $("#briefStandard").textContent = SITE.standard;
-  $("#briefTagline").textContent = SITE.tagline;
+  $("#coverRole").textContent = `${SITE.title} · ${SITE.location}`;
+  $("#briefInstitution").textContent = SITE.client;
+  $("#briefStandard").textContent = SITE.brief;
+  $("#briefTagline").textContent = SITE.currentFocus;
   $("#footerName").textContent = SITE.name;
   if (SITE.location) $("#footerLocation").textContent = SITE.location;
-  $("#epaYear").textContent = new Date().getFullYear();
 
   const footerLinks = $("#footerLinks");
   const linkDefs = [
@@ -51,14 +50,11 @@
   });
 
   /* ---------------- STAT STRIP ---------------- */
-  const total = KSBS.length;
-  const complete = KSBS.filter(k => k.status === "complete").length;
-  const inProgress = KSBS.filter(k => k.status === "in-progress").length;
   const stats = [
-    [total, "KSBs mapped"],
-    [complete, "Complete"],
-    [inProgress, "In progress"],
+    [HERO_STATS[0].value, HERO_STATS[0].label],
     [PROJECTS.length, "Projects logged"],
+    [HERO_STATS[1].value, HERO_STATS[1].label],
+    [HERO_STATS[2].value, HERO_STATS[2].label],
   ];
   const statStrip = $("#statStrip");
   stats.forEach(([num, label]) => {
@@ -68,32 +64,21 @@
     statStrip.appendChild(el);
   });
 
-  /* ---------------- HERO BREAKDOWN PANEL ---------------- */
-  const skillCount = KSBS.filter(k => k.category === "skill").length;
-  const knowledgeCount = KSBS.filter(k => k.category === "knowledge").length;
-  const behaviourCount = KSBS.filter(k => k.category === "behaviour").length;
-  const maxCount = Math.max(skillCount, knowledgeCount, behaviourCount);
+  /* ---------------- HERO SNAPSHOT PANEL ---------------- */
+  $("#panelRoleTitle").textContent = SITE.title;
+  $("#panelRoleOrg").textContent = SITE.client;
+  $("#panelRole2Title").textContent = SITE.secondaryTitle;
+  $("#panelRole2Org").textContent = SITE.secondaryOrg;
 
-  const panelData = [
-    ["Skills", skillCount, "var(--skill)"],
-    ["Knowledge", knowledgeCount, "var(--knowledge-bright)"],
-    ["Behaviours", behaviourCount, "var(--behaviour)"],
-  ];
-  const panelRows = $("#panelRows");
-  panelData.forEach(([label, count, color]) => {
-    const row = document.createElement("div");
-    row.className = "panel-row";
-    const pct = Math.round((count / maxCount) * 100);
-    row.innerHTML = `
-      <div class="panel-row-top">
-        <span class="panel-row-label">${label}</span>
-        <span class="panel-row-count">${count}</span>
-      </div>
-      <div class="panel-track"><div class="panel-fill" style="width:${pct}%; background:${color};"></div></div>
-    `;
-    panelRows.appendChild(row);
+  const panelSkills = $("#panelSkills");
+  (CV.skills.technical || []).slice(0, 5).forEach(s => {
+    const short = s.split(" (")[0]; // drop the parenthetical detail for a tighter tag
+    const span = document.createElement("span");
+    span.className = "tag";
+    span.textContent = short;
+    panelSkills.appendChild(span);
   });
-  $("#panelFoot").textContent = `${total} KSBs total · tracked live from University section`;
+  $("#panelFoot").textContent = "Full role history & CV below.";
 
   /* ---------------- KSB GRID ---------------- */
   const ksbGrid = $("#ksbGrid");
