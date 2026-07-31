@@ -12,11 +12,11 @@ const SITE = {
   name: "Ben Curtis",
   title: "Digital Marketing Executive",
   location: "United Kingdom", // consolidated from a specific county for a public-facing site
-  client: "OutsideClinic", // feeds the "Position" field in the hero
+  client: "OutsideClinic", // feeds the "Current Position" field in the hero
   brief:
     "Digital Marketing Executive with experience leading multi-channel acquisition, CRM and lifecycle marketing strategy within a £40m business.", // feeds "Overview" – your personal statement
   currentFocus:
-    "Scaling acquisition and lifecycle marketing at OutsideClinic, while building Mirõ MKT alongside it.", // feeds "Current Focus" – what you're actually doing right now
+    "Scaling acquisition and lifecycle marketing at OutsideClinic, while building Mirõ MKT alongside it.", // feeds "Objective" – what you're actually doing right now
   secondaryTitle: "Co-Founder",
   secondaryOrg: "Mirõ MKT",
   email: "curtis_btc@hotmail.com",
@@ -60,15 +60,15 @@ const ABOUT = {
   paragraphs: [
     {
       heading: "Who I am",
-      text: "I'm Ben - co-founder of Mirõ MKT, a brand and data marketing agency, and a Digital Marketing Executive at OutsideClinic. I've been in the industry for three-plus years now and I'm nearing the end of an undergraduate degree in Digital Marketing. Along the way I've been fortunate to work across most corners of the discipline - direct acquisition, paid media, organic content, project management and account management.",
+      text: "I'm Ben – co-founder of Mirõ MKT, a brand and data marketing agency, and a Digital Marketing Executive at OutsideClinic. I've been in the industry for three-plus years now and I'm nearing the end of an undergraduate degree in Digital Marketing. Along the way I've been fortunate to work across most corners of the discipline – direct acquisition, paid media, organic content, project management and account management.",
     },
     {
       heading: "Why marketing",
-      text: "Marketing was never really in question for me. I studied Business and Psychology at A-Level and got hooked on the overlap between the two - the more I understood how a brain is actually wired, the more I could see how to apply that business knowledge properly.",
+      text: "Marketing was never really in question for me. I studied Business and Psychology at A-Level and got hooked on the overlap between the two – the more I understood how a brain is actually wired, the more I could see how to apply that business knowledge properly.",
     },
     {
       heading: "Outside of work",
-      text: "Outside the day job I'm a committed fitness enthusiast - bouldering, football and powerlifting all feature regularly. I'm also into film and music, with a habit of picking things apart properly rather than just watching or listening. Wes Anderson is up there as an idol.",
+      text: "Outside the day job I'm a committed fitness enthusiast – bouldering, football and powerlifting all feature regularly. I'm also into film and music, with a habit of picking things apart properly rather than just watching or listening. Wes Anderson is up there as an idol.",
     },
   ],
 };
