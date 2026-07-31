@@ -101,14 +101,7 @@ const KSBS = [
   { code: "S1", category: "skill", title: "Apply marketing theory", description: "Develop and critically apply the concepts, principles and theories of marketing relevant to the interdisciplinary topics of digital marketing.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "S2", category: "skill", title: "Apply the 4 Ps", description: "Apply the 4 marketing principles (product, price, place, promotion) and considerations of the business / marketing campaign.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "S3", category: "skill", title: "Write for audience & channel", description: "Write and create content for the different audiences, online channels and create clear \u201cCall to Actions\u201d and user journeys.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S4", category: "skill", title: "Apply content marketing", description: "Demonstrate how to promote and apply content marketing effectively through the appropriate media channels, relationship management systems and communication platforms to ensure brand and cultural awareness are maintained throughout marketing strategies.", status: "complete", linkedProject: null, evidence: [
-    {
-      date: "25 Jul 2025",
-      text: "This way of working with field-staff photography has developed over several years, but this specific piece of evidence was logged on 25/07/2025. Used social media and photography taken by OutsideClinic field staff to depict the emotion of seeing clearly again for the first time – using storytelling to create an emotion-led post that highlights the value of the service without directly claiming it. Show, don't tell.",
-      image: "evidence/s4-outsideclinic-emotion-post.jpg",
-      imageCaption: "OutsideClinic Instagram post, featuring a patient's story following a home eye test.",
-    },
-  ] },
+  { code: "S4", category: "skill", title: "Apply content marketing", description: "Demonstrate how to promote and apply content marketing effectively through the appropriate media channels, relationship management systems and communication platforms to ensure brand and cultural awareness are maintained throughout marketing strategies.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "S5", category: "skill", title: "Select research methods", description: "Select a variety of appropriate research methodologies, platforms and technologies to synthesise information and apply to the organisation's digital marketing strategies, drivers and customer behaviours.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "S6", category: "skill", title: "Manage & report on projects", description: "Manage, plan, specify, lead and report on digital marketing projects.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "S7", category: "skill", title: "Optimise channels & content", description: "Manage and optimise key channels and content within a digital marketing plan.", status: "not-started", linkedProject: null, evidence: [] },
@@ -119,7 +112,7 @@ const KSBS = [
     {
       date: "25 Jul 2025",
       text: "This way of working with field-staff photography has developed over several years, but this specific piece of evidence was logged on 25/07/2025. Used social media and photography taken by OutsideClinic field staff to depict the emotion of seeing clearly again for the first time – using storytelling to create an emotion-led post that highlights the value of the service without directly claiming it. Show, don't tell.",
-      image: "evidence/s4-outsideclinic-emotion-post.jpg",
+      image: "evidence/s11-outsideclinic-emotion-post.jpg",
       imageCaption: "OutsideClinic Instagram post, featuring a patient's story following a home eye test.",
     },
   ] },
