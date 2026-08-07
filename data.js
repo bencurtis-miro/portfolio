@@ -12,7 +12,7 @@ const SITE = {
   name: "Ben Curtis",
   title: "Digital Marketing Executive",
   location: "United Kingdom", // consolidated from a specific county for a public-facing site
-  client: "OutsideClinic", // feeds the "Current Position" field in the hero
+  client: "Digital Marketing Executive", // feeds the "Current Position" field in the hero
   brief:
     "Digital Marketing Executive with experience leading multi-channel acquisition, CRM and lifecycle marketing strategy within a £40m business.", // feeds "Overview" – your personal statement
   currentFocus:
