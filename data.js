@@ -95,15 +95,27 @@ const ABOUT = {
    stays fast to load.
    ------------------------------------------------------------ */
 
+// DRAFTED EVIDENCE: entries marked "in-progress" have a first-draft
+// sentence based on the project write-ups below. Before your EPA:
+//   1. rewrite each one in your own words and check it's accurate,
+//   2. add a supporting example (image, document or link) per entry,
+//   3. then change status to "complete".
 const KSBS = [
   // SKILLS – listed first: this is where the real evidence sits
   { code: "S1", category: "skill", title: "Apply marketing theory", description: "Develop and critically apply the concepts, principles and theories of marketing relevant to the interdisciplinary topics of digital marketing.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "S2", category: "skill", title: "Apply the 4 Ps", description: "Apply the 4 marketing principles (product, price, place, promotion) and considerations of the business / marketing campaign.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S3", category: "skill", title: "Write for audience & channel", description: "Write and create content for the different audiences, online channels and create clear \u201cCall to Actions\u201d and user journeys.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "S3", category: "skill", title: "Write for audience & channel", description: "Write and create content for the different audiences, online channels and create clear \u201cCall to Actions\u201d and user journeys.", status: "in-progress", linkedProject: "hubspot-implementation", evidence: [
+    { date: "Sep 2024 – Feb 2025", text: "As part of the HubSpot implementation, I built automated customer journeys across email, SMS and print, writing content for each audience and stage, and giving every touchpoint a clear call to action so customers knew their next step." },
+  ] },
   { code: "S4", category: "skill", title: "Apply content marketing", description: "Demonstrate how to promote and apply content marketing effectively through the appropriate media channels, relationship management systems and communication platforms to ensure brand and cultural awareness are maintained throughout marketing strategies.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "S5", category: "skill", title: "Select research methods", description: "Select a variety of appropriate research methodologies, platforms and technologies to synthesise information and apply to the organisation's digital marketing strategies, drivers and customer behaviours.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S6", category: "skill", title: "Manage & report on projects", description: "Manage, plan, specify, lead and report on digital marketing projects.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S7", category: "skill", title: "Optimise channels & content", description: "Manage and optimise key channels and content within a digital marketing plan.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "S6", category: "skill", title: "Manage & report on projects", description: "Manage, plan, specify, lead and report on digital marketing projects.", status: "in-progress", linkedProject: "hubspot-implementation", evidence: [
+    { date: "Sep 2024 – Feb 2025", text: "I project-managed the end-to-end HubSpot CRM implementation at OutsideClinic: planning the build of live assets, customer journeys and sales pipelines, reporting progress to stakeholders from employee level through to SLT and suppliers, and delivering on time with staff training built in for a smooth handover." },
+    { date: "2026 – ongoing", text: "I'm leading OutsideClinic's website rebuild with a partner design agency – setting and enforcing the delivery timeline and securing stakeholder approvals to keep the project on track for launch." },
+  ] },
+  { code: "S7", category: "skill", title: "Optimise channels & content", description: "Manage and optimise key channels and content within a digital marketing plan.", status: "in-progress", linkedProject: "webform-relaunch", evidence: [
+    { date: "Dec 2025 – Feb 2026", text: "I led the redesign and relaunch of the company webform, a key conversion point on the website, using insight and data to shape the new design before rebuilding it with an external agency and internal IT and putting it live." },
+  ] },
   { code: "S8", category: "skill", title: "Apply e-commerce strategy", description: "Manage interfaces and the supply network of the organisation and customer by applying the appropriate E-commerce strategies and models available and whenever appropriate taking global engagements into account.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "S9", category: "skill", title: "Apply the marketing mix", description: "Apply a marketing mix / digital marketing mix to meet customer expectations.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "S10", category: "skill", title: "Analyse campaign performance", description: "Accurately observe, record and draw conclusions from all types statistical analysis of campaign performance, recognising inherent uncertainties and limitations with financial and budgetary requirements to demonstrate Return on Investment (ROI).", status: "not-started", linkedProject: null, evidence: [] },
@@ -115,25 +127,44 @@ const KSBS = [
       imageCaption: "OutsideClinic Instagram post, featuring a patient's story following a home eye test.",
     },
   ] },
-  { code: "S12", category: "skill", title: "Apply data-led analysis", description: "Apply the appropriate tools for a data-led approach to analyse marketing information and platforms, data and social media and recognise what is actually important for insights and optimisation to provide solutions for marketing decisions.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S13", category: "skill", title: "Contribute to strategy", description: "Contribute to business, planning and marketing strategies to recognise and respond quickly to opportunities and customer requirements whilst embracing change.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "S12", category: "skill", title: "Apply data-led analysis", description: "Apply the appropriate tools for a data-led approach to analyse marketing information and platforms, data and social media and recognise what is actually important for insights and optimisation to provide solutions for marketing decisions.", status: "in-progress", linkedProject: "webform-relaunch", evidence: [
+    { date: "Dec 2025 – Feb 2026", text: "Before redesigning the company webform, I used market-relevant insight and data to decide what the new design needed to achieve, so the relaunch was based on evidence rather than opinion." },
+  ] },
+  { code: "S13", category: "skill", title: "Contribute to strategy", description: "Contribute to business, planning and marketing strategies to recognise and respond quickly to opportunities and customer requirements whilst embracing change.", status: "in-progress", linkedProject: "brand-refresh", evidence: [
+    { date: "Mar 2026 – Oct 2026", text: "I contributed to OutsideClinic's brand strategy by co-leading the client side of a full brand identity relaunch with an external design agency, guiding internal stakeholders through the change and keeping the project moving to deadline." },
+  ] },
   { code: "S14", category: "skill", title: "Read business intelligence", description: "Identify, recognise and understand internal and external business intelligence and factors that may impact future operations.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S15", category: "skill", title: "Brief stakeholders", description: "Interpret, communicate and brief internal or external stakeholders on digital business requirements.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "S15", category: "skill", title: "Brief stakeholders", description: "Interpret, communicate and brief internal or external stakeholders on digital business requirements.", status: "in-progress", linkedProject: "website-revamp", evidence: [
+    { date: "2026 – ongoing", text: "On the website rebuild, I'm the link between our partner design agency and internal stakeholders – creating and proofing concepts and content, communicating them internally and securing approvals." },
+    { date: "Dec 2025 – Feb 2026", text: "On the webform relaunch, I worked between an external agency and our internal IT team, communicating the business's requirements so the rebuilt form could be implemented live." },
+  ] },
 
   // KNOWLEDGE
   { code: "K1", category: "knowledge", title: "The disruptive digital environment", description: "The strategic implications of the disruptive digital environment.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "K2", category: "knowledge", title: "Organic vs paid visibility", description: "Natural/organic and paid marketing to increase the visibility and promotion of websites.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K3", category: "knowledge", title: "Brand theory in practice", description: "The leading marketing theorists and practitioners when managing and implementing brand equity, brand awareness and strategic brand management.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "K3", category: "knowledge", title: "Brand theory in practice", description: "The leading marketing theorists and practitioners when managing and implementing brand equity, brand awareness and strategic brand management.", status: "in-progress", linkedProject: "brand-refresh", evidence: [
+    { date: "Mar 2026 – Oct 2026", text: "Co-leading the client side of OutsideClinic's brand refresh developed my understanding of strategic brand management – protecting brand equity through a full identity relaunch while managing sign-off on assets and copy across internal stakeholders." },
+  ] },
   { code: "K4", category: "knowledge", title: "Professional bodies & emerging trends", description: "Professional bodies and their insights into emerging technologies, trends and themes within the digital marketing environment.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K5", category: "knowledge", title: "Customer insight & retention", description: "Customer insight, strategic relationships, acquisition and focus of customers, taking into account the customer experience and retention/loyalty.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "K5", category: "knowledge", title: "Customer insight & retention", description: "Customer insight, strategic relationships, acquisition and focus of customers, taking into account the customer experience and retention/loyalty.", status: "in-progress", linkedProject: "hubspot-implementation", evidence: [
+    { date: "Sep 2024 – Feb 2025", text: "Through the HubSpot implementation, I designed automated lifecycle journeys across email, SMS and print aimed at improving repeat purchase rate and customer lifetime value, applying my understanding of customer retention and loyalty." },
+  ] },
   { code: "K6", category: "knowledge", title: "B2B relationships via social", description: "How to foster business-to-business (B2B) marketing relationships through social media to launch products based on price and popularity.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "K7", category: "knowledge", title: "Paid, owned & earned media", description: "The types of online and offline paid, owned and earned media, and how this works together.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "K8", category: "knowledge", title: "Regulation, data protection & ethics", description: "Digital marketing regulatory requirements, data protection, compliance and ethics, both national and international.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "K9", category: "knowledge", title: "International & multichannel marketing", description: "The Digital Marketing environment for International marketing and multichannel marketing, for agencies as well as client.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K10", category: "knowledge", title: "Stakeholder & commercial awareness", description: "Stakeholder and customer requirements, commercial awareness and business improvement processes that are relevant to campaign management.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K11", category: "knowledge", title: "Digital & interface design", description: "Digital graphic design, interface design, and authoring.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K12", category: "knowledge", title: "User experience", description: "The user experience, and how to maximise engagement.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K13", category: "knowledge", title: "Funnels, segmentation & attribution", description: "Segmentation, targeting and application of sales funnel, path to purchase, and customer attribution.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "K10", category: "knowledge", title: "Stakeholder & commercial awareness", description: "Stakeholder and customer requirements, commercial awareness and business improvement processes that are relevant to campaign management.", status: "in-progress", linkedProject: "hubspot-implementation", evidence: [
+    { date: "Sep 2024 – Feb 2025", text: "Implementing HubSpot meant balancing the requirements of employees, SLT and suppliers, keeping each group informed throughout so the new CRM met the business's needs and was adopted smoothly through staff training." },
+  ] },
+  { code: "K11", category: "knowledge", title: "Digital & interface design", description: "Digital graphic design, interface design, and authoring.", status: "in-progress", linkedProject: "website-revamp", evidence: [
+    { date: "2026 – ongoing", text: "On the website rebuild, I create and proof design concepts and content with our partner agency, applying interface design principles to the new site." },
+  ] },
+  { code: "K12", category: "knowledge", title: "User experience", description: "The user experience, and how to maximise engagement.", status: "in-progress", linkedProject: "webform-relaunch", evidence: [
+    { date: "Dec 2025 – Feb 2026", text: "The webform relaunch put user experience at the centre: I used insight and data to shape a redesigned form, rebuilt from the ground up and implemented live on the website." },
+  ] },
+  { code: "K13", category: "knowledge", title: "Funnels, segmentation & attribution", description: "Segmentation, targeting and application of sales funnel, path to purchase, and customer attribution.", status: "in-progress", linkedProject: "hubspot-implementation", evidence: [
+    { date: "Sep 2024 – Feb 2025", text: "In HubSpot, I built bespoke sales pipelines, funnels and segmented customer journeys, mapping the customer's path to purchase and the follow-up that encourages repeat purchases." },
+  ] },
   { code: "K14", category: "knowledge", title: "E-commerce fundamentals", description: "E-commerce and the importance of product descriptions, images, site layout and what makes a good online shopping experience.", status: "not-started", linkedProject: null, evidence: [] },
 
   // BEHAVIOURS – part of the standard, so kept for completeness, but
@@ -141,7 +172,10 @@ const KSBS = [
   { code: "B1", category: "behaviour", title: "Communication", description: "Ability to communicate and actively listen at all levels.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "B2", category: "behaviour", title: "Resilience & teamwork", description: "Ability to work under pressure and unsupervised, and interact effectively within teams.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "B3", category: "behaviour", title: "Inclusion & impact awareness", description: "Consider the impact of work on others, especially where related to culture, diversity and equality.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "B4", category: "behaviour", title: "Quality & deadlines", description: "Demonstrate business disciplines and compliance with procedures and principles to ensure work is of high quality and fit for purpose, with high attention to detail and the ability to work to deadlines.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "B4", category: "behaviour", title: "Quality & deadlines", description: "Demonstrate business disciplines and compliance with procedures and principles to ensure work is of high quality and fit for purpose, with high attention to detail and the ability to work to deadlines.", status: "in-progress", linkedProject: "brand-refresh", evidence: [
+    { date: "Mar 2026 – Oct 2026", text: "On the brand refresh, I managed sign-off on assets and copy, flagged and requested changes where needed, and held the line on deadlines once designs were locked." },
+    { date: "2026 – ongoing", text: "On the website rebuild, I set and enforce the delivery timeline with our partner agency to keep the project on track." },
+  ] },
   { code: "B5", category: "behaviour", title: "Integrity & data security", description: "Show integrity and respect for confidentiality and data security in work and personal situations.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "B6", category: "behaviour", title: "CPD & enthusiasm", description: "Be enthusiastic and have a thorough and flexible approach to work and to personal development through CPD and life-long learning.", status: "not-started", linkedProject: null, evidence: [] },
   { code: "B7", category: "behaviour", title: "Structured problem solving", description: "Logical thinking and a creative approach to problem solving to systematically analyse and apply structured techniques to complex systems and situations.", status: "not-started", linkedProject: null, evidence: [] },
@@ -157,6 +191,7 @@ const KSBS = [
 const PROJECTS = [
   {
     id: "hubspot-implementation",
+    status: "complete", // "complete" shows a ✓ Completed badge; "in-progress" shows In progress
     title: "HubSpot CRM Implementation",
     period: "Sep 2024 – Feb 2025",
     role: "Project Manager",
@@ -167,6 +202,7 @@ const PROJECTS = [
   },
   {
     id: "webform-relaunch",
+    status: "complete", // "complete" shows a ✓ Completed badge; "in-progress" shows In progress
     title: "Webform Relaunch",
     period: "Dec 2025 – Feb 2026",
     role: "Project Lead",
@@ -177,6 +213,7 @@ const PROJECTS = [
   },
   {
     id: "website-revamp",
+    status: "in-progress", // "complete" shows a ✓ Completed badge; "in-progress" shows In progress
     title: "Website Revamp",
     period: "2026 – ongoing, launching Oct 2026",
     role: "Project Lead",
@@ -187,6 +224,7 @@ const PROJECTS = [
   },
   {
     id: "brand-refresh",
+    status: "in-progress", // "complete" shows a ✓ Completed badge; "in-progress" shows In progress
     title: "Brand Refresh",
     period: "Mar 2026 – Oct 2026",
     role: "Co-Lead (Client-Side)",
