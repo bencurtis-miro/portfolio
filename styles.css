@@ -246,9 +246,9 @@ main{ margin-left: var(--rail-w); }
 .brief-meta dd{ margin:0; font-size: 15px; }
 
 .stat-strip{
-  display:flex;
-  flex-wrap:wrap;
-  gap: 32px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 24px 32px;
   margin-bottom: 44px;
 }
 .stat-strip .stat{ display:flex; flex-direction:column; }
@@ -566,7 +566,7 @@ main{ margin-left: var(--rail-w); }
 .footer-name{ font-family: var(--font-display); font-weight:700; font-size: 1.2rem; margin:0; }
 .footer-sub{ color: var(--slate-light); font-size: 13px; margin: 4px 0 0; }
 .footer-links{ display:flex; gap: 20px; font-family: var(--font-mono); font-size: 13px; }
-.footer-links a{ text-decoration:none; color: var(--slate-light); }
+.footer-links a{ text-decoration:none; color: var(--slate-light); display:inline-block; padding: 10px 0; }
 .footer-links a:hover{ color: var(--paper); }
 
 /* ============================================================
@@ -637,4 +637,32 @@ main{ margin-left: var(--rail-w); }
   color: var(--slate);
   margin: 6px 0 0;
   font-style: italic;
+}
+
+/* ============================================================
+   MOBILE & TOUCH REFINEMENTS
+   ============================================================ */
+/* Respect the HTML `hidden` attribute even on elements styled
+   with display:flex/inline-flex (e.g. the CV download button,
+   which should stay hidden until SITE.cvPdf is set). */
+[hidden]{ display:none !important; }
+
+/* Larger tap targets on touch screens. */
+@media (pointer: coarse){
+  .chip{ padding: 10px 14px; }
+}
+
+/* Match the footer's side padding to the 24px used by every
+   other section once the layout switches to mobile. */
+@media (max-width: 860px){
+  .footer{ padding: 40px 24px; }
+}
+
+/* Phones: show the 36 KSB cards two-up rather than one per row,
+   so the evidence log isn't an extremely long scroll. */
+@media (max-width: 560px){
+  .stat-strip{ grid-template-columns: repeat(2, 1fr); }
+  .ksb-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .ksb-card{ padding: 14px; gap: 8px; }
+  .ksb-title{ font-size: 13.5px; }
 }
