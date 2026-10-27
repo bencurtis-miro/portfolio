@@ -4,6 +4,16 @@
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $all = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
+  /* Evidence helpers – max 4 entries per KSB, strongest first */
+  const MAX_EVIDENCE = 4;
+  const evidenceFor = k => (k.evidence || []).slice(0, MAX_EVIDENCE);
+  const projectById = id => PROJECTS.find(p => p.id === id);
+  KSBS.forEach(k => {
+    if ((k.evidence || []).length > MAX_EVIDENCE) {
+      console.warn(`${k.code} has ${k.evidence.length} evidence entries – only the first ${MAX_EVIDENCE} are shown.`);
+    }
+  });
+
   /* ---------------- SITE / COVER ---------------- */
   document.title = `${SITE.name} – ${SITE.title}`;
   $(".rail-mark-code").textContent = SITE.name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
@@ -103,7 +113,7 @@
           <span class="ksb-code ${k.category}">${k.code}</span>
         </div>
         <span class="ksb-title">${k.title}</span>
-        <span class="ksb-status-label"><span class="status-dot ${k.status}"></span>${statusLabel(k.status)}</span>
+        <span class="ksb-status-label"><span class="status-dot ${k.status}"></span>${statusLabel(k.status)}${evidenceFor(k).length ? `<span class="ksb-evidence-count">· ${evidenceFor(k).length} evidence</span>` : ""}</span>
       `;
       card.addEventListener("click", () => openModal(k));
       ksbGrid.appendChild(card);
@@ -130,8 +140,10 @@
   /* ---------------- MODAL ---------------- */
   const modalBackdrop = $("#modalBackdrop");
   let lastFocused = null;
+  let modalStep = null;
 
   function openModal(k) {
+    modalStep = null;
     $("#modalCode").textContent = `${k.code} · ${k.category.charAt(0).toUpperCase() + k.category.slice(1)}`;
     $("#modalTitle").textContent = k.title;
     $("#modalStatus").innerHTML = `<span class="status-dot ${k.status}" style="margin-right:6px;"></span>${statusLabel(k.status)}`;
@@ -139,41 +151,74 @@
 
     const evEl = $("#modalEvidence");
     evEl.innerHTML = "";
-    if (k.evidence && k.evidence.length) {
-      k.evidence.forEach(item => {
-        const entry = document.createElement("div");
-        entry.className = "evidence-item";
-        if (typeof item === "string") {
-          // legacy plain-text evidence, still supported
-          entry.innerHTML = `<p class="evidence-text">${item}</p>`;
-        } else {
-          entry.innerHTML = `
-            ${item.date ? `<p class="evidence-date">${item.date}</p>` : ""}
-            ${item.text ? `<p class="evidence-text">${item.text}</p>` : ""}
-            ${item.image ? `
-              <a href="${item.image}" target="_blank" rel="noopener" class="evidence-image-link">
-                <img class="evidence-image" src="${item.image}" alt="${item.imageCaption || k.title + ' evidence'}">
-              </a>
-              ${item.imageCaption ? `<p class="evidence-caption">${item.imageCaption}</p>` : ""}
-            ` : ""}
-          `;
-        }
-        evEl.appendChild(entry);
-      });
-    } else {
+    const items = evidenceFor(k);
+    if (!items.length) {
       evEl.innerHTML = `<p class="modal-evidence-empty">Evidence in progress.</p>`;
-    }
-    const linked = k.linkedProject && PROJECTS.find(p => p.id === k.linkedProject);
-    if (linked) {
-      const lp = document.createElement("p");
-      lp.className = "evidence-linked";
-      lp.innerHTML = `Linked project: <a href="#work">${linked.title}</a>`;
-      lp.querySelector("a").addEventListener("click", closeModal);
-      evEl.appendChild(lp);
+    } else {
+      const track = document.createElement("div");
+      track.className = "ev-track";
+      items.forEach((item, i) => {
+        const slide = document.createElement("div");
+        slide.className = "evidence-item";
+        slide.setAttribute("role", "group");
+        slide.setAttribute("aria-label", `Evidence ${i + 1} of ${items.length}`);
+        if (typeof item === "string") {
+          slide.innerHTML = `<p class="evidence-text">${item}</p>`;
+        } else {
+          const proj = item.project && projectById(item.project);
+          const where = proj
+            ? `<a href="#work" class="evidence-project">${proj.title}</a>`
+            : item.source ? `<span class="evidence-source">${item.source}</span>` : "";
+          const images = item.images || (item.image ? [{ src: item.image, caption: item.imageCaption }] : []);
+          slide.innerHTML = `
+            <p class="evidence-meta">${item.date ? `<span class="evidence-date">${item.date}</span>` : ""}${where}</p>
+            ${item.text ? `<p class="evidence-text">${item.text}</p>` : ""}
+            ${images.length ? `<div class="evidence-images${images.length > 1 ? " is-multi" : ""}">${images.map(im => `
+              <figure class="evidence-figure">
+                <a href="${im.src}" target="_blank" rel="noopener" class="evidence-image-link">
+                  <img class="evidence-image" src="${im.src}" alt="${im.caption || k.title + " evidence"}" loading="lazy">
+                </a>
+                ${im.caption ? `<figcaption class="evidence-caption">${im.caption}</figcaption>` : ""}
+              </figure>`).join("")}</div>` : ""}
+          `;
+          const pl = slide.querySelector(".evidence-project");
+          if (pl) pl.addEventListener("click", closeModal);
+        }
+        track.appendChild(slide);
+      });
+      evEl.appendChild(track);
+
+      if (items.length > 1) {
+        const nav = document.createElement("div");
+        nav.className = "ev-nav";
+        nav.innerHTML = `
+          <button type="button" class="ev-btn" data-dir="-1" aria-label="Previous evidence">&#8249;</button>
+          <span class="ev-count" aria-live="polite"></span>
+          <div class="ev-dots">${items.map((_, i) => `<button type="button" class="ev-dot" data-i="${i}" aria-label="Show evidence ${i + 1}"></button>`).join("")}</div>
+          <button type="button" class="ev-btn" data-dir="1" aria-label="Next evidence">&#8250;</button>
+        `;
+        evEl.prepend(nav);
+        const go = i => track.scrollTo({ left: track.clientWidth * i, behavior: "smooth" });
+        const current = () => Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
+        const update = () => {
+          const c = current();
+          $(".ev-count", nav).textContent = `${c + 1} / ${items.length}`;
+          $(".ev-count", nav).setAttribute("aria-label", `Evidence ${c + 1} of ${items.length}`);
+          $all(".ev-dot", nav).forEach((d, i) => d.classList.toggle("is-active", i === c));
+          $all(".ev-btn", nav)[0].disabled = c === 0;
+          $all(".ev-btn", nav)[1].disabled = c === items.length - 1;
+        };
+        $all(".ev-btn", nav).forEach(b => b.addEventListener("click", () => go(Math.min(items.length - 1, Math.max(0, current() + Number(b.dataset.dir))))));
+        $all(".ev-dot", nav).forEach(b => b.addEventListener("click", () => go(Number(b.dataset.i))));
+        track.addEventListener("scroll", update, { passive: true });
+        modalStep = dir => go(Math.min(items.length - 1, Math.max(0, current() + dir)));
+        update();
+      }
     }
 
     lastFocused = document.activeElement;
     modalBackdrop.hidden = false;
+    $(".modal").scrollTop = 0;
     $("#modalClose").focus();
     document.addEventListener("keydown", onModalKeydown);
   }
@@ -186,6 +231,10 @@
 
   function onModalKeydown(e) {
     if (e.key === "Escape") closeModal();
+    if (modalStep && (e.key === "ArrowRight" || e.key === "ArrowLeft")) {
+      e.preventDefault();
+      modalStep(e.key === "ArrowRight" ? 1 : -1);
+    }
   }
 
   $("#modalClose").addEventListener("click", closeModal);
@@ -199,7 +248,7 @@
     const statusBadge = p.status === "complete"
       ? `<span class="project-status is-complete">✓ Completed</span>`
       : p.status === "in-progress" ? `<span class="project-status">In progress</span>` : "";
-    const linkedKsbs = KSBS.filter(k => k.linkedProject === p.id);
+    const linkedKsbs = KSBS.filter(k => evidenceFor(k).some(e => e && e.project === p.id));
     card.innerHTML = `
       ${statusBadge}
       <p class="project-period">${p.period}${p.role ? ` · <span class="project-role">${p.role}</span>` : ""}</p>

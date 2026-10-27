@@ -73,53 +73,84 @@ const ABOUT = {
 };
 
 /* ------------------------------------------------------------
-   KSBs – pre-filled with the official ST0481 standard wording,
-   paraphrased into plain first-person prompts. Update `status`
-   as you go, and add real evidence via the `evidence` array.
-   Add real project links via `linkedProject` (matching a
-   PROJECTS id below) to connect evidence to work.
+   KSBs – the official ST0481 standard, paraphrased. Each KSB has
+   a `status` and up to FOUR evidence entries, which the KSB popup
+   shows as a swipeable carousel.
 
-   EVIDENCE ENTRIES – each item in `evidence` can be either:
-   - A plain string (quick text-only note), or
-   - An object for anything with a date, or a supporting image:
-       {
-         date: "25 Jul 2025",              // any display format you like
-         text: "What you did and why it counts as evidence.",
-         image: "evidence/filename.jpg",   // optional – omit if none
-         imageCaption: "One-line caption", // optional, only used with image
-       }
-   To add an image: save the file into the `evidence/` folder
-   in this project (create it if it doesn't exist), then
-   reference it by filename as shown above. Keep images
-   reasonably sized (compress before uploading) so the site
-   stays fast to load.
+   PICKING EVIDENCE: list entries strongest first. Only the first
+   four are shown, so if you have more than four, keep your best
+   four at the top.
+
+   EACH EVIDENCE ENTRY:
+     {
+       project: "webform-relaunch",   // a PROJECTS id below – links the two
+                                      // and adds this KSB to that project card
+       // …or, for day-to-day work rather than a project:
+       source: "Digital Marketing Executive, OutsideClinic",
+       date: "Dec 2025 – Feb 2026",
+       text: "One or two sentences on what you did and how it meets the KSB.",
+       images: [                      // optional – as many as you need
+         { src: "evidence/webform-new-design.jpg", caption: "The relaunched form" },
+         { src: "evidence/webform-thanks-email.jpg", caption: "Manager sign-off email" },
+       ],
+     }
+   Save images into the `evidence/` folder and compress them first
+   so the site stays fast. (Older entries using a single `image` +
+   `imageCaption` still work.)
+
+   DRAFTED EVIDENCE: entries on "in-progress" KSBs are first drafts
+   based on the project write-ups and CV. Before your EPA:
+     1. rewrite each one in your own words and check it's accurate,
+     2. add supporting images (the work itself, plus proof it was you),
+     3. then change status to "complete".
    ------------------------------------------------------------ */
 
-// DRAFTED EVIDENCE: entries marked "in-progress" have a first-draft
-// sentence based on the project write-ups below. Before your EPA:
-//   1. rewrite each one in your own words and check it's accurate,
-//   2. add a supporting example (image, document or link) per entry,
-//   3. then change status to "complete".
 const KSBS = [
   // SKILLS – listed first: this is where the real evidence sits
-  { code: "S1", category: "skill", title: "Apply marketing theory", description: "Develop and critically apply the concepts, principles and theories of marketing relevant to the interdisciplinary topics of digital marketing.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S2", category: "skill", title: "Apply the 4 Ps", description: "Apply the 4 marketing principles (product, price, place, promotion) and considerations of the business / marketing campaign.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S3", category: "skill", title: "Write for audience & channel", description: "Write and create content for the different audiences, online channels and create clear \u201cCall to Actions\u201d and user journeys.", status: "in-progress", linkedProject: "hubspot-implementation", evidence: [
-    { date: "Sep 2024 – Feb 2025", text: "As part of the HubSpot implementation, I built automated customer journeys across email, SMS and print, writing content for each audience and stage, and giving every touchpoint a clear call to action so customers knew their next step." },
+  { code: "S1", category: "skill", title: "Apply marketing theory", description: "Develop and critically apply the concepts, principles and theories of marketing relevant to the interdisciplinary topics of digital marketing.", status: "not-started", evidence: [] },
+  { code: "S2", category: "skill", title: "Apply the 4 Ps", description: "Apply the 4 marketing principles (product, price, place, promotion) and considerations of the business / marketing campaign.", status: "not-started", evidence: [] },
+  { code: "S3", category: "skill", title: "Write for audience & channel", description: "Write and create content for the different audiences, online channels and create clear “Call to Actions” and user journeys.", status: "in-progress", evidence: [
+    { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "As part of the HubSpot implementation, I built automated customer journeys across email, SMS and print, writing content for each audience and stage, and giving every touchpoint a clear call to action so customers knew their next step." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I write segmented, A/B-tested email campaigns for acquisition and retention audiences through HubSpot, DotDigital and MBA Pulse, tailoring the message and call to action to where each customer is in their journey." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I build landing pages in Unbounce and Craft CMS with clear calls to action, using structured testing to improve the journey from ad click to enquiry." },
+    { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "On the webform relaunch, I helped redesign the enquiry journey from the ground up to give customers a clearer route to get in touch, informed by insight and data." },
   ] },
-  { code: "S4", category: "skill", title: "Apply content marketing", description: "Demonstrate how to promote and apply content marketing effectively through the appropriate media channels, relationship management systems and communication platforms to ensure brand and cultural awareness are maintained throughout marketing strategies.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S5", category: "skill", title: "Select research methods", description: "Select a variety of appropriate research methodologies, platforms and technologies to synthesise information and apply to the organisation's digital marketing strategies, drivers and customer behaviours.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S6", category: "skill", title: "Manage & report on projects", description: "Manage, plan, specify, lead and report on digital marketing projects.", status: "in-progress", linkedProject: "hubspot-implementation", evidence: [
-    { date: "Sep 2024 – Feb 2025", text: "I project-managed the end-to-end HubSpot CRM implementation at OutsideClinic: planning the build of live assets, customer journeys and sales pipelines, reporting progress to stakeholders from employee level through to SLT and suppliers, and delivering on time with staff training built in for a smooth handover." },
-    { date: "2026 – ongoing", text: "I'm leading OutsideClinic's website rebuild with a partner design agency – setting and enforcing the delivery timeline and securing stakeholder approvals to keep the project on track for launch." },
+  { code: "S4", category: "skill", title: "Apply content marketing", description: "Demonstrate how to promote and apply content marketing effectively through the appropriate media channels, relationship management systems and communication platforms to ensure brand and cultural awareness are maintained throughout marketing strategies.", status: "in-progress", evidence: [
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I manage OutsideClinic's social presence across Facebook, Instagram, LinkedIn, TikTok and YouTube, using content on each platform to build brand awareness." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I use photography taken by our field staff to tell patients' stories on social media – emotion-led content that shows the value of the service rather than claiming it." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I run a keyword-led content strategy for organic search, which has delivered sustained month-on-month and year-on-year organic growth." },
+    { project: "brand-refresh", date: "Mar 2026 – Oct 2026", text: "During the brand refresh, I managed sign-off on new assets and copy so that content across our channels reflects the new brand identity." },
   ] },
-  { code: "S7", category: "skill", title: "Optimise channels & content", description: "Manage and optimise key channels and content within a digital marketing plan.", status: "in-progress", linkedProject: "webform-relaunch", evidence: [
-    { date: "Dec 2025 – Feb 2026", text: "I led the redesign and relaunch of the company webform, a key conversion point on the website, using insight and data to shape the new design before rebuilding it with an external agency and internal IT and putting it live." },
+  { code: "S5", category: "skill", title: "Select research methods", description: "Select a variety of appropriate research methodologies, platforms and technologies to synthesise information and apply to the organisation's digital marketing strategies, drivers and customer behaviours.", status: "in-progress", evidence: [
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I use GA4, Power BI, SEMrush, Google Search Console and Infinity to research and analyse performance across channels, choosing the right tool for each question and pulling the findings together for reporting." },
+    { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "For the webform relaunch, I gathered market-relevant insight and data to understand what the form needed to do before the redesign began." },
   ] },
-  { code: "S8", category: "skill", title: "Apply e-commerce strategy", description: "Manage interfaces and the supply network of the organisation and customer by applying the appropriate E-commerce strategies and models available and whenever appropriate taking global engagements into account.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S9", category: "skill", title: "Apply the marketing mix", description: "Apply a marketing mix / digital marketing mix to meet customer expectations.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S10", category: "skill", title: "Analyse campaign performance", description: "Accurately observe, record and draw conclusions from all types statistical analysis of campaign performance, recognising inherent uncertainties and limitations with financial and budgetary requirements to demonstrate Return on Investment (ROI).", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S11", category: "skill", title: "Engage via email & social", description: "Engage communities through Email Marketing and Social Media to stimulate and encourage communication through positive discussion and engagement.", status: "complete", linkedProject: null, evidence: [
+  { code: "S6", category: "skill", title: "Manage & report on projects", description: "Manage, plan, specify, lead and report on digital marketing projects.", status: "in-progress", evidence: [
+    { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "I project-managed the end-to-end HubSpot CRM implementation at OutsideClinic: planning the build of live assets, customer journeys and sales pipelines, reporting progress to stakeholders from employee level through to SLT and suppliers, and delivering on time with staff training built in for a smooth handover." },
+    { project: "website-revamp", date: "2026 – ongoing", text: "I'm leading OutsideClinic's website rebuild with a partner design agency – setting and enforcing the delivery timeline and securing stakeholder approvals to keep the project on track for launch." },
+    { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "I led the webform relaunch, coordinating an external agency and our internal IT team through the redesign, build and live launch." },
+    { project: "brand-refresh", date: "Mar 2026 – Oct 2026", text: "I co-led the client side of OutsideClinic's brand refresh, managing sign-off across internal stakeholders and holding deadlines through to launch." },
+  ] },
+  { code: "S7", category: "skill", title: "Optimise channels & content", description: "Manage and optimise key channels and content within a digital marketing plan.", status: "in-progress", evidence: [
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I manage Google Ads and Microsoft Ads campaigns, optimising targeting, spend and bidding to reduce cost per acquisition and maximise return on investment." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I manage technical SEO and keyword-led content, which has delivered sustained month-on-month and year-on-year organic growth." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I build and optimise landing pages in Unbounce and Craft CMS through structured testing and UX improvements." },
+    { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "I led the redesign and relaunch of the company webform, a key conversion point on the website, using insight and data to shape the new design before rebuilding it with an external agency and internal IT and putting it live." },
+  ] },
+  { code: "S8", category: "skill", title: "Apply e-commerce strategy", description: "Manage interfaces and the supply network of the organisation and customer by applying the appropriate E-commerce strategies and models available and whenever appropriate taking global engagements into account.", status: "in-progress", evidence: [
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I manage relationships with suppliers and partners including Sagacity, StudioCertain, MBA Group and Paragon, aligning their delivery with OutsideClinic's commercial objectives." },
+    { project: "website-revamp", date: "2026 – ongoing", text: "I'm leading the rebuild of OutsideClinic's website – the main online interface between the business and its customers – with a partner design agency." },
+  ] },
+  { code: "S9", category: "skill", title: "Apply the marketing mix", description: "Apply a marketing mix / digital marketing mix to meet customer expectations.", status: "in-progress", evidence: [
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I oversee a multi-channel acquisition mix across Direct Mail, Paid Social, PPC, SEO and CRM, balancing the channels to reach customers in the right place." },
+  ] },
+  { code: "S10", category: "skill", title: "Analyse campaign performance", description: "Accurately observe, record and draw conclusions from all types statistical analysis of campaign performance, recognising inherent uncertainties and limitations with financial and budgetary requirements to demonstrate Return on Investment (ROI).", status: "in-progress", evidence: [
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I lead Direct Mail campaigns using CPA, CVR and ROI analysis to judge performance and decide where to invest." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I monitor Google Ads and Microsoft Ads performance and adjust targeting, spend and bidding to lower cost per acquisition and improve return on investment." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I report on key business KPIs across channels using GA4, Power BI and Infinity." },
+    { source: "Data Administrator / Scheduling Assistant, OutsideClinic", date: "Sep 2021 – Sep 2024", text: "As Data Administrator, I built Excel reports and dashboards to track call volumes, customer trends and team output." },
+  ] },
+  { code: "S11", category: "skill", title: "Engage via email & social", description: "Engage communities through Email Marketing and Social Media to stimulate and encourage communication through positive discussion and engagement.", status: "complete", evidence: [
     {
       date: "25 Jul 2025",
       text: "This way of working with field-staff photography has developed over several years, but this specific piece of evidence was logged on 25/07/2025. Used social media and photography taken by OutsideClinic field staff to depict the emotion of seeing clearly again for the first time – using storytelling to create an emotion-led post that highlights the value of the service without directly claiming it. Show, don't tell.",
@@ -127,58 +158,100 @@ const KSBS = [
       imageCaption: "OutsideClinic Instagram post, featuring a patient's story following a home eye test.",
     },
   ] },
-  { code: "S12", category: "skill", title: "Apply data-led analysis", description: "Apply the appropriate tools for a data-led approach to analyse marketing information and platforms, data and social media and recognise what is actually important for insights and optimisation to provide solutions for marketing decisions.", status: "in-progress", linkedProject: "webform-relaunch", evidence: [
-    { date: "Dec 2025 – Feb 2026", text: "Before redesigning the company webform, I used market-relevant insight and data to decide what the new design needed to achieve, so the relaunch was based on evidence rather than opinion." },
+  { code: "S12", category: "skill", title: "Apply data-led analysis", description: "Apply the appropriate tools for a data-led approach to analyse marketing information and platforms, data and social media and recognise what is actually important for insights and optimisation to provide solutions for marketing decisions.", status: "in-progress", evidence: [
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I use GA4, Power BI, SEMrush, Google Search Console and Infinity to analyse cross-channel performance and pick out the insights that matter for optimisation." },
+    { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "Before redesigning the company webform, I used market-relevant insight and data to decide what the new design needed to achieve, so the relaunch was based on evidence rather than opinion." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I use CPA, CVR and ROI analysis to make data-led decisions on Direct Mail campaigns." },
   ] },
-  { code: "S13", category: "skill", title: "Contribute to strategy", description: "Contribute to business, planning and marketing strategies to recognise and respond quickly to opportunities and customer requirements whilst embracing change.", status: "in-progress", linkedProject: "brand-refresh", evidence: [
-    { date: "Mar 2026 – Oct 2026", text: "I contributed to OutsideClinic's brand strategy by co-leading the client side of a full brand identity relaunch with an external design agency, guiding internal stakeholders through the change and keeping the project moving to deadline." },
+  { code: "S13", category: "skill", title: "Contribute to strategy", description: "Contribute to business, planning and marketing strategies to recognise and respond quickly to opportunities and customer requirements whilst embracing change.", status: "in-progress", evidence: [
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I oversee OutsideClinic's multi-channel acquisition strategy, adapting the mix across Direct Mail, Paid Social, PPC, SEO and CRM." },
+    { project: "brand-refresh", date: "Mar 2026 – Oct 2026", text: "I contributed to OutsideClinic's brand strategy by co-leading the client side of a full brand identity relaunch with an external design agency, guiding internal stakeholders through the change and keeping the project moving to deadline." },
+    { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "I led the move to HubSpot CRM, changing how the business manages customer journeys and sales pipelines." },
+    { project: "website-revamp", date: "2026 – ongoing", text: "I'm leading the website rebuild, a major change to how the business presents itself online." },
   ] },
-  { code: "S14", category: "skill", title: "Read business intelligence", description: "Identify, recognise and understand internal and external business intelligence and factors that may impact future operations.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "S15", category: "skill", title: "Brief stakeholders", description: "Interpret, communicate and brief internal or external stakeholders on digital business requirements.", status: "in-progress", linkedProject: "website-revamp", evidence: [
-    { date: "2026 – ongoing", text: "On the website rebuild, I'm the link between our partner design agency and internal stakeholders – creating and proofing concepts and content, communicating them internally and securing approvals." },
-    { date: "Dec 2025 – Feb 2026", text: "On the webform relaunch, I worked between an external agency and our internal IT team, communicating the business's requirements so the rebuilt form could be implemented live." },
+  { code: "S14", category: "skill", title: "Read business intelligence", description: "Identify, recognise and understand internal and external business intelligence and factors that may impact future operations.", status: "in-progress", evidence: [
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I analyse internal performance data across channels in GA4, Power BI and Infinity and report on key business KPIs, flagging trends that could affect future plans." },
+  ] },
+  { code: "S15", category: "skill", title: "Brief stakeholders", description: "Interpret, communicate and brief internal or external stakeholders on digital business requirements.", status: "in-progress", evidence: [
+    { project: "website-revamp", date: "2026 – ongoing", text: "On the website rebuild, I'm the link between our partner design agency and internal stakeholders – creating and proofing concepts and content, communicating them internally and securing approvals." },
+    { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "On the webform relaunch, I worked between an external agency and our internal IT team, communicating the business's requirements so the rebuilt form could be implemented live." },
+    { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "Throughout the HubSpot implementation, I kept stakeholders from employee level through to SLT and suppliers informed, briefing each group on what the new CRM meant for them." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I brief suppliers and partners including Sagacity, StudioCertain, MBA Group and Paragon, keeping their delivery aligned with our commercial objectives." },
   ] },
 
   // KNOWLEDGE
-  { code: "K1", category: "knowledge", title: "The disruptive digital environment", description: "The strategic implications of the disruptive digital environment.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K2", category: "knowledge", title: "Organic vs paid visibility", description: "Natural/organic and paid marketing to increase the visibility and promotion of websites.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K3", category: "knowledge", title: "Brand theory in practice", description: "The leading marketing theorists and practitioners when managing and implementing brand equity, brand awareness and strategic brand management.", status: "in-progress", linkedProject: "brand-refresh", evidence: [
-    { date: "Mar 2026 – Oct 2026", text: "Co-leading the client side of OutsideClinic's brand refresh developed my understanding of strategic brand management – protecting brand equity through a full identity relaunch while managing sign-off on assets and copy across internal stakeholders." },
+  { code: "K1", category: "knowledge", title: "The disruptive digital environment", description: "The strategic implications of the disruptive digital environment.", status: "not-started", evidence: [] },
+  { code: "K2", category: "knowledge", title: "Organic vs paid visibility", description: "Natural/organic and paid marketing to increase the visibility and promotion of websites.", status: "in-progress", evidence: [
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I manage technical SEO and keyword-led content to grow organic visibility, delivering sustained month-on-month and year-on-year organic growth." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "Alongside organic, I manage paid search on Google Ads and Microsoft Ads, so I work with both sides of search visibility day to day." },
   ] },
-  { code: "K4", category: "knowledge", title: "Professional bodies & emerging trends", description: "Professional bodies and their insights into emerging technologies, trends and themes within the digital marketing environment.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K5", category: "knowledge", title: "Customer insight & retention", description: "Customer insight, strategic relationships, acquisition and focus of customers, taking into account the customer experience and retention/loyalty.", status: "in-progress", linkedProject: "hubspot-implementation", evidence: [
-    { date: "Sep 2024 – Feb 2025", text: "Through the HubSpot implementation, I designed automated lifecycle journeys across email, SMS and print aimed at improving repeat purchase rate and customer lifetime value, applying my understanding of customer retention and loyalty." },
+  { code: "K3", category: "knowledge", title: "Brand theory in practice", description: "The leading marketing theorists and practitioners when managing and implementing brand equity, brand awareness and strategic brand management.", status: "in-progress", evidence: [
+    { project: "brand-refresh", date: "Mar 2026 – Oct 2026", text: "Co-leading the client side of OutsideClinic's brand refresh developed my understanding of strategic brand management – protecting brand equity through a full identity relaunch while managing sign-off on assets and copy across internal stakeholders." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I manage our social channels to support brand awareness across Facebook, Instagram, LinkedIn, TikTok and YouTube." },
   ] },
-  { code: "K6", category: "knowledge", title: "B2B relationships via social", description: "How to foster business-to-business (B2B) marketing relationships through social media to launch products based on price and popularity.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K7", category: "knowledge", title: "Paid, owned & earned media", description: "The types of online and offline paid, owned and earned media, and how this works together.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K8", category: "knowledge", title: "Regulation, data protection & ethics", description: "Digital marketing regulatory requirements, data protection, compliance and ethics, both national and international.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K9", category: "knowledge", title: "International & multichannel marketing", description: "The Digital Marketing environment for International marketing and multichannel marketing, for agencies as well as client.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "K10", category: "knowledge", title: "Stakeholder & commercial awareness", description: "Stakeholder and customer requirements, commercial awareness and business improvement processes that are relevant to campaign management.", status: "in-progress", linkedProject: "hubspot-implementation", evidence: [
-    { date: "Sep 2024 – Feb 2025", text: "Implementing HubSpot meant balancing the requirements of employees, SLT and suppliers, keeping each group informed throughout so the new CRM met the business's needs and was adopted smoothly through staff training." },
+  { code: "K4", category: "knowledge", title: "Professional bodies & emerging trends", description: "Professional bodies and their insights into emerging technologies, trends and themes within the digital marketing environment.", status: "not-started", evidence: [] },
+  { code: "K5", category: "knowledge", title: "Customer insight & retention", description: "Customer insight, strategic relationships, acquisition and focus of customers, taking into account the customer experience and retention/loyalty.", status: "in-progress", evidence: [
+    { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "Through the HubSpot implementation, I designed automated lifecycle journeys across email, SMS and print aimed at improving repeat purchase rate and customer lifetime value, applying my understanding of customer retention and loyalty." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I oversee customer acquisition across Direct Mail, Paid Social, PPC, SEO and CRM, using CPA, CVR and ROI analysis to understand how each channel performs." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I run segmented email campaigns aimed at both acquisition and retention audiences." },
   ] },
-  { code: "K11", category: "knowledge", title: "Digital & interface design", description: "Digital graphic design, interface design, and authoring.", status: "in-progress", linkedProject: "website-revamp", evidence: [
-    { date: "2026 – ongoing", text: "On the website rebuild, I create and proof design concepts and content with our partner agency, applying interface design principles to the new site." },
+  { code: "K6", category: "knowledge", title: "B2B relationships via social", description: "How to foster business-to-business (B2B) marketing relationships through social media to launch products based on price and popularity.", status: "not-started", evidence: [] },
+  { code: "K7", category: "knowledge", title: "Paid, owned & earned media", description: "The types of online and offline paid, owned and earned media, and how this works together.", status: "in-progress", evidence: [
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "My role covers paid media (Google Ads, Microsoft Ads, Meta and Direct Mail) and owned channels (website, SEO, email and social), and I oversee how they work together in our acquisition strategy." },
   ] },
-  { code: "K12", category: "knowledge", title: "User experience", description: "The user experience, and how to maximise engagement.", status: "in-progress", linkedProject: "webform-relaunch", evidence: [
-    { date: "Dec 2025 – Feb 2026", text: "The webform relaunch put user experience at the centre: I used insight and data to shape a redesigned form, rebuilt from the ground up and implemented live on the website." },
+  { code: "K8", category: "knowledge", title: "Regulation, data protection & ethics", description: "Digital marketing regulatory requirements, data protection, compliance and ethics, both national and international.", status: "in-progress", evidence: [
+    { source: "Data Administrator / Scheduling Assistant, OutsideClinic", date: "Sep 2021 – Sep 2024", text: "As Data Administrator, I logged and processed inbound mail, making sure customer data was entered correctly and in line with GDPR." },
   ] },
-  { code: "K13", category: "knowledge", title: "Funnels, segmentation & attribution", description: "Segmentation, targeting and application of sales funnel, path to purchase, and customer attribution.", status: "in-progress", linkedProject: "hubspot-implementation", evidence: [
-    { date: "Sep 2024 – Feb 2025", text: "In HubSpot, I built bespoke sales pipelines, funnels and segmented customer journeys, mapping the customer's path to purchase and the follow-up that encourages repeat purchases." },
+  { code: "K9", category: "knowledge", title: "International & multichannel marketing", description: "The Digital Marketing environment for International marketing and multichannel marketing, for agencies as well as client.", status: "in-progress", evidence: [
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I work across multichannel marketing every day – Direct Mail, Paid Social, PPC, SEO and CRM – and manage agency partners from the client side." },
   ] },
-  { code: "K14", category: "knowledge", title: "E-commerce fundamentals", description: "E-commerce and the importance of product descriptions, images, site layout and what makes a good online shopping experience.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "K10", category: "knowledge", title: "Stakeholder & commercial awareness", description: "Stakeholder and customer requirements, commercial awareness and business improvement processes that are relevant to campaign management.", status: "in-progress", evidence: [
+    { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "Implementing HubSpot meant balancing the requirements of employees, SLT and suppliers, keeping each group informed throughout so the new CRM met the business's needs and was adopted smoothly through staff training." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I manage supplier and partner relationships and keep their delivery aligned with OutsideClinic's commercial objectives." },
+    { project: "website-revamp", date: "2026 – ongoing", text: "On the website rebuild, I align internal stakeholders and secure approvals, balancing their requirements with the delivery timeline." },
+  ] },
+  { code: "K11", category: "knowledge", title: "Digital & interface design", description: "Digital graphic design, interface design, and authoring.", status: "in-progress", evidence: [
+    { project: "website-revamp", date: "2026 – ongoing", text: "On the website rebuild, I create and proof design concepts and content with our partner agency, applying interface design principles to the new site." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I build landing pages in Unbounce and Craft CMS, laying out content and calls to action for each campaign." },
+    { project: "brand-refresh", date: "Mar 2026 – Oct 2026", text: "On the brand refresh, I reviewed new design assets and copy, requesting changes where needed before sign-off." },
+  ] },
+  { code: "K12", category: "knowledge", title: "User experience", description: "The user experience, and how to maximise engagement.", status: "in-progress", evidence: [
+    { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "The webform relaunch put user experience at the centre: I used insight and data to shape a redesigned form, rebuilt from the ground up and implemented live on the website." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I improve landing pages through structured testing and UX optimisation to increase engagement and conversions." },
+    { project: "website-revamp", date: "2026 – ongoing", text: "On the website rebuild, I create and proof concepts with our partner agency with the user's experience of the new site in mind." },
+  ] },
+  { code: "K13", category: "knowledge", title: "Funnels, segmentation & attribution", description: "Segmentation, targeting and application of sales funnel, path to purchase, and customer attribution.", status: "in-progress", evidence: [
+    { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "In HubSpot, I built bespoke sales pipelines, funnels and segmented customer journeys, mapping the customer's path to purchase and the follow-up that encourages repeat purchases." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I segment audiences for email campaigns by acquisition and retention stage, and A/B test to see what works for each group." },
+  ] },
+  { code: "K14", category: "knowledge", title: "E-commerce fundamentals", description: "E-commerce and the importance of product descriptions, images, site layout and what makes a good online shopping experience.", status: "not-started", evidence: [] },
 
   // BEHAVIOURS – part of the standard, so kept for completeness, but
   // deliberately not the focus of this portfolio (see filter default in script.js)
-  { code: "B1", category: "behaviour", title: "Communication", description: "Ability to communicate and actively listen at all levels.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "B2", category: "behaviour", title: "Resilience & teamwork", description: "Ability to work under pressure and unsupervised, and interact effectively within teams.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "B3", category: "behaviour", title: "Inclusion & impact awareness", description: "Consider the impact of work on others, especially where related to culture, diversity and equality.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "B4", category: "behaviour", title: "Quality & deadlines", description: "Demonstrate business disciplines and compliance with procedures and principles to ensure work is of high quality and fit for purpose, with high attention to detail and the ability to work to deadlines.", status: "in-progress", linkedProject: "brand-refresh", evidence: [
-    { date: "Mar 2026 – Oct 2026", text: "On the brand refresh, I managed sign-off on assets and copy, flagged and requested changes where needed, and held the line on deadlines once designs were locked." },
-    { date: "2026 – ongoing", text: "On the website rebuild, I set and enforce the delivery timeline with our partner agency to keep the project on track." },
+  { code: "B1", category: "behaviour", title: "Communication", description: "Ability to communicate and actively listen at all levels.", status: "in-progress", evidence: [
+    { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "On the HubSpot implementation, I communicated with everyone from employees to SLT and suppliers, and trained staff on the new system." },
+    { source: "Data Administrator / Scheduling Assistant, OutsideClinic", date: "Sep 2021 – Sep 2024", text: "As Scheduling Assistant, I handled more than 100 inbound calls a day, supporting customers and updating their records." },
   ] },
-  { code: "B5", category: "behaviour", title: "Integrity & data security", description: "Show integrity and respect for confidentiality and data security in work and personal situations.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "B6", category: "behaviour", title: "CPD & enthusiasm", description: "Be enthusiastic and have a thorough and flexible approach to work and to personal development through CPD and life-long learning.", status: "not-started", linkedProject: null, evidence: [] },
-  { code: "B7", category: "behaviour", title: "Structured problem solving", description: "Logical thinking and a creative approach to problem solving to systematically analyse and apply structured techniques to complex systems and situations.", status: "not-started", linkedProject: null, evidence: [] },
+  { code: "B2", category: "behaviour", title: "Resilience & teamwork", description: "Ability to work under pressure and unsupervised, and interact effectively within teams.", status: "in-progress", evidence: [
+    { source: "Data Administrator / Scheduling Assistant, OutsideClinic", date: "Sep 2021 – Sep 2024", text: "As Scheduling Assistant, I managed UK-wide clinician schedules, balancing geography, availability and patient needs alongside a high volume of daily calls." },
+    { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "On the webform relaunch, I worked across teams – an external agency and our internal IT department – to deliver the project." },
+  ] },
+  { code: "B3", category: "behaviour", title: "Inclusion & impact awareness", description: "Consider the impact of work on others, especially where related to culture, diversity and equality.", status: "not-started", evidence: [] },
+  { code: "B4", category: "behaviour", title: "Quality & deadlines", description: "Demonstrate business disciplines and compliance with procedures and principles to ensure work is of high quality and fit for purpose, with high attention to detail and the ability to work to deadlines.", status: "in-progress", evidence: [
+    { project: "brand-refresh", date: "Mar 2026 – Oct 2026", text: "On the brand refresh, I managed sign-off on assets and copy, flagged and requested changes where needed, and held the line on deadlines once designs were locked." },
+    { project: "website-revamp", date: "2026 – ongoing", text: "On the website rebuild, I set and enforce the delivery timeline with our partner agency to keep the project on track." },
+    { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "I delivered the HubSpot implementation on time, with staff training built in for a smooth handover." },
+  ] },
+  { code: "B5", category: "behaviour", title: "Integrity & data security", description: "Show integrity and respect for confidentiality and data security in work and personal situations.", status: "in-progress", evidence: [
+    { source: "Data Administrator / Scheduling Assistant, OutsideClinic", date: "Sep 2021 – Sep 2024", text: "As Data Administrator, I handled customer records and inbound mail in line with GDPR, making sure personal data was entered accurately and handled securely." },
+  ] },
+  { code: "B6", category: "behaviour", title: "CPD & enthusiasm", description: "Be enthusiastic and have a thorough and flexible approach to work and to personal development through CPD and life-long learning.", status: "in-progress", evidence: [
+    { source: "University of Portsmouth", date: "Ongoing", text: "I'm studying for a BA (Hons) Digital Marketing degree apprenticeship at the University of Portsmouth alongside my full-time role, applying what I learn to my day-to-day work." },
+  ] },
+  { code: "B7", category: "behaviour", title: "Structured problem solving", description: "Logical thinking and a creative approach to problem solving to systematically analyse and apply structured techniques to complex systems and situations.", status: "in-progress", evidence: [
+    { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "For the webform relaunch, I used insight and data to work out what needed to change before redesigning the form from the ground up." },
+    { source: "Data Administrator / Scheduling Assistant, OutsideClinic", date: "Sep 2021 – Sep 2024", text: "As Scheduling Assistant, I planned UK-wide clinician schedules, solving the puzzle of geography, availability and patient needs." },
+  ] },
 ];
 
 /* ------------------------------------------------------------
@@ -224,7 +297,7 @@ const PROJECTS = [
   },
   {
     id: "brand-refresh",
-    status: "in-progress", // "complete" shows a ✓ Completed badge; "in-progress" shows In progress
+    status: "complete", // "complete" shows a ✓ Completed badge; "in-progress" shows In progress
     title: "Brand Refresh",
     period: "Mar 2026 – Oct 2026",
     role: "Co-Lead (Client-Side)",
