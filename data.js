@@ -203,7 +203,7 @@ const PROJECTS = [
 
 const CV = {
   summary:
-    "Digital Marketing Executive with experience leading multi-channel acquisition, CRM and lifecycle marketing strategy within a £40m business. Led the end-to-end implementation of HubSpot, developing automated customer journeys across email, SMS and print to improve engagement, retention and customer lifetime value. Experienced in managing high-performing acquisition channels including Direct Mail campaigns generating circa £400k in monthly revenue, alongside PPC campaigns (Google Ads and Microsoft Ads) generating circa £350k and Paid Social (Meta) generating circa £20k in monthly revenue, focused on data-driven optimisation to improve ROI, CVR and overall campaign performance.",
+    "Digital Marketing Executive with experience leading multi-channel acquisition, CRM and lifecycle marketing strategy within a £40m business, with accountability for a six-figure monthly media budget. Led the end-to-end implementation of HubSpot, developing automated customer journeys across email, SMS and print to improve engagement, retention and customer lifetime value. Experienced in managing high-performing acquisition channels including Direct Mail campaigns generating circa £400k in monthly revenue, alongside PPC campaigns (Google Ads and Microsoft Ads) generating circa £350k and Paid Social (Meta) generating circa £20k in monthly revenue, focused on data-driven optimisation to improve ROI, CVR and overall campaign performance.",
 
   skills: {
     technical: [
@@ -231,7 +231,7 @@ const CV = {
       org: "OutsideClinic",
       period: "Sep 2024 – Current",
       points: [
-        "Oversaw multi-channel acquisition strategy across Direct Mail, Paid Social, PPC, SEO and CRM, leading Direct Mail campaigns generating ~£400k in monthly revenue using CPA, CVR and ROI analysis.",
+        "Oversaw multi-channel acquisition strategy and a six-figure monthly media budget across Direct Mail, Paid Social, PPC, SEO and CRM, leading Direct Mail campaigns generating ~£400k in monthly revenue using CPA, CVR and ROI analysis.",
         "Led the end-to-end implementation of HubSpot, designing bespoke pipelines, funnels and automated workflows across email, SMS and print to improve repeat purchase rate and customer lifetime value.",
         "Managed Google Ads and Microsoft (Bing) campaigns generating ~£350k in monthly revenue, optimising targeting, spend and bidding to reduce CPA and maximise ROI.",
         "Managed Paid Social campaigns on Meta generating ~£20k in monthly revenue.",
