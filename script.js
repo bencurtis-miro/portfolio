@@ -163,6 +163,14 @@
     } else {
       evEl.innerHTML = `<p class="modal-evidence-empty">Evidence in progress.</p>`;
     }
+    const linked = k.linkedProject && PROJECTS.find(p => p.id === k.linkedProject);
+    if (linked) {
+      const lp = document.createElement("p");
+      lp.className = "evidence-linked";
+      lp.innerHTML = `Linked project: <a href="#work">${linked.title}</a>`;
+      lp.querySelector("a").addEventListener("click", closeModal);
+      evEl.appendChild(lp);
+    }
 
     lastFocused = document.activeElement;
     modalBackdrop.hidden = false;
@@ -188,12 +196,21 @@
   PROJECTS.forEach(p => {
     const card = document.createElement("article");
     card.className = "project-card";
+    const statusBadge = p.status === "complete"
+      ? `<span class="project-status is-complete">✓ Completed</span>`
+      : p.status === "in-progress" ? `<span class="project-status">In progress</span>` : "";
+    const linkedKsbs = KSBS.filter(k => k.linkedProject === p.id);
     card.innerHTML = `
+      ${statusBadge}
       <p class="project-period">${p.period}${p.role ? ` · <span class="project-role">${p.role}</span>` : ""}</p>
       <h3 class="project-title">${p.title}</h3>
       <p class="project-summary">${p.summary}</p>
       <div class="project-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+      ${linkedKsbs.length ? `<div class="project-ksbs"><span class="project-ksbs-label">KSB evidence</span>${linkedKsbs.map(k => `<button type="button" class="project-ksb ${k.category}" data-ksb="${k.code}" aria-label="Open ${k.code}: ${k.title}">${k.code}</button>`).join("")}</div>` : ""}
     `;
+    card.querySelectorAll("[data-ksb]").forEach(btn => {
+      btn.addEventListener("click", () => openModal(KSBS.find(k => k.code === btn.dataset.ksb)));
+    });
     projectGrid.appendChild(card);
   });
 
