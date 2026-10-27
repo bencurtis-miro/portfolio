@@ -666,3 +666,20 @@ main{ margin-left: var(--rail-w); }
   .ksb-card{ padding: 14px; gap: 8px; }
   .ksb-title{ font-size: 13.5px; }
 }
+
+/* Carousel position dots – phones only (arrows cover larger screens). */
+.carousel-dots{ display:none; }
+@media (max-width: 700px){
+  .carousel-dots{ display:flex; justify-content:center; gap: 0; margin-top: 12px; }
+  .carousel-dot{
+    width: 32px; height: 32px; padding: 0;
+    border: none; background: none; cursor: pointer;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .carousel-dot::before{
+    content:""; width: 8px; height: 8px; border-radius: 100px;
+    background: var(--line-dark);
+    transition: width .2s ease, background .2s ease;
+  }
+  .carousel-dot.is-active::before{ width: 22px; background: var(--skill); }
+}

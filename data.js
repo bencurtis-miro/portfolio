@@ -13,6 +13,7 @@ const SITE = {
   title: "Digital Marketing Executive",
   location: "United Kingdom", // consolidated from a specific county for a public-facing site
   client: "Digital Marketing Executive", // feeds the "Current Position" field in the hero
+  org: "OutsideClinic", // employer, shown under your title in the hero's "Currently" card
   brief:
     "Digital Marketing Executive with experience leading multi-channel acquisition, CRM and lifecycle marketing strategy within a £40m business.", // feeds "Overview" – your personal statement
   currentFocus:
@@ -35,7 +36,7 @@ const SITE = {
 
 const HERO_STATS = [
   { value: "3+", label: "Years in industry" },
-  { value: "£750k+", label: "Monthly revenue managed" }, // ~£400k Direct Mail + ~£350k PPC (see CV)
+  { value: "£750k+", label: "Monthly revenue managed" }, // ~£400k Direct Mail + ~£350k PPC (Google & Bing) + ~£20k Paid Social (Meta) ≈ £770k (see CV)
   { value: "5", label: "Acquisition channels managed" }, // Direct Mail, Paid Social, PPC, SEO, CRM
   { value: "1", label: "Agency co\u2011founded" }, // Mirõ MKT. \u2011 = non-breaking hyphen, so "co-founded" never splits across lines
 ];
@@ -202,7 +203,7 @@ const PROJECTS = [
 
 const CV = {
   summary:
-    "Digital Marketing Executive with experience leading multi-channel acquisition, CRM and lifecycle marketing strategy within a £40m business. Led the end-to-end implementation of HubSpot, developing automated customer journeys across email, SMS and print to improve engagement, retention and customer lifetime value. Experienced in managing high-performing acquisition channels including Direct Mail campaigns generating circa £400k in monthly revenue, alongside PPC and Paid Social campaigns with monthly revenues of circa £350k, focused on data-driven optimisation to improve ROI, CVR and overall campaign performance.",
+    "Digital Marketing Executive with experience leading multi-channel acquisition, CRM and lifecycle marketing strategy within a £40m business. Led the end-to-end implementation of HubSpot, developing automated customer journeys across email, SMS and print to improve engagement, retention and customer lifetime value. Experienced in managing high-performing acquisition channels including Direct Mail campaigns generating circa £400k in monthly revenue, alongside PPC campaigns (Google Ads and Microsoft Ads) generating circa £350k and Paid Social (Meta) generating circa £20k in monthly revenue, focused on data-driven optimisation to improve ROI, CVR and overall campaign performance.",
 
   skills: {
     technical: [
@@ -233,6 +234,7 @@ const CV = {
         "Oversaw multi-channel acquisition strategy across Direct Mail, Paid Social, PPC, SEO and CRM, leading Direct Mail campaigns generating ~£400k in monthly revenue using CPA, CVR and ROI analysis.",
         "Led the end-to-end implementation of HubSpot, designing bespoke pipelines, funnels and automated workflows across email, SMS and print to improve repeat purchase rate and customer lifetime value.",
         "Managed Google Ads and Microsoft (Bing) campaigns generating ~£350k in monthly revenue, optimising targeting, spend and bidding to reduce CPA and maximise ROI.",
+        "Managed Paid Social campaigns on Meta generating ~£20k in monthly revenue.",
         "Used GA4, Power BI, SEMrush, Google Search Console and Infinity to analyse cross-channel performance and report on key business KPIs.",
         "Managed supplier and partner relationships (Sagacity, StudioCertain, MBA Group, Paragon), aligning delivery with commercial objectives.",
         "Delivered segmented, A/B-tested email campaigns across acquisition and retention audiences via HubSpot, DotDigital and MBA Pulse.",
