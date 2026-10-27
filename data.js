@@ -20,7 +20,7 @@ const SITE = {
   secondaryTitle: "Co-Founder",
   secondaryOrg: "Mirõ MKT",
   email: "curtis_btc@hotmail.com",
-  phone: "07504 552093",
+  phone: "", // removed from the public site; leave empty to hide the Phone link
   linkedin: "https://www.linkedin.com/in/bentcurtismarketing",
   cvPdf: "", // put a filename here (e.g. "cv.pdf") if you add a downloadable CV to the folder
 };
