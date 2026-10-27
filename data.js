@@ -20,7 +20,7 @@ const SITE = {
   secondaryTitle: "Co-Founder",
   secondaryOrg: "Mirõ MKT",
   email: "curtis_btc@hotmail.com",
-  phone: "07504 552093",
+  phone: "", // removed from the public site; leave empty to hide the Phone link
   linkedin: "https://www.linkedin.com/in/bentcurtismarketing",
   cvPdf: "", // put a filename here (e.g. "cv.pdf") if you add a downloadable CV to the folder
 };
@@ -28,18 +28,16 @@ const SITE = {
 /* ------------------------------------------------------------
    HERO STATS
    ------------------------------------------------------------
-   Four values shown in the hero stat strip. "Projects logged"
-   stays dynamic (pulled from PROJECTS below) – the other three
-   are yours to edit directly. NOTE: the "hours of film analysed"
-   figure is a placeholder from your brief – swap in a number
-   you'd actually stand behind if asked about it. Your own brand
-   voice guide says the joke should land because it's true.
+   Four values shown in the hero stat strip, in this order. Each
+   one should be a number you could back up if an assessor or
+   interviewer asked about it – they're all drawn from the CV below.
    ------------------------------------------------------------ */
 
 const HERO_STATS = [
   { value: "3+", label: "Years in industry" },
-  { value: "2", label: "Marketing ventures" },
-  { value: "1,500+", label: "Hours of film analysed" },
+  { value: "£750k+", label: "Monthly revenue managed" }, // ~£400k Direct Mail + ~£350k PPC (see CV)
+  { value: "5", label: "Acquisition channels managed" }, // Direct Mail, Paid Social, PPC, SEO, CRM
+  { value: "1", label: "Agency co\u2011founded" }, // Mirõ MKT. \u2011 = non-breaking hyphen, so "co-founded" never splits across lines
 ];
 
 /* ------------------------------------------------------------

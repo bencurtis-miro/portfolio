@@ -50,12 +50,7 @@
   });
 
   /* ---------------- STAT STRIP ---------------- */
-  const stats = [
-    [HERO_STATS[0].value, HERO_STATS[0].label],
-    [PROJECTS.length, "Projects logged"],
-    [HERO_STATS[1].value, HERO_STATS[1].label],
-    [HERO_STATS[2].value, HERO_STATS[2].label],
-  ];
+  const stats = HERO_STATS.map(s => [s.value, s.label]);
   const statStrip = $("#statStrip");
   stats.forEach(([num, label]) => {
     const el = document.createElement("div");
