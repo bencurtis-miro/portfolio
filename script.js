@@ -6,6 +6,7 @@
 
   /* ---------------- SITE / COVER ---------------- */
   document.title = `${SITE.name} – ${SITE.title}`;
+  $(".rail-mark-code").textContent = SITE.name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
   $("#coverName").textContent = SITE.name;
   $("#coverRole").textContent = `${SITE.title} · ${SITE.location}`;
   $("#briefInstitution").textContent = SITE.client;
@@ -61,7 +62,7 @@
 
   /* ---------------- HERO SNAPSHOT PANEL ---------------- */
   $("#panelRoleTitle").textContent = SITE.title;
-  $("#panelRoleOrg").textContent = SITE.client;
+  $("#panelRoleOrg").textContent = SITE.org || SITE.client;
   $("#panelRole2Title").textContent = SITE.secondaryTitle;
   $("#panelRole2Org").textContent = SITE.secondaryOrg;
 
@@ -160,7 +161,7 @@
         evEl.appendChild(entry);
       });
     } else {
-      evEl.innerHTML = `<p class="modal-evidence-empty">No evidence logged yet – add entries to this KSB's "evidence" array in data.js.</p>`;
+      evEl.innerHTML = `<p class="modal-evidence-empty">Evidence in progress.</p>`;
     }
 
     lastFocused = document.activeElement;
@@ -216,6 +217,32 @@
   projectGrid.addEventListener("scroll", updateCarouselButtons);
   window.addEventListener("resize", updateCarouselButtons);
   updateCarouselButtons();
+
+  /* Carousel position dots – shown on phones, where the arrows are
+     hidden, so it's clear there are more projects to swipe to. */
+  const projDots = $("#projDots");
+  const projCards = $all(".project-card", projectGrid);
+  projCards.forEach((card, i) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "carousel-dot";
+    dot.setAttribute("aria-label", `Show project ${i + 1} of ${projCards.length}`);
+    dot.addEventListener("click", () => {
+      projectGrid.scrollTo({ left: card.offsetLeft - projectGrid.offsetLeft, behavior: "smooth" });
+    });
+    projDots.appendChild(dot);
+  });
+  function updateCarouselDots() {
+    const atEnd = projectGrid.scrollLeft >= projectGrid.scrollWidth - projectGrid.clientWidth - 2;
+    const active = atEnd ? projCards.length - 1 : Math.round(projectGrid.scrollLeft / scrollStep());
+    $all(".carousel-dot", projDots).forEach((d, i) => {
+      d.classList.toggle("is-active", i === active);
+      d.setAttribute("aria-current", i === active ? "true" : "false");
+    });
+  }
+  projectGrid.addEventListener("scroll", updateCarouselDots, { passive: true });
+  window.addEventListener("resize", updateCarouselDots);
+  updateCarouselDots();
 
   /* ---------------- CV ---------------- */
   $("#cvSummary").textContent = CV.summary;
