@@ -314,7 +314,12 @@ const KSBS = [
   { code: "K7", category: "knowledge", title: "Paid, owned & earned media", description: "The types of online and offline paid, owned and earned media, and how this works together.", status: "in-progress", evidence: [
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "My role covers paid media (Google Ads, Microsoft Ads, Meta and Direct Mail) and owned channels (website, SEO, email and social), and I oversee how they work together in our acquisition strategy." },
   ] },
-  { code: "K8", category: "knowledge", title: "Regulation, data protection & ethics", description: "Digital marketing regulatory requirements, data protection, compliance and ethics, both national and international.", status: "not-started", evidence: [] },
+  { code: "K8", category: "knowledge", title: "Regulation, data protection & ethics", description: "Digital marketing regulatory requirements, data protection, compliance and ethics, both national and international.", status: "in-progress", evidence: [
+    { source: "CRM content & data protection, OutsideClinic", date: "Sep 2024 – present", text: "Data protection and ethics are at the forefront of every campaign I run. As the lead on all content creation in our CRM, I work with our Data Protection Officer to create new privacy policies, agree terms and conditions, and update existing policies, so that how we collect and use customer data is compliant and transparent." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "Across HubSpot, DotDigital and MBA Pulse, I make sure email and SMS campaigns only go to customers who have given the right consent, with unsubscribes and suppression lists honoured in line with GDPR and PECR." },
+    { source: "Hearing centre promotion, OutsideClinic", date: "Jan 2026", text: "For the Bury St Edmunds door drop, I worked with our data supplier to make sure the household data and demographic targeting we used were sourced and handled in line with GDPR." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "Because we market healthcare services, I check ad and direct mail copy against the ASA/CAP rules on health claims – focusing on the experience and benefits of our service rather than making clinical promises." },
+  ] },
   { code: "K9", category: "knowledge", title: "International & multichannel marketing", description: "The Digital Marketing environment for International marketing and multichannel marketing, for agencies as well as client.", status: "in-progress", evidence: [
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I work across multichannel marketing every day – Direct Mail, Paid Social, PPC, SEO and CRM – and manage agency partners from the client side." },
   ] },
@@ -399,6 +404,7 @@ const KSBS = [
   ] },
   { code: "B2", category: "behaviour", title: "Resilience & teamwork", description: "Ability to work under pressure and unsupervised, and interact effectively within teams.", status: "in-progress", evidence: [
     { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "On the webform relaunch, I worked across teams – an external agency and our internal IT department – to deliver the project." },
+    { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "During the HubSpot implementation, I delivered a new CRM on time alongside my day-to-day campaign work, working with SLT, suppliers and staff across the business to keep the project moving." },
   ] },
   { code: "B3", category: "behaviour", title: "Inclusion & impact awareness", description: "Consider the impact of work on others, especially where related to culture, diversity and equality.", status: "in-progress", evidence: [
     {
@@ -416,7 +422,11 @@ const KSBS = [
     { project: "website-revamp", date: "2026 – ongoing", text: "On the website rebuild, I set and enforce the delivery timeline with our partner agency to keep the project on track." },
     { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "I delivered the HubSpot implementation on time, with staff training built in for a smooth handover." },
   ] },
-  { code: "B5", category: "behaviour", title: "Integrity & data security", description: "Show integrity and respect for confidentiality and data security in work and personal situations.", status: "not-started", evidence: [] },
+  { code: "B5", category: "behaviour", title: "Integrity & data security", description: "Show integrity and respect for confidentiality and data security in work and personal situations.", status: "in-progress", evidence: [
+    { source: "CRM content & data protection, OutsideClinic", date: "Sep 2024 – present", text: "Integrity and data security are central to how I work. As CRM content lead, I collaborate closely with our Data Protection Officer on privacy policies and terms and conditions, and make sure customer data is only ever used in the ways customers have agreed to." },
+    { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "During the HubSpot implementation, I made sure customer data was migrated and stored securely, with access set up so staff only see the records they need for their role." },
+    { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I respect commercial confidentiality – keeping internal performance figures out of external materials, and redacting colleague and customer details from anything shared publicly, including the evidence in this portfolio." },
+  ] },
   { code: "B6", category: "behaviour", title: "CPD & enthusiasm", description: "Be enthusiastic and have a thorough and flexible approach to work and to personal development through CPD and life-long learning.", status: "in-progress", evidence: [
     { source: "University of Portsmouth", date: "Ongoing", text: "I'm studying for a BA (Hons) Digital Marketing degree apprenticeship at the University of Portsmouth alongside my full-time role, applying what I learn to my day-to-day work." },
     {
@@ -431,6 +441,7 @@ const KSBS = [
   ] },
   { code: "B7", category: "behaviour", title: "Structured problem solving", description: "Logical thinking and a creative approach to problem solving to systematically analyse and apply structured techniques to complex systems and situations.", status: "in-progress", evidence: [
     { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "For the webform relaunch, I used insight and data to work out what needed to change before redesigning the form from the ground up." },
+    { source: "Hearing centre promotion, OutsideClinic", date: "Jan 2026", text: "Our inherited hearing centres posed a new problem: driving footfall to a physical store when our model is built on home visits. I broke it down by running a single-centre pilot in Bury St Edmunds, with a clearly defined local audience, so we could learn from one centre first." },
   ] },
 ];
 
