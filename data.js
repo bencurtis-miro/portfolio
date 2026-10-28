@@ -107,8 +107,26 @@ const ABOUT = {
 
 const KSBS = [
   // SKILLS – listed first: this is where the real evidence sits
-  { code: "S1", category: "skill", title: "Apply marketing theory", description: "Develop and critically apply the concepts, principles and theories of marketing relevant to the interdisciplinary topics of digital marketing.", status: "not-started", evidence: [] },
-  { code: "S2", category: "skill", title: "Apply the 4 Ps", description: "Apply the 4 marketing principles (product, price, place, promotion) and considerations of the business / marketing campaign.", status: "not-started", evidence: [] },
+  { code: "S1", category: "skill", title: "Apply marketing theory", description: "Develop and critically apply the concepts, principles and theories of marketing relevant to the interdisciplinary topics of digital marketing.", status: "in-progress", evidence: [
+    {
+      source: "Customer journey mapping, OutsideClinic",
+      date: "Oct 2026",
+      text: "When our new Head of Marketing joined, I was asked to map OutsideClinic's full customer journey, from acquisition through to retention and churn. Using FigJam, I built the journey step by step around the customer lifecycle, breaking each stage down by channel, performance and context, and tagging every touchpoint by its purpose – awareness, conversion, loyalty or retention. I also created flowcharts and decision logic to show exactly how customers move through each path.",
+      images: [
+        { src: "evidence/s1-customer-journey-map.jpg", caption: "Customer journey map built in FigJam: stages, channels, purpose and decision logic" },
+      ],
+    },
+  ] },
+  { code: "S2", category: "skill", title: "Apply the 4 Ps", description: "Apply the 4 marketing principles (product, price, place, promotion) and considerations of the business / marketing campaign.", status: "in-progress", evidence: [
+    {
+      source: "Hearing centre promotion, OutsideClinic",
+      date: "Jan 2026",
+      text: "After OutsideClinic – a domiciliary healthcare company – acquired a rival business, we inherited several hearing centres across the UK, which brought a new challenge: driving footfall into physical locations. Using our Bury St Edmunds centre as a pilot, I created a postal and digital promotion planned around the 4 Ps. For place and promotion, I worked with a data supplier to target around 50,000 households within a 20-minute drive of the centre, filtered to over-70s with relevant retail habits, and managed the creative through sign-off to delivery.",
+      images: [
+        { src: "evidence/s2-bury-hearing-centre-email.jpg", caption: "Campaign update to stakeholders: targeting, creative sign-off and delivery (names redacted)" },
+      ],
+    },
+  ] },
   { code: "S3", category: "skill", title: "Write for audience & channel", description: "Write and create content for the different audiences, online channels and create clear “Call to Actions” and user journeys.", status: "in-progress", evidence: [
     { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "As part of the HubSpot implementation, I built automated customer journeys across email, SMS and print, writing content for each audience and stage, and giving every touchpoint a clear call to action so customers knew their next step." },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I write segmented, A/B-tested email campaigns for acquisition and retention audiences through HubSpot, DotDigital and MBA Pulse, tailoring the message and call to action to where each customer is in their journey." },
@@ -122,6 +140,15 @@ const KSBS = [
     { project: "brand-refresh", date: "Mar 2026 – Oct 2026", text: "During the brand refresh, I managed sign-off on new assets and copy so that content across our channels reflects the new brand identity." },
   ] },
   { code: "S5", category: "skill", title: "Select research methods", description: "Select a variety of appropriate research methodologies, platforms and technologies to synthesise information and apply to the organisation's digital marketing strategies, drivers and customer behaviours.", status: "in-progress", evidence: [
+    {
+      source: "Competitor research, OutsideClinic",
+      date: "Aug – Oct 2026",
+      text: "For our competitor analysis, I combined desk research across public sources with AI-assisted research, then organised the findings into a competitor landscape, comparison matrix, messaging comparison, SWOT and PESTLE to inform our positioning.",
+      images: [
+        { src: "evidence/k1-competitor-research.jpg", caption: "Competitor research board: landscape, comparison matrix, messaging, SWOT and PESTLE" },
+      ],
+    },
+    { source: "Online shop strategy project, OutsideClinic", date: "Apr – May 2025", text: "On the online shop project, I drew on market and competitor analysis, website UX reviews and Google Analytics data to inform recommendations for the shop's future." },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I use GA4, Power BI, SEMrush, Google Search Console and Infinity to research and analyse performance across channels, choosing the right tool for each question and pulling the findings together for reporting." },
     { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "For the webform relaunch, I gathered market-relevant insight and data to understand what the form needed to do before the redesign began." },
   ] },
@@ -138,11 +165,27 @@ const KSBS = [
     { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "I led the redesign and relaunch of the company webform, a key conversion point on the website, using insight and data to shape the new design before rebuilding it with an external agency and internal IT and putting it live." },
   ] },
   { code: "S8", category: "skill", title: "Apply e-commerce strategy", description: "Manage interfaces and the supply network of the organisation and customer by applying the appropriate E-commerce strategies and models available and whenever appropriate taking global engagements into account.", status: "in-progress", evidence: [
+    {
+      source: "Online shop strategy project, OutsideClinic",
+      date: "Apr – May 2025",
+      text: "I contributed to a strategic project on the future of OutsideClinic's online shop – preparing the initial deck on price ranges and products, mapping customer journeys, reviewing site UX and analytics, and assessing replatforming options with our agency partners.",
+      images: [
+        { src: "evidence/k14-online-shop-email.jpg", caption: "Project kick-off email to agency partners, with my initial slide deck (contacts and figures redacted)" },
+      ],
+    },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I manage relationships with suppliers and partners including Sagacity, StudioCertain, MBA Group and Paragon, aligning their delivery with OutsideClinic's commercial objectives." },
     { project: "website-revamp", date: "2026 – ongoing", text: "I'm leading the rebuild of OutsideClinic's website – the main online interface between the business and its customers – with a partner design agency." },
   ] },
   { code: "S9", category: "skill", title: "Apply the marketing mix", description: "Apply a marketing mix / digital marketing mix to meet customer expectations.", status: "in-progress", evidence: [
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I oversee a multi-channel acquisition mix across Direct Mail, Paid Social, PPC, SEO and CRM, balancing the channels to reach customers in the right place." },
+    {
+      source: "Hearing centre promotion, OutsideClinic",
+      date: "Jan 2026",
+      text: "For the Bury St Edmunds hearing centre promotion, I combined postal and digital activity, choosing a channel mix suited to an older, local audience to drive footfall into the centre.",
+      images: [
+        { src: "evidence/s2-bury-hearing-centre-email.jpg", caption: "Campaign update to stakeholders: targeting, creative sign-off and delivery (names redacted)" },
+      ],
+    },
   ] },
   { code: "S10", category: "skill", title: "Analyse campaign performance", description: "Accurately observe, record and draw conclusions from all types statistical analysis of campaign performance, recognising inherent uncertainties and limitations with financial and budgetary requirements to demonstrate Return on Investment (ROI).", status: "in-progress", evidence: [
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I lead Direct Mail campaigns using CPA, CVR and ROI analysis to judge performance and decide where to invest." },
@@ -170,6 +213,14 @@ const KSBS = [
     { project: "website-revamp", date: "2026 – ongoing", text: "I'm leading the website rebuild, a major change to how the business presents itself online." },
   ] },
   { code: "S14", category: "skill", title: "Read business intelligence", description: "Identify, recognise and understand internal and external business intelligence and factors that may impact future operations.", status: "in-progress", evidence: [
+    {
+      source: "Competitor research, OutsideClinic",
+      date: "Aug – Oct 2026",
+      text: "My competitor research included a SWOT and a PESTLE of the domiciliary eye care market, identifying the external factors – competitor moves and political, economic, social, technological, legal and environmental trends – that could affect OutsideClinic's future plans.",
+      images: [
+        { src: "evidence/k1-competitor-research.jpg", caption: "Competitor research board: landscape, comparison matrix, messaging, SWOT and PESTLE" },
+      ],
+    },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I analyse internal performance data across channels in GA4, Power BI and Infinity and report on key business KPIs, flagging trends that could affect future plans." },
   ] },
   { code: "S15", category: "skill", title: "Brief stakeholders", description: "Interpret, communicate and brief internal or external stakeholders on digital business requirements.", status: "in-progress", evidence: [
@@ -180,7 +231,16 @@ const KSBS = [
   ] },
 
   // KNOWLEDGE
-  { code: "K1", category: "knowledge", title: "The disruptive digital environment", description: "The strategic implications of the disruptive digital environment.", status: "not-started", evidence: [] },
+  { code: "K1", category: "knowledge", title: "The disruptive digital environment", description: "The strategic implications of the disruptive digital environment.", status: "in-progress", evidence: [
+    {
+      source: "Competitor research, OutsideClinic",
+      date: "Aug – Oct 2026",
+      text: "AI has changed how we approach marketing strategy at OutsideClinic by making in-depth research faster and more cost-effective. I led the creation of a competitor analysis comparing each competitor's activity and positioning with our own. Using AI as a research assistant, I could review and cross-check multiple sources at once, producing a far more thorough breakdown of every competitor – including a comparison matrix, messaging comparison, SWOT and PESTLE – than would have been practical manually.",
+      images: [
+        { src: "evidence/k1-competitor-research.jpg", caption: "Competitor research board: landscape, comparison matrix, messaging, SWOT and PESTLE" },
+      ],
+    },
+  ] },
   { code: "K2", category: "knowledge", title: "Organic vs paid visibility", description: "Natural/organic and paid marketing to increase the visibility and promotion of websites.", status: "in-progress", evidence: [
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I manage technical SEO and keyword-led content to grow organic visibility, delivering sustained month-on-month and year-on-year organic growth." },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "Alongside organic, I manage paid search on Google Ads and Microsoft Ads, so I work with both sides of search visibility day to day." },
@@ -189,13 +249,40 @@ const KSBS = [
     { project: "brand-refresh", date: "Mar 2026 – Oct 2026", text: "Co-leading the client side of OutsideClinic's brand refresh developed my understanding of strategic brand management – protecting brand equity through a full identity relaunch while managing sign-off on assets and copy across internal stakeholders." },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I manage our social channels to support brand awareness across Facebook, Instagram, LinkedIn, TikTok and YouTube." },
   ] },
-  { code: "K4", category: "knowledge", title: "Professional bodies & emerging trends", description: "Professional bodies and their insights into emerging technologies, trends and themes within the digital marketing environment.", status: "not-started", evidence: [] },
+  { code: "K4", category: "knowledge", title: "Professional bodies & emerging trends", description: "Professional bodies and their insights into emerging technologies, trends and themes within the digital marketing environment.", status: "in-progress", evidence: [
+    {
+      source: "The Marketing Meetup webinar",
+      date: "Feb 2025",
+      text: "I regularly attend online discussions and webinars to keep up with emerging trends, particularly how AI is changing the digital marketing environment. For example, I attended The Marketing Meetup's webinar with Ashleigh Stearn, 'What do marketers need to know about AI agents?', on how to work effectively alongside AI agents. What I learned changed how I use AI platforms day to day, giving me a clearer understanding of the complexity of work these agents can support.",
+      images: [
+        { src: "evidence/k4-ai-agents-webinar-invite.jpg", caption: "Calendar booking for The Marketing Meetup webinar on AI agents" },
+        { src: "evidence/k4-ai-agents-webinar-registration.jpg", caption: "Webinar registration confirmation" },
+      ],
+    },
+  ] },
   { code: "K5", category: "knowledge", title: "Customer insight & retention", description: "Customer insight, strategic relationships, acquisition and focus of customers, taking into account the customer experience and retention/loyalty.", status: "in-progress", evidence: [
     { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "Through the HubSpot implementation, I designed automated lifecycle journeys across email, SMS and print aimed at improving repeat purchase rate and customer lifetime value, applying my understanding of customer retention and loyalty." },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I oversee customer acquisition across Direct Mail, Paid Social, PPC, SEO and CRM, using CPA, CVR and ROI analysis to understand how each channel performs." },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I run segmented email campaigns aimed at both acquisition and retention audiences." },
+    {
+      source: "Customer journey mapping, OutsideClinic",
+      date: "Oct 2026",
+      text: "Mapping our end-to-end customer journey – from acquisition through to retention and churn – gave our new Head of Marketing a clear view of the full customer experience, including where customers are retained or lost.",
+      images: [
+        { src: "evidence/s1-customer-journey-map.jpg", caption: "Customer journey map built in FigJam: stages, channels, purpose and decision logic" },
+      ],
+    },
   ] },
-  { code: "K6", category: "knowledge", title: "B2B relationships via social", description: "How to foster business-to-business (B2B) marketing relationships through social media to launch products based on price and popularity.", status: "not-started", evidence: [] },
+  { code: "K6", category: "knowledge", title: "B2B relationships via social", description: "How to foster business-to-business (B2B) marketing relationships through social media to launch products based on price and popularity.", status: "in-progress", evidence: [
+    {
+      source: "Hearing Dogs for Deaf People partnership",
+      date: "Aug 2025",
+      text: "I built and maintained a professional relationship with Hearing Dogs for Deaf People, OutsideClinic's charity of the year, acting as the key point of contact for partnership communications. I coordinated fundraising events and charity engagement activities, liaising with colleagues and the charity's fundraising team to make the partnership a success. This strengthened our relationship with a charity closely aligned to our hearing care services, while supporting brand awareness, community engagement and our social impact goals.",
+      images: [
+        { src: "evidence/k6-hearing-dogs-email.jpg", caption: "Correspondence with Hearing Dogs for Deaf People planning fundraising activity (contact details redacted)" },
+      ],
+    },
+  ] },
   { code: "K7", category: "knowledge", title: "Paid, owned & earned media", description: "The types of online and offline paid, owned and earned media, and how this works together.", status: "in-progress", evidence: [
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "My role covers paid media (Google Ads, Microsoft Ads, Meta and Direct Mail) and owned channels (website, SEO, email and social), and I oversee how they work together in our acquisition strategy." },
   ] },
@@ -219,24 +306,60 @@ const KSBS = [
     { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "The webform relaunch put user experience at the centre: I used insight and data to shape a redesigned form, rebuilt from the ground up and implemented live on the website." },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I improve landing pages through structured testing and UX optimisation to increase engagement and conversions." },
     { project: "website-revamp", date: "2026 – ongoing", text: "On the website rebuild, I create and proof concepts with our partner agency with the user's experience of the new site in mind." },
+    { source: "University of Portsmouth – UX Design module", text: "In my UX Design module, I carried out a UX assessment of the OutsideClinic website, evaluating usability, accessibility and trust for older adults, carers and people with mobility limitations, and recommended improvements." },
   ] },
   { code: "K13", category: "knowledge", title: "Funnels, segmentation & attribution", description: "Segmentation, targeting and application of sales funnel, path to purchase, and customer attribution.", status: "in-progress", evidence: [
     { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "In HubSpot, I built bespoke sales pipelines, funnels and segmented customer journeys, mapping the customer's path to purchase and the follow-up that encourages repeat purchases." },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I segment audiences for email campaigns by acquisition and retention stage, and A/B test to see what works for each group." },
+    {
+      source: "Customer journey mapping, OutsideClinic",
+      date: "Oct 2026",
+      text: "I mapped OutsideClinic's full customer journey in FigJam – every touchpoint from first interest to retention – tagging each step as awareness, conversion, loyalty or retention to show the path to purchase and beyond.",
+      images: [
+        { src: "evidence/s1-customer-journey-map.jpg", caption: "Customer journey map built in FigJam: stages, channels, purpose and decision logic" },
+      ],
+    },
+    {
+      source: "Hearing centre promotion, OutsideClinic",
+      date: "Jan 2026",
+      text: "For the Bury St Edmunds hearing centre campaign, I worked with a data supplier to target households within a 20-minute drive of the centre, segmented by age (70+) and retail habits.",
+      images: [
+        { src: "evidence/s2-bury-hearing-centre-email.jpg", caption: "Campaign update to stakeholders: targeting, creative sign-off and delivery (names redacted)" },
+      ],
+    },
   ] },
-  { code: "K14", category: "knowledge", title: "E-commerce fundamentals", description: "E-commerce and the importance of product descriptions, images, site layout and what makes a good online shopping experience.", status: "not-started", evidence: [] },
+  { code: "K14", category: "knowledge", title: "E-commerce fundamentals", description: "E-commerce and the importance of product descriptions, images, site layout and what makes a good online shopping experience.", status: "in-progress", evidence: [
+    {
+      source: "Online shop strategy project, OutsideClinic",
+      date: "Apr – May 2025",
+      text: "I contributed to a strategic e-commerce project on the future of OutsideClinic's online shop. Working with internal stakeholders and external digital agencies, I put together the initial slide deck on price ranges and products we could introduce, and supported customer journey mapping, market and competitor analysis, website UX reviews, Google Analytics evaluation and replatforming considerations. The project assessed how improvements to the shopping experience – product categorisation, payment options and site functionality – could increase conversions and support business growth, deepening my understanding of e-commerce fundamentals from customer experience to commercial website optimisation.",
+      images: [
+        { src: "evidence/k14-online-shop-email.jpg", caption: "Project kick-off email to agency partners, with my initial slide deck (contacts and figures redacted)" },
+      ],
+    },
+  ] },
 
   // BEHAVIOURS – part of the standard, so kept for completeness, but
   // deliberately not the focus of this portfolio (see filter default in script.js)
   { code: "B1", category: "behaviour", title: "Communication", description: "Ability to communicate and actively listen at all levels.", status: "in-progress", evidence: [
     { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "On the HubSpot implementation, I communicated with everyone from employees to SLT and suppliers, and trained staff on the new system." },
     { source: "Data Administrator / Scheduling Assistant, OutsideClinic", date: "Sep 2021 – Sep 2024", text: "As Scheduling Assistant, I handled more than 100 inbound calls a day, supporting customers and updating their records." },
+    {
+      source: "Hearing Dogs for Deaf People partnership",
+      date: "Aug 2025",
+      text: "As the key contact for our charity partner, Hearing Dogs for Deaf People, I communicated with their fundraising team and our own colleagues to plan events and activities.",
+      images: [
+        { src: "evidence/k6-hearing-dogs-email.jpg", caption: "Correspondence with Hearing Dogs for Deaf People planning fundraising activity (contact details redacted)" },
+      ],
+    },
   ] },
   { code: "B2", category: "behaviour", title: "Resilience & teamwork", description: "Ability to work under pressure and unsupervised, and interact effectively within teams.", status: "in-progress", evidence: [
     { source: "Data Administrator / Scheduling Assistant, OutsideClinic", date: "Sep 2021 – Sep 2024", text: "As Scheduling Assistant, I managed UK-wide clinician schedules, balancing geography, availability and patient needs alongside a high volume of daily calls." },
     { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "On the webform relaunch, I worked across teams – an external agency and our internal IT department – to deliver the project." },
   ] },
-  { code: "B3", category: "behaviour", title: "Inclusion & impact awareness", description: "Consider the impact of work on others, especially where related to culture, diversity and equality.", status: "not-started", evidence: [] },
+  { code: "B3", category: "behaviour", title: "Inclusion & impact awareness", description: "Consider the impact of work on others, especially where related to culture, diversity and equality.", status: "in-progress", evidence: [
+    { source: "University of Portsmouth – UX Design module", text: "I considered the impact of digital experiences on a diverse range of users by assessing how well the OutsideClinic website supports older adults, carers and people with mobility limitations. Through a UX assessment, I evaluated accessibility, usability and trust to make sure the site met the needs of potentially vulnerable users, and developed recommendations to make the online experience more inclusive and accessible for everyone." },
+  ] },
   { code: "B4", category: "behaviour", title: "Quality & deadlines", description: "Demonstrate business disciplines and compliance with procedures and principles to ensure work is of high quality and fit for purpose, with high attention to detail and the ability to work to deadlines.", status: "in-progress", evidence: [
     { project: "brand-refresh", date: "Mar 2026 – Oct 2026", text: "On the brand refresh, I managed sign-off on assets and copy, flagged and requested changes where needed, and held the line on deadlines once designs were locked." },
     { project: "website-revamp", date: "2026 – ongoing", text: "On the website rebuild, I set and enforce the delivery timeline with our partner agency to keep the project on track." },
@@ -247,6 +370,15 @@ const KSBS = [
   ] },
   { code: "B6", category: "behaviour", title: "CPD & enthusiasm", description: "Be enthusiastic and have a thorough and flexible approach to work and to personal development through CPD and life-long learning.", status: "in-progress", evidence: [
     { source: "University of Portsmouth", date: "Ongoing", text: "I'm studying for a BA (Hons) Digital Marketing degree apprenticeship at the University of Portsmouth alongside my full-time role, applying what I learn to my day-to-day work." },
+    {
+      source: "The Marketing Meetup webinar",
+      date: "Feb 2025",
+      text: "I attend industry webinars to keep my skills current – for example, The Marketing Meetup's session on AI agents, which changed how I use AI tools at work.",
+      images: [
+        { src: "evidence/k4-ai-agents-webinar-invite.jpg", caption: "Calendar booking for The Marketing Meetup webinar on AI agents" },
+        { src: "evidence/k4-ai-agents-webinar-registration.jpg", caption: "Webinar registration confirmation" },
+      ],
+    },
   ] },
   { code: "B7", category: "behaviour", title: "Structured problem solving", description: "Logical thinking and a creative approach to problem solving to systematically analyse and apply structured techniques to complex systems and situations.", status: "in-progress", evidence: [
     { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "For the webform relaunch, I used insight and data to work out what needed to change before redesigning the form from the ground up." },
