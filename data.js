@@ -23,7 +23,7 @@ const SITE = {
   email: "curtis_btc@hotmail.com",
   phone: "", // removed from the public site; leave empty to hide the Phone link
   linkedin: "https://www.linkedin.com/in/bentcurtismarketing",
-  cvPdf: "", // put a filename here (e.g. "cv.pdf") if you add a downloadable CV to the folder
+  cvPdf: "cv/Ben-Curtis-CV.pdf", // web copy of your CV (phone number removed). Replace the file to update it; set to "" to hide the CV buttons
 };
 
 /* ------------------------------------------------------------

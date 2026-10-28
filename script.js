@@ -30,13 +30,14 @@
     ["Email", SITE.email ? `mailto:${SITE.email}` : null],
     ["Phone", SITE.phone ? `tel:${SITE.phone.replace(/\s+/g, "")}` : null],
     ["LinkedIn", SITE.linkedin || null],
+    ["CV", SITE.cvPdf || null],
   ];
   linkDefs.forEach(([label, href]) => {
     if (!href) return;
     const a = document.createElement("a");
     a.href = href;
     a.textContent = label;
-    if (href.startsWith("http")) { a.target = "_blank"; a.rel = "noopener"; }
+    if (href.startsWith("http") || href.endsWith(".pdf")) { a.target = "_blank"; a.rel = "noopener"; }
     footerLinks.appendChild(a);
   });
 
@@ -356,9 +357,9 @@
   });
 
   if (SITE.cvPdf) {
-    const dl = $("#cvDownload");
-    dl.href = SITE.cvPdf;
-    dl.hidden = false;
+    $("#cvView").href = SITE.cvPdf;
+    $("#cvDownload").href = SITE.cvPdf;
+    $("#cvActions").hidden = false;
   }
 
   /* ---------------- NAV: mobile toggle + scrollspy ---------------- */
