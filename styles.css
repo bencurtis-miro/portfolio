@@ -662,7 +662,7 @@ main{ margin-left: var(--rail-w); }
   display: block;
   transition: opacity .15s ease;
 }
-.evidence-images.is-multi .evidence-image{ max-width: none; aspect-ratio: 4 / 3; object-fit: cover; }
+.evidence-images.is-multi .evidence-image{ max-width: none; aspect-ratio: 4 / 3; object-fit: contain; background: var(--paper); }
 .evidence-image-link:hover .evidence-image{ opacity: 0.85; }
 .evidence-caption{
   font-size: 12px;
