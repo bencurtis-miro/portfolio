@@ -116,14 +116,34 @@ const KSBS = [
         { src: "evidence/s1-customer-journey-map.jpg", caption: "Customer journey map built in FigJam: stages, channels, purpose and decision logic" },
       ],
     },
+    {
+      source: "University of Portsmouth – UX Design module",
+      date: "Apr 2026",
+      text: "In my UX Design report, I applied established frameworks – Morville's UX Honeycomb, supported by Norman's emotional design theory – to evaluate how well OutsideClinic's website communicates its brand, then used the findings to design two prototype pages.",
+      images: [
+        { src: "evidence/ux-honeycomb-analysis.jpg", caption: "Report extract: applying Morville's UX Honeycomb framework" },
+      ],
+    },
   ] },
   { code: "S2", category: "skill", title: "Apply the 4 Ps", description: "Apply the 4 marketing principles (product, price, place, promotion) and considerations of the business / marketing campaign.", status: "in-progress", evidence: [
     {
       source: "Hearing centre promotion, OutsideClinic",
       date: "Jan 2026",
-      text: "After OutsideClinic – a domiciliary healthcare company – acquired a rival business, we inherited several hearing centres across the UK, which brought a new challenge: driving footfall into physical locations. Using our Bury St Edmunds centre as a pilot, I created a postal and digital promotion planned around the 4 Ps. For place and promotion, I worked with a data supplier to target around 50,000 households within a 20-minute drive of the centre, filtered to over-70s with relevant retail habits, and managed the creative through sign-off to delivery.",
+      text: "After OutsideClinic – a domiciliary healthcare company – acquired a rival business, we inherited several hearing centres across the UK, which brought a new challenge: driving footfall into physical locations. Using our Bury St Edmunds centre as a pilot, I created a postal and digital promotion built around the 4 Ps.\nProduct: our in-store hearing assessments, alongside our new hearing aid range – from behind-the-ear to invisible-in-canal styles, including rechargeable and Bluetooth models from brands such as Widex and Signia.\nPrice: the service was offered at its standard price, so the messaging focused on value – expert, compassionate care and the latest technology – rather than discounting.\nPlace: the centre itself, with booking made easy by QR code, online or phone, and a door drop targeted at around 50,000 households within a 20-minute drive, filtered to over-70s with relevant retail habits.\nPromotion: a personal letter from the centre's hearing aid dispenser, emotion-led messaging about not letting hearing loss hold you back, and our 4.8-star Trustpilot rating as social proof.",
       images: [
+        { src: "evidence/s2-door-drop-letter-front.jpg", caption: "Final door-drop letter (front): in-store hearing service and easy booking" },
+        { src: "evidence/s2-door-drop-letter-back.jpg", caption: "Final door-drop letter (back): the centre, hearing aid styles and brands" },
         { src: "evidence/s2-bury-hearing-centre-email.jpg", caption: "Campaign update to stakeholders: targeting, creative sign-off and delivery (names redacted)" },
+      ],
+    },
+    {
+      source: "Online shop strategy project, OutsideClinic",
+      date: "Apr – May 2025",
+      text: "In my online shop proposal, I assessed the shop against each of the 4 Ps.\nProduct: expanding a range of only 10 live products into new categories backed by UK demand data.\nPrice: benchmarking against competitors and retailers, which showed our prices were among the highest, and recommending a pricing review with finance alongside a subscription model.\nPlace: fixing the systems and logistics behind the shop so the Audio and Optics teams could fulfil orders efficiently.\nPromotion: tackling low visibility with business cards in every order, automated emails, paid search and story-led social campaigns.",
+      images: [
+        { src: "evidence/shop-products.jpg", caption: "Slide: product range – short- and long-term plans" },
+        { src: "evidence/shop-pricing.jpg", caption: "Slide: pricing review and subscription opportunity" },
+        { src: "evidence/shop-visibility.jpg", caption: "Slide: plan to improve the shop's visibility" },
       ],
     },
   ] },
@@ -170,7 +190,7 @@ const KSBS = [
       date: "Apr – May 2025",
       text: "I contributed to a strategic project on the future of OutsideClinic's online shop – preparing the initial deck on price ranges and products, mapping customer journeys, reviewing site UX and analytics, and assessing replatforming options with our agency partners.",
       images: [
-        { src: "evidence/k14-online-shop-email.jpg", caption: "Project kick-off email to agency partners, with my initial slide deck (contacts and figures redacted)" },
+        { src: "evidence/shop-whats-going-wrong.jpg", caption: "Slide from my deck: diagnosing the shop's issues – products, pricing, system and visibility" },
       ],
     },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I manage relationships with suppliers and partners including Sagacity, StudioCertain, MBA Group and Paragon, aligning their delivery with OutsideClinic's commercial objectives." },
@@ -248,6 +268,7 @@ const KSBS = [
   { code: "K3", category: "knowledge", title: "Brand theory in practice", description: "The leading marketing theorists and practitioners when managing and implementing brand equity, brand awareness and strategic brand management.", status: "in-progress", evidence: [
     { project: "brand-refresh", date: "Mar 2026 – Oct 2026", text: "Co-leading the client side of OutsideClinic's brand refresh developed my understanding of strategic brand management – protecting brand equity through a full identity relaunch while managing sign-off on assets and copy across internal stakeholders." },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I manage our social channels to support brand awareness across Facebook, Instagram, LinkedIn, TikTok and YouTube." },
+    { source: "University of Portsmouth – UX Design module", date: "Apr 2026", text: "My UX Design report evaluated how effectively OutsideClinic's website reflects the brand's positioning – trust, clinical authority and warmth – identifying a gap between brand intent and the online experience, and recommending how to close it." },
   ] },
   { code: "K4", category: "knowledge", title: "Professional bodies & emerging trends", description: "Professional bodies and their insights into emerging technologies, trends and themes within the digital marketing environment.", status: "in-progress", evidence: [
     {
@@ -282,6 +303,14 @@ const KSBS = [
         { src: "evidence/k6-hearing-dogs-email.jpg", caption: "Correspondence with Hearing Dogs for Deaf People planning fundraising activity (contact details redacted)" },
       ],
     },
+    {
+      source: "LinkedIn, OutsideClinic",
+      date: "Dec 2025",
+      text: "We also use LinkedIn to support our B2B partnerships – for example, sharing The Care Workers' Charity's Winter Prize Draw from our company page to back a partner's fundraising for care workers across the UK.",
+      images: [
+        { src: "evidence/k6-care-workers-charity-linkedin.jpg", caption: "OutsideClinic LinkedIn post supporting a partner's charity prize draw" },
+      ],
+    },
   ] },
   { code: "K7", category: "knowledge", title: "Paid, owned & earned media", description: "The types of online and offline paid, owned and earned media, and how this works together.", status: "in-progress", evidence: [
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "My role covers paid media (Google Ads, Microsoft Ads, Meta and Direct Mail) and owned channels (website, SEO, email and social), and I oversee how they work together in our acquisition strategy." },
@@ -301,12 +330,28 @@ const KSBS = [
     { project: "website-revamp", date: "2026 – ongoing", text: "On the website rebuild, I create and proof design concepts and content with our partner agency, applying interface design principles to the new site." },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I build landing pages in Unbounce and Craft CMS, laying out content and calls to action for each campaign." },
     { project: "brand-refresh", date: "Mar 2026 – Oct 2026", text: "On the brand refresh, I reviewed new design assets and copy, requesting changes where needed before sign-off." },
+    {
+      source: "University of Portsmouth – UX Design module",
+      date: "Apr 2026",
+      text: "I designed two prototype pages for OutsideClinic's website – a homepage and an About Us page – reducing competing calls to action and introducing warmer, human-centred imagery and tone of voice in line with the brand guidelines.",
+      images: [
+        { src: "evidence/ux-homepage-prototype.jpg", caption: "Homepage prototype" },
+        { src: "evidence/ux-about-us-prototype.jpg", caption: "About Us prototype" },
+      ],
+    },
   ] },
   { code: "K12", category: "knowledge", title: "User experience", description: "The user experience, and how to maximise engagement.", status: "in-progress", evidence: [
     { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "The webform relaunch put user experience at the centre: I used insight and data to shape a redesigned form, rebuilt from the ground up and implemented live on the website." },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I improve landing pages through structured testing and UX optimisation to increase engagement and conversions." },
     { project: "website-revamp", date: "2026 – ongoing", text: "On the website rebuild, I create and proof concepts with our partner agency with the user's experience of the new site in mind." },
-    { source: "University of Portsmouth – UX Design module", text: "In my UX Design module, I carried out a UX assessment of the OutsideClinic website, evaluating usability, accessibility and trust for older adults, carers and people with mobility limitations, and recommended improvements." },
+    {
+      source: "University of Portsmouth – UX Design module",
+      text: "In my UX Design module, I carried out a UX assessment of the OutsideClinic website, evaluating usability, accessibility and trust for older adults, carers and people with mobility limitations, and recommended improvements.",
+      date: "Apr 2026",
+      images: [
+        { src: "evidence/ux-homepage-prototype.jpg", caption: "Homepage prototype designed from the UX analysis" },
+      ],
+    },
   ] },
   { code: "K13", category: "knowledge", title: "Funnels, segmentation & attribution", description: "Segmentation, targeting and application of sales funnel, path to purchase, and customer attribution.", status: "in-progress", evidence: [
     { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "In HubSpot, I built bespoke sales pipelines, funnels and segmented customer journeys, mapping the customer's path to purchase and the follow-up that encourages repeat purchases." },
@@ -334,6 +379,9 @@ const KSBS = [
       date: "Apr – May 2025",
       text: "I contributed to a strategic e-commerce project on the future of OutsideClinic's online shop. Working with internal stakeholders and external digital agencies, I put together the initial slide deck on price ranges and products we could introduce, and supported customer journey mapping, market and competitor analysis, website UX reviews, Google Analytics evaluation and replatforming considerations. The project assessed how improvements to the shopping experience – product categorisation, payment options and site functionality – could increase conversions and support business growth, deepening my understanding of e-commerce fundamentals from customer experience to commercial website optimisation.",
       images: [
+        { src: "evidence/shop-whats-going-wrong.jpg", caption: "Slide from my deck: diagnosing the shop's issues – products, pricing, system and visibility" },
+        { src: "evidence/shop-pricing-benchmark.jpg", caption: "Slide: price benchmarking against competitors and retailers" },
+        { src: "evidence/shop-future-products.jpg", caption: "Slide: future product categories backed by UK demand data" },
         { src: "evidence/k14-online-shop-email.jpg", caption: "Project kick-off email to agency partners, with my initial slide deck (contacts and figures redacted)" },
       ],
     },
@@ -358,7 +406,15 @@ const KSBS = [
     { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "On the webform relaunch, I worked across teams – an external agency and our internal IT department – to deliver the project." },
   ] },
   { code: "B3", category: "behaviour", title: "Inclusion & impact awareness", description: "Consider the impact of work on others, especially where related to culture, diversity and equality.", status: "in-progress", evidence: [
-    { source: "University of Portsmouth – UX Design module", text: "I considered the impact of digital experiences on a diverse range of users by assessing how well the OutsideClinic website supports older adults, carers and people with mobility limitations. Through a UX assessment, I evaluated accessibility, usability and trust to make sure the site met the needs of potentially vulnerable users, and developed recommendations to make the online experience more inclusive and accessible for everyone." },
+    {
+      source: "University of Portsmouth – UX Design module",
+      text: "I considered the impact of digital experiences on a diverse range of users by assessing how well the OutsideClinic website supports older adults, carers and people with mobility limitations. Through a UX assessment, I evaluated accessibility, usability and trust to make sure the site met the needs of potentially vulnerable users, and developed recommendations to make the online experience more inclusive and accessible for everyone.",
+      date: "Apr 2026",
+      images: [
+        { src: "evidence/ux-accessibility-findings.jpg", caption: "Report extract: findability and accessibility analysis for older users and carers" },
+        { src: "evidence/ux-homepage-prototype.jpg", caption: "Homepage prototype: fewer competing calls to action and warmer, human-centred design" },
+      ],
+    },
   ] },
   { code: "B4", category: "behaviour", title: "Quality & deadlines", description: "Demonstrate business disciplines and compliance with procedures and principles to ensure work is of high quality and fit for purpose, with high attention to detail and the ability to work to deadlines.", status: "in-progress", evidence: [
     { project: "brand-refresh", date: "Mar 2026 – Oct 2026", text: "On the brand refresh, I managed sign-off on assets and copy, flagged and requested changes where needed, and held the line on deadlines once designs were locked." },
