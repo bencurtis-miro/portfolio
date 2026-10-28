@@ -211,7 +211,6 @@ const KSBS = [
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I lead Direct Mail campaigns using CPA, CVR and ROI analysis to judge performance and decide where to invest." },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I monitor Google Ads and Microsoft Ads performance and adjust targeting, spend and bidding to lower cost per acquisition and improve return on investment." },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I report on key business KPIs across channels using GA4, Power BI and Infinity." },
-    { source: "Data Administrator / Scheduling Assistant, OutsideClinic", date: "Sep 2021 – Sep 2024", text: "As Data Administrator, I built Excel reports and dashboards to track call volumes, customer trends and team output." },
   ] },
   { code: "S11", category: "skill", title: "Engage via email & social", description: "Engage communities through Email Marketing and Social Media to stimulate and encourage communication through positive discussion and engagement.", status: "complete", evidence: [
     {
@@ -315,9 +314,7 @@ const KSBS = [
   { code: "K7", category: "knowledge", title: "Paid, owned & earned media", description: "The types of online and offline paid, owned and earned media, and how this works together.", status: "in-progress", evidence: [
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "My role covers paid media (Google Ads, Microsoft Ads, Meta and Direct Mail) and owned channels (website, SEO, email and social), and I oversee how they work together in our acquisition strategy." },
   ] },
-  { code: "K8", category: "knowledge", title: "Regulation, data protection & ethics", description: "Digital marketing regulatory requirements, data protection, compliance and ethics, both national and international.", status: "in-progress", evidence: [
-    { source: "Data Administrator / Scheduling Assistant, OutsideClinic", date: "Sep 2021 – Sep 2024", text: "As Data Administrator, I logged and processed inbound mail, making sure customer data was entered correctly and in line with GDPR." },
-  ] },
+  { code: "K8", category: "knowledge", title: "Regulation, data protection & ethics", description: "Digital marketing regulatory requirements, data protection, compliance and ethics, both national and international.", status: "not-started", evidence: [] },
   { code: "K9", category: "knowledge", title: "International & multichannel marketing", description: "The Digital Marketing environment for International marketing and multichannel marketing, for agencies as well as client.", status: "in-progress", evidence: [
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I work across multichannel marketing every day – Direct Mail, Paid Social, PPC, SEO and CRM – and manage agency partners from the client side." },
   ] },
@@ -391,7 +388,6 @@ const KSBS = [
   // deliberately not the focus of this portfolio (see filter default in script.js)
   { code: "B1", category: "behaviour", title: "Communication", description: "Ability to communicate and actively listen at all levels.", status: "in-progress", evidence: [
     { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "On the HubSpot implementation, I communicated with everyone from employees to SLT and suppliers, and trained staff on the new system." },
-    { source: "Data Administrator / Scheduling Assistant, OutsideClinic", date: "Sep 2021 – Sep 2024", text: "As Scheduling Assistant, I handled more than 100 inbound calls a day, supporting customers and updating their records." },
     {
       source: "Hearing Dogs for Deaf People partnership",
       date: "Aug 2025",
@@ -402,7 +398,6 @@ const KSBS = [
     },
   ] },
   { code: "B2", category: "behaviour", title: "Resilience & teamwork", description: "Ability to work under pressure and unsupervised, and interact effectively within teams.", status: "in-progress", evidence: [
-    { source: "Data Administrator / Scheduling Assistant, OutsideClinic", date: "Sep 2021 – Sep 2024", text: "As Scheduling Assistant, I managed UK-wide clinician schedules, balancing geography, availability and patient needs alongside a high volume of daily calls." },
     { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "On the webform relaunch, I worked across teams – an external agency and our internal IT department – to deliver the project." },
   ] },
   { code: "B3", category: "behaviour", title: "Inclusion & impact awareness", description: "Consider the impact of work on others, especially where related to culture, diversity and equality.", status: "in-progress", evidence: [
@@ -421,9 +416,7 @@ const KSBS = [
     { project: "website-revamp", date: "2026 – ongoing", text: "On the website rebuild, I set and enforce the delivery timeline with our partner agency to keep the project on track." },
     { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "I delivered the HubSpot implementation on time, with staff training built in for a smooth handover." },
   ] },
-  { code: "B5", category: "behaviour", title: "Integrity & data security", description: "Show integrity and respect for confidentiality and data security in work and personal situations.", status: "in-progress", evidence: [
-    { source: "Data Administrator / Scheduling Assistant, OutsideClinic", date: "Sep 2021 – Sep 2024", text: "As Data Administrator, I handled customer records and inbound mail in line with GDPR, making sure personal data was entered accurately and handled securely." },
-  ] },
+  { code: "B5", category: "behaviour", title: "Integrity & data security", description: "Show integrity and respect for confidentiality and data security in work and personal situations.", status: "not-started", evidence: [] },
   { code: "B6", category: "behaviour", title: "CPD & enthusiasm", description: "Be enthusiastic and have a thorough and flexible approach to work and to personal development through CPD and life-long learning.", status: "in-progress", evidence: [
     { source: "University of Portsmouth", date: "Ongoing", text: "I'm studying for a BA (Hons) Digital Marketing degree apprenticeship at the University of Portsmouth alongside my full-time role, applying what I learn to my day-to-day work." },
     {
@@ -438,7 +431,6 @@ const KSBS = [
   ] },
   { code: "B7", category: "behaviour", title: "Structured problem solving", description: "Logical thinking and a creative approach to problem solving to systematically analyse and apply structured techniques to complex systems and situations.", status: "in-progress", evidence: [
     { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "For the webform relaunch, I used insight and data to work out what needed to change before redesigning the form from the ground up." },
-    { source: "Data Administrator / Scheduling Assistant, OutsideClinic", date: "Sep 2021 – Sep 2024", text: "As Scheduling Assistant, I planned UK-wide clinician schedules, solving the puzzle of geography, availability and patient needs." },
   ] },
 ];
 
