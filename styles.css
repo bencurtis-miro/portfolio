@@ -640,6 +640,7 @@ main{ margin-left: var(--rail-w); }
 .evidence-project{ text-decoration: underline; text-underline-offset: 2px; }
 .evidence-source{ font-weight: 500; color: var(--slate); }
 .evidence-text{
+  white-space: pre-line;
   font-size: 14px;
   font-style: italic;
   color: var(--ink);
