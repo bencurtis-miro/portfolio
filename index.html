@@ -6,7 +6,7 @@
 <title>Ben Curtis – Digital Marketing Executive</title>
 <meta name="description" content="Portfolio of Ben Curtis, Digital Marketing Executive at OutsideClinic and co-founder of Mirõ MKT: projects, CV and University KSB evidence.">
 <meta name="theme-color" content="#22392D">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2322392D'/%3E%3Cpath d='M10 27h26V16l18 16-18 16V37H10z' fill='%23F08A3C'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2322392D'/%3E%3Ccircle cx='32' cy='32' r='13' fill='%23E9DDC4'/%3E%3C/svg%3E">
 <!-- Link previews (LinkedIn, Slack, WhatsApp, email). These are read
      without running JavaScript, so they must be written out here.
      If the site moves to a custom domain, update the two URLs below. -->
@@ -25,12 +25,6 @@
 <link rel="stylesheet" href="styles.css?v=20261030">
 </head>
 <body>
-
-<!-- The painted circuit arrow, reused across the site. Its colour shows
-     a KSB's status: blue = complete, orange = in progress, outline = not started. -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <symbol id="arrow" viewBox="0 0 26 16"><path d="M1.5 5.6c4.1-.3 8.3-.4 12.6-.2l-.2-4.1c3.6 2.1 7.2 4.3 10.6 6.7-3.4 2.4-7 4.6-10.5 6.8l.1-4.2c-4.2.1-8.4 0-12.6-.3z"/></symbol>
-</svg>
 
 <a class="skip-link" href="#about">Skip to content</a>
 
@@ -87,10 +81,10 @@
           <h2 class="circuit-title" id="circuitHeading">My KSB circuit</h2>
           <p class="circuit-summary" id="circuitSummary"></p>
         </div>
-        <ul class="status-key" aria-label="Arrow colours">
-          <li><svg class="arrow is-complete" aria-hidden="true"><use href="#arrow"/></svg>Complete</li>
-          <li><svg class="arrow is-in-progress" aria-hidden="true"><use href="#arrow"/></svg>In progress</li>
-          <li><svg class="arrow is-not-started" aria-hidden="true"><use href="#arrow"/></svg>Not started</li>
+        <ul class="status-key" aria-label="Key">
+          <li><span class="marker is-complete" aria-hidden="true"></span>Complete</li>
+          <li><span class="marker is-in-progress" aria-hidden="true"></span>In progress</li>
+          <li><span class="marker is-not-started" aria-hidden="true"></span>Not started</li>
         </ul>
       </div>
       <div class="circuit-groups" id="circuitGroups"></div>
@@ -180,9 +174,9 @@
         <div class="filter-group" role="group" aria-labelledby="filterStatusLabel">
           <span class="filter-label" id="filterStatusLabel">Status</span>
           <button class="chip is-active" data-filter-status="all" aria-pressed="true">All</button>
-          <button class="chip" data-filter-status="complete" aria-pressed="false"><svg class="arrow is-complete" aria-hidden="true"><use href="#arrow"/></svg>Complete</button>
-          <button class="chip" data-filter-status="in-progress" aria-pressed="false"><svg class="arrow is-in-progress" aria-hidden="true"><use href="#arrow"/></svg>In progress</button>
-          <button class="chip" data-filter-status="not-started" aria-pressed="false"><svg class="arrow is-not-started" aria-hidden="true"><use href="#arrow"/></svg>Not started</button>
+          <button class="chip" data-filter-status="complete" aria-pressed="false"><span class="marker is-complete" aria-hidden="true"></span>Complete</button>
+          <button class="chip" data-filter-status="in-progress" aria-pressed="false"><span class="marker is-in-progress" aria-hidden="true"></span>In progress</button>
+          <button class="chip" data-filter-status="not-started" aria-pressed="false"><span class="marker is-not-started" aria-hidden="true"></span>Not started</button>
         </div>
       </div>
 

@@ -20,8 +20,8 @@
   const CATEGORY_LABEL = { knowledge: "Knowledge", skill: "Skill", behaviour: "Behaviour" };
   const evidenceCount = n => `${n} piece${n === 1 ? "" : "s"} of evidence`;
 
-  /* The painted circuit arrow – its colour shows the status */
-  const arrow = status => `<svg class="arrow is-${status}" aria-hidden="true"><use href="#arrow"/></svg>`;
+  /* Status marker – filled circle = complete, half-filled = in progress, outline = not started */
+  const marker = status => `<span class="marker is-${status}" aria-hidden="true"></span>`;
 
   /* ---------------- SITE / COVER ---------------- */
   document.title = `${SITE.name} – ${SITE.title}`;
@@ -96,7 +96,7 @@
   const summaryParts = ["complete", "in-progress", "not-started"]
     .filter(s => counts[s])
     .map(s => `${counts[s]} ${statusLabel(s).toLowerCase()}`);
-  $("#circuitSummary").textContent = `${KSBS.length} KSBs: ${summaryParts.join(", ")}. Select any arrow to see its evidence.`;
+  $("#circuitSummary").textContent = `${KSBS.length} KSBs: ${summaryParts.join(", ")}. Select any one to see its evidence.`;
 
   const circuitGroups = $("#circuitGroups");
   const groupOrder = [["knowledge", "Knowledge"], ["skill", "Skills"], ["behaviour", "Behaviours"]];
@@ -110,13 +110,13 @@
     const row = $(".circuit-row", group);
     items.forEach(k => {
       const li = document.createElement("li");
-      li.innerHTML = `<button type="button" class="circuit-stop" style="--i:${stopIndex++}" aria-label="${k.code}: ${k.title}. ${statusLabel(k.status)}">${arrow(k.status)}<span class="circuit-code" aria-hidden="true">${k.code}</span></button>`;
+      li.innerHTML = `<button type="button" class="circuit-stop" style="--i:${stopIndex++}" aria-label="${k.code}: ${k.title}. ${statusLabel(k.status)}">${marker(k.status)}<span class="circuit-code" aria-hidden="true">${k.code}</span></button>`;
       $("button", li).addEventListener("click", () => openModal(k));
       row.appendChild(li);
     });
     circuitGroups.appendChild(group);
   });
-  // Paint the circuit in once on load (skipped when reduced motion is on)
+  // Fill the circuit in once on load (skipped when reduced motion is on)
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     circuitGroups.classList.add("js-paint");
   }
@@ -144,7 +144,7 @@
       card.type = "button";
       card.className = "ksb-card";
       card.innerHTML = `
-        <span class="ksb-top">${arrow(k.status)}<span class="ksb-code">${k.code}</span><span class="ksb-category">${CATEGORY_LABEL[k.category] || k.category}</span></span>
+        <span class="ksb-top">${marker(k.status)}<span class="ksb-code">${k.code}</span><span class="ksb-category">${CATEGORY_LABEL[k.category] || k.category}</span></span>
         <span class="ksb-title">${k.title}</span>
         <span class="ksb-meta">${statusLabel(k.status)}${n ? `, ${evidenceCount(n)}` : ""}</span>
       `;
@@ -187,7 +187,7 @@
     modalStep = null;
     $("#modalCode").innerHTML = `<span class="modal-code-id">${k.code}</span><span class="modal-code-cat">${CATEGORY_LABEL[k.category] || k.category}</span>`;
     $("#modalTitle").textContent = k.title;
-    $("#modalStatus").innerHTML = `${arrow(k.status)}${statusLabel(k.status)}`;
+    $("#modalStatus").innerHTML = `${marker(k.status)}${statusLabel(k.status)}`;
     $("#modalDesc").textContent = k.description;
 
     const evEl = $("#modalEvidence");
@@ -296,7 +296,7 @@
     const card = document.createElement("article");
     card.className = "project-card";
     const statusBadge = p.status && STATUS_LABEL[p.status]
-      ? `<p class="project-status">${arrow(p.status)}${statusLabel(p.status)}</p>` : "";
+      ? `<p class="project-status">${marker(p.status)}${statusLabel(p.status)}</p>` : "";
     const linkedKsbs = KSBS.filter(k => evidenceFor(k).some(e => e && e.project === p.id));
     card.innerHTML = `
       ${statusBadge}
@@ -304,7 +304,7 @@
       <p class="project-period">${p.period}${p.role ? `<br><span class="project-role">${p.role}</span>` : ""}</p>
       <p class="project-summary">${p.summary}</p>
       <div class="tag-list project-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
-      ${linkedKsbs.length ? `<div class="project-ksbs"><p class="project-ksbs-label">KSB evidence from this project</p><div class="project-ksb-list">${linkedKsbs.map(k => `<button type="button" class="project-ksb" data-ksb="${k.code}" aria-label="Open ${k.code}: ${k.title}">${arrow(k.status)}${k.code}</button>`).join("")}</div></div>` : ""}
+      ${linkedKsbs.length ? `<div class="project-ksbs"><p class="project-ksbs-label">KSB evidence from this project</p><div class="project-ksb-list">${linkedKsbs.map(k => `<button type="button" class="project-ksb" data-ksb="${k.code}" aria-label="Open ${k.code}: ${k.title}">${marker(k.status)}${k.code}</button>`).join("")}</div></div>` : ""}
     `;
     card.querySelectorAll("[data-ksb]").forEach(btn => {
       btn.addEventListener("click", () => openModal(KSBS.find(k => k.code === btn.dataset.ksb)));

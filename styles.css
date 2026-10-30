@@ -1,7 +1,7 @@
 /* ============================================================
    TOKENS – "Fontainebleau"
    Sandstone and pine are the base. Circuit blue and orange are
-   reserved for KSB status only, like the painted arrows on the
+   reserved for KSB status only, like the painted marks on the
    Fontainebleau boulder circuits.
    ============================================================ */
 :root{
@@ -70,14 +70,22 @@ p{ margin: 0; }
 }
 .skip-link:focus{ top: 12px; }
 
-/* ---------- Painted arrow ---------- */
-.arrow{ width: 26px; height: 16px; flex-shrink: 0; display: inline-block; vertical-align: middle; }
-.arrow.is-complete{ fill: var(--complete); }
-.arrow.is-in-progress{ fill: var(--progress); }
-.arrow.is-not-started{ fill: none; stroke: var(--pine); stroke-width: 1.4; }
-.cover .arrow.is-complete, .section-dark .arrow.is-complete{ fill: var(--complete-on-dark); }
-.cover .arrow.is-in-progress, .section-dark .arrow.is-in-progress{ fill: var(--progress-on-dark); }
-.cover .arrow.is-not-started, .section-dark .arrow.is-not-started{ stroke: var(--sand); }
+/* ---------- Status marker ----------
+   Shape carries the meaning, so it reads without colour too:
+   filled circle = complete, half-filled = in progress, outline = not started. */
+.marker{
+  --m: var(--pine);
+  width: 12px; height: 12px; flex-shrink: 0;
+  display: inline-block; vertical-align: middle;
+  border-radius: 50%;
+  border: 2px solid var(--m);
+}
+.marker.is-complete{ --m: var(--complete); background: var(--m); }
+.marker.is-in-progress{ --m: var(--progress); background: linear-gradient(90deg, var(--m) 50%, transparent 50%); }
+.marker.is-not-started{ --m: var(--moss); }
+.cover .marker.is-complete, .section-dark .marker.is-complete, .chip.is-active .marker.is-complete{ --m: var(--complete-on-dark); }
+.cover .marker.is-in-progress, .section-dark .marker.is-in-progress, .chip.is-active .marker.is-in-progress{ --m: var(--progress-on-dark); }
+.cover .marker.is-not-started, .section-dark .marker.is-not-started, .chip.is-active .marker.is-not-started{ --m: var(--lichen); }
 
 /* ============================================================
    TOP BAR
@@ -250,16 +258,15 @@ main{ padding-top: var(--topbar-h); }
   transition: background-color .15s ease;
 }
 .circuit-stop:hover{ background: rgba(233,221,196,0.08); }
-.circuit-stop .arrow{ width: 28px; height: 17px; }
+.circuit-stop .marker{ width: 16px; height: 16px; }
 .circuit-code{ font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
 
 /* The one orchestrated moment: the circuit is painted in, stop by stop, on load. */
 @keyframes paint{
-  from{ opacity: 0; transform: translateX(-6px) scaleX(0.4); }
+  from{ opacity: 0; transform: scale(0.3); }
   to{ opacity: 1; transform: none; }
 }
-.js-paint .circuit-stop .arrow{
-  transform-origin: left center;
+.js-paint .circuit-stop .marker{
   animation: paint .45s cubic-bezier(.2,.7,.2,1) both;
   animation-delay: calc(var(--i) * 28ms + 250ms);
 }
@@ -343,13 +350,13 @@ main{ padding-top: var(--topbar-h); }
 .project-ksb{
   font: inherit; font-size: 13px; font-weight: 600;
   display: inline-flex; align-items: center; gap: 6px;
-  min-height: 34px; padding: 4px 12px 4px 8px;
+  min-height: 34px; padding: 4px 12px 4px 10px;
   border-radius: 100px;
   border: 1px solid var(--line-dark-strong);
   background: none; color: var(--sand);
   cursor: pointer;
 }
-.project-ksb .arrow{ width: 18px; height: 11px; }
+.project-ksb .marker{ width: 10px; height: 10px; border-width: 1.5px; }
 .project-ksb:hover{ border-color: var(--sand); }
 
 .carousel-btn{
@@ -406,12 +413,9 @@ main{ padding-top: var(--topbar-h); }
   cursor: pointer;
   transition: background-color .12s ease, color .12s ease, border-color .12s ease;
 }
-.chip .arrow{ width: 20px; height: 12px; }
+.chip .marker{ width: 11px; height: 11px; }
 .chip:hover{ border-color: var(--pine); }
 .chip.is-active{ background: var(--pine); color: var(--sand); border-color: var(--pine); }
-.chip.is-active .arrow.is-complete{ fill: var(--complete-on-dark); }
-.chip.is-active .arrow.is-in-progress{ fill: var(--progress-on-dark); }
-.chip.is-active .arrow.is-not-started{ stroke: var(--sand); }
 
 .ksb-count{ font-size: 14px; color: var(--moss); margin-bottom: 14px; }
 .ksb-grid{ display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
