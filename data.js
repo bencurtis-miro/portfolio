@@ -58,9 +58,15 @@ const HERO_STATS = [
    point to rewrite in your own words, not final copy.
 
    The site deliberately has no profile photo.
+
+   `statement`: the large opening line. Its words light up one by
+   one as a visitor scrolls past it, so keep it to one or two
+   sentences. `interests`: shown as tiles under "Outside of work".
    ------------------------------------------------------------ */
 
 const ABOUT = {
+  statement:
+    "The more I understood how a brain is actually wired, the more I could see how to apply business knowledge properly.",
   paragraphs: [
     {
       heading: "Who I am",
@@ -70,11 +76,8 @@ const ABOUT = {
       heading: "Why marketing",
       text: "Marketing was never really in question for me. I studied Business and Psychology at A-Level and got hooked on the overlap between the two – the more I understood how a brain is actually wired, the more I could see how to apply that business knowledge properly.",
     },
-    {
-      heading: "Outside of work",
-      text: "Outside the day job I'm a committed fitness enthusiast – bouldering, football and powerlifting all feature regularly. I'm also into film and music, with a habit of picking things apart properly rather than just watching or listening. Wes Anderson is up there as an idol.",
-    },
   ],
+  interests: ["Football", "Bouldering", "Powerlifting", "Film", "Music"],
 };
 
 /* ------------------------------------------------------------

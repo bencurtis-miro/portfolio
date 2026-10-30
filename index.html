@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..800;1,62..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261030d">
+<link rel="stylesheet" href="styles.css?v=20261031a">
 </head>
 <body>
 
@@ -34,6 +34,7 @@
     <span></span><span></span>
   </button>
   <nav class="site-nav" id="siteNav" aria-label="Sections">
+    <span class="nav-indicator" id="navIndicator" aria-hidden="true"></span>
     <a href="#about" class="nav-link" data-section="about">Introduction</a>
     <a href="#work" class="nav-link" data-section="work">Projects</a>
     <a href="#cv" class="nav-link" data-section="cv">CV</a>
@@ -66,7 +67,12 @@
       <header class="section-head">
         <h2>Introduction</h2>
       </header>
+      <p class="about-statement" id="aboutStatement"></p>
       <div class="about-copy" id="aboutCopy"></div>
+      <div class="about-interests" id="aboutInterests">
+        <h3 class="about-interests-title">Outside of work</h3>
+        <ul class="interest-tiles" id="interestTiles"></ul>
+      </div>
     </div>
   </section>
 
@@ -180,7 +186,7 @@
 </div>
 
 <!-- ?v= forces browsers to fetch fresh files after each update; change it whenever the files change -->
-<script src="data.js?v=20261030d"></script>
-<script src="script.js?v=20261030d"></script>
+<script src="data.js?v=20261031a"></script>
+<script src="script.js?v=20261031a"></script>
 </body>
 </html>

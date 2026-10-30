@@ -116,17 +116,30 @@ p{ margin: 0; }
   font-weight: 800; font-variation-settings: var(--display);
   font-size: var(--step-2);
 }
-.site-nav{ display: flex; align-items: center; gap: 4px; }
+.site-nav{ display: flex; align-items: center; gap: 4px; position: relative; }
+/* The sand pill that glides behind the current section's link */
+.nav-indicator{
+  position: absolute; left: 0; top: 50%;
+  height: 38px; margin-top: -19px; width: 0;
+  border-radius: 100px;
+  background: var(--sand);
+  opacity: 0;
+  transition: transform .45s cubic-bezier(.3,.7,.2,1), width .45s cubic-bezier(.3,.7,.2,1), opacity .2s ease;
+  pointer-events: none;
+}
+.nav-indicator.is-shown{ opacity: 1; }
+.nav-indicator.no-slide{ transition: opacity .2s ease; }
 .nav-link{
   text-decoration: none;
   font-size: 15px; font-weight: 500;
   color: var(--lichen);
   padding: 8px 14px;
   border-radius: 100px;
-  transition: color .15s ease, background-color .15s ease;
+  position: relative; z-index: 1;
+  transition: color .3s ease;
 }
 .nav-link:hover{ color: var(--sand); }
-.nav-link.is-active{ color: var(--pine); background: var(--sand); }
+.nav-link.is-active{ color: var(--pine); }
 .nav-cta{
   margin-left: 10px;
   text-decoration: none;
@@ -160,6 +173,7 @@ main{ padding-top: var(--topbar-h); }
     display: none;
   }
   .site-nav.is-open{ display: flex; }
+  .nav-indicator{ display: none; }
   .nav-link{ font-size: var(--step-1); padding: 12px 0; border-radius: 0; border-bottom: 1px solid var(--line-dark); }
   .nav-link.is-active{ background: none; color: var(--sand); }
   .nav-cta{ margin: 16px 0 0; text-align: center; padding: 12px 18px; font-size: var(--step-1); }
@@ -234,6 +248,9 @@ main{ padding-top: var(--topbar-h); }
   cursor: pointer;
   transition: background-color .15s ease, color .15s ease, border-color .15s ease;
 }
+.btn{ transition: background-color .15s ease, color .15s ease, border-color .15s ease, transform .12s ease; }
+.btn:active, .chip:active, .project-ksb:active, .nav-cta:active{ transform: scale(.96); }
+.chip, .project-ksb{ transition: background-color .15s ease, color .15s ease, border-color .15s ease, transform .12s ease; }
 .btn-light{ background: var(--sand); color: var(--pine); }
 .btn-light:hover{ background: var(--sand-card); }
 .btn-ghost{ border-color: var(--line-dark-strong); color: var(--sand); }
@@ -264,17 +281,62 @@ main{ padding-top: var(--topbar-h); }
 .section-head-wide{ max-width: none; }
 /* The CV summary runs across the full width in two columns, so lines stay readable */
 .section-lede.cv-summary{ max-width: none; columns: 2 320px; column-gap: clamp(32px, 4vw, 56px); }
-.section-head h2{ font-size: var(--step-4); }
-.section-lede{ color: var(--moss); font-size: var(--step-1); line-height: 1.55; max-width: 64ch; margin-top: 14px; }
+.section-head h2{ font-size: var(--step-4); display: inline-block; position: relative; padding-bottom: 14px; }
+/* A lake line draws under each section heading as it comes into view */
+.section-head h2::after{
+  content: ""; position: absolute; left: 0; bottom: 0;
+  width: 100%; height: 4px; border-radius: 4px;
+  background: var(--lake);
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform .8s cubic-bezier(.3,.7,.2,1);
+}
+.section-lake .section-head h2::after{ background: var(--lake-light); }
+.section-head h2.is-drawn::after{ transform: scaleX(1); }
+.section-lede{ color: var(--moss); font-size: var(--step-1); line-height: 1.55; max-width: 64ch; margin-top: 18px; }
 .section-lake .section-lede{ color: var(--lichen); }
 
 /* ---------- Introduction ---------- */
-.about-copy{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 4vw, 56px); }
+/* Opening statement: words light up one by one as it scrolls into view */
+.about-statement{
+  font-size: clamp(2rem, 4.6vw, 3.75rem);
+  font-weight: 800; font-variation-settings: 'wdth' 78;
+  line-height: 1.08; letter-spacing: -0.01em;
+  max-width: 28ch;
+  margin-bottom: clamp(48px, 7vw, 88px);
+}
+.sw{ color: rgba(34,57,45,0.2); transition: color .4s ease; }
+.sw.is-lit{ color: var(--pine); }
+
+.about-copy{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(28px, 5vw, 72px); }
 .about-block{ border-top: 2px solid var(--pine); padding-top: 18px; }
 .about-block-heading{ font-size: var(--step-2); margin-bottom: 10px; }
-.about-block-text{ font-size: 16.5px; line-height: 1.65; }
+.about-block-text{ font-size: 17px; line-height: 1.65; max-width: 62ch; }
+
+.about-interests{ margin-top: clamp(40px, 6vw, 72px); }
+.about-interests-title{ font-size: var(--step-2); margin-bottom: 16px; }
+.interest-tiles{ list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.interest-tile{
+  --tile: var(--lake);
+  background: var(--sand-card);
+  box-shadow: inset 0 5px 0 var(--tile);
+  border-radius: 10px;
+  padding: clamp(22px, 3vw, 34px) 18px;
+  font-size: var(--step-3); font-weight: 800; font-variation-settings: var(--display);
+  line-height: 1;
+  transition: background-color .25s ease, color .25s ease, transform .25s ease;
+}
+.interest-tile:nth-child(5n+2){ --tile: var(--skill); }
+.interest-tile:nth-child(5n+3){ --tile: var(--behaviour); }
+.interest-tile:nth-child(5n+4){ --tile: var(--pine); }
+.interest-tile:nth-child(5n+5){ --tile: var(--lake); }
+.interest-tile:hover{ background: var(--tile); color: var(--sand); transform: translateY(-3px); }
+@keyframes tile-in{ from{ opacity: 0; transform: translateY(14px); } to{ opacity: 1; transform: none; } }
+.interest-tiles:not(.is-in) .interest-tile{ opacity: 0; }
+.interest-tiles.is-in .interest-tile{ animation: tile-in .5s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i) * 70ms); }
+
 @media (max-width: 900px){
-  .about-copy{ grid-template-columns: 1fr; max-width: 66ch; }
+  .about-copy{ grid-template-columns: 1fr; }
+  .interest-tiles{ grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
 }
 
 /* ---------- Projects ---------- */
@@ -428,8 +490,10 @@ main{ padding-top: var(--topbar-h); }
   cursor: pointer;
   transition: border-color .12s ease;
 }
-.ksb-card.cat-knowledge, .ksb-card.cat-skill, .ksb-card.cat-behaviour{ border-left: 4px solid var(--cat); }
-.ksb-card:hover{ border-color: var(--cat, var(--pine)); }
+.ksb-card.cat-knowledge, .ksb-card.cat-skill, .ksb-card.cat-behaviour{ box-shadow: inset 4px 0 0 var(--cat); }
+.ksb-card{ transition: border-color .2s ease, box-shadow .25s ease, transform .2s ease; }
+.ksb-card:hover{ border-color: var(--cat, var(--pine)); box-shadow: inset 8px 0 0 var(--cat, var(--pine)); }
+.ksb-card:active{ transform: scale(.985); }
 .ksb-top{ display: flex; align-items: center; gap: 10px; }
 .ksb-code{ font-size: var(--step-2); font-weight: 800; font-variation-settings: var(--display); line-height: 1; color: var(--cat, var(--pine)); }
 .ksb-title{ font-size: 15.5px; font-weight: 600; line-height: 1.35; }
@@ -452,7 +516,8 @@ main{ padding-top: var(--topbar-h); }
 .footer-sub{ color: var(--lichen); font-size: 14px; margin-top: 4px; }
 .footer-links{ display: flex; flex-wrap: wrap; gap: 4px 24px; }
 .footer-links a{ color: var(--sand); text-underline-offset: 4px; text-decoration-color: var(--line-dark-strong); padding: 10px 0; display: inline-block; }
-.footer-links a:hover{ text-decoration-color: var(--sand); }
+.footer-links a{ transition: text-decoration-color .2s ease, text-decoration-thickness .2s ease; }
+.footer-links a:hover{ text-decoration-color: var(--sand); text-decoration-thickness: 2px; }
 
 /* ============================================================
    MODAL
@@ -462,16 +527,22 @@ main{ padding-top: var(--topbar-h); }
   background: rgba(24,42,33,0.72);
   display: flex; align-items: center; justify-content: center;
   padding: 24px;
+  animation: fade-in .2s ease-out;
 }
+@keyframes fade-in{ from{ opacity: 0; } to{ opacity: 1; } }
+@keyframes fade-out{ to{ opacity: 0; } }
+@keyframes modal-out{ to{ opacity: 0; transform: translateY(6px) scale(.98); } }
+.modal-backdrop.is-closing{ animation: fade-out .18s ease-in forwards; }
+.modal-backdrop.is-closing .modal{ animation: modal-out .18s ease-in forwards; }
 .modal{
   position: relative;
   width: 100%; max-width: 580px; max-height: 84vh; overflow-y: auto;
   background: var(--sand-card);
   border-radius: 12px;
   padding: 36px;
-  animation: modal-in .2s ease-out;
+  animation: modal-in .28s cubic-bezier(.2,.7,.2,1);
 }
-@keyframes modal-in{ from{ opacity: 0; transform: translateY(8px); } to{ opacity: 1; transform: none; } }
+@keyframes modal-in{ from{ opacity: 0; transform: translateY(12px) scale(.98); } to{ opacity: 1; transform: none; } }
 .modal-close{
   position: absolute; top: 14px; right: 14px;
   width: 40px; height: 40px; border-radius: 50%;

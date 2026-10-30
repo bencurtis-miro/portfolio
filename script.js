@@ -4,6 +4,19 @@
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $all = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
+  /* Motion: every animation below is skipped when the visitor has asked
+     their device for reduced motion – they simply see the finished state. */
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const easeOut = t => 1 - Math.pow(1 - t, 3);
+  // Add `cls` to each element the first time it scrolls into view
+  function onFirstView(els, cls, threshold = 0.4) {
+    if (reduceMotion || !("IntersectionObserver" in window)) { els.forEach(el => el.classList.add(cls)); return; }
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add(cls); io.unobserve(e.target); } });
+    }, { threshold });
+    els.forEach(el => io.observe(el));
+  }
+
   /* Evidence helpers – max 4 entries per KSB, strongest first */
   const MAX_EVIDENCE = 4;
   const evidenceFor = k => (k.evidence || []).slice(0, MAX_EVIDENCE);
@@ -53,14 +66,65 @@
 
   /* ---------------- STATS ---------------- */
   const statStrip = $("#statStrip");
-  HERO_STATS.forEach(s => {
+  HERO_STATS.forEach((s, i) => {
     const li = document.createElement("li");
     li.className = "stat";
     li.innerHTML = `<span class="stat-num">${s.value}</span><span class="stat-label">${s.label}</span>`;
     statStrip.appendChild(li);
+    countUp($(".stat-num", li), s.value, 250 + i * 140);
   });
 
+  // Ticks a stat like "£750k+" up from zero, keeping its prefix and suffix
+  function countUp(el, text, delay) {
+    const m = String(text).match(/^([^\d]*)([\d,]*\.?\d+)(.*)$/);
+    if (!m || reduceMotion) return;
+    const [, pre, raw, post] = m;
+    const target = parseFloat(raw.replace(/,/g, ""));
+    const decimals = (raw.split(".")[1] || "").length;
+    const fmt = n => pre + n.toLocaleString("en-GB", { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) + post;
+    el.setAttribute("aria-label", text);
+    el.textContent = fmt(0);
+    const duration = 1300;
+    setTimeout(() => {
+      const start = performance.now();
+      const tick = now => {
+        const t = Math.min(1, (now - start) / duration);
+        el.textContent = t < 1 ? fmt(Math.round(target * easeOut(t) * 10 ** decimals) / 10 ** decimals) : text;
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }, delay);
+  }
+
   /* ---------------- ABOUT / INTRODUCTION ---------------- */
+  const statementEl = $("#aboutStatement");
+  if (ABOUT.statement) {
+    const words = ABOUT.statement.trim().split(/\s+/);
+    statementEl.setAttribute("aria-label", ABOUT.statement);
+    statementEl.innerHTML = words.map(w => `<span class="sw" aria-hidden="true">${w}</span>`).join(" ");
+    const spans = $all(".sw", statementEl);
+    if (reduceMotion) {
+      spans.forEach(sp => sp.classList.add("is-lit"));
+    } else {
+      // Words light up one by one as the statement scrolls up through the screen
+      let queued = false;
+      const update = () => {
+        queued = false;
+        const r = statementEl.getBoundingClientRect();
+        const vh = window.innerHeight;
+        const progress = Math.min(1, Math.max(0, (vh * 0.85 - r.top) / (vh * 0.45 + r.height * 0.5)));
+        const lit = Math.round(progress * spans.length);
+        spans.forEach((sp, i) => sp.classList.toggle("is-lit", i < lit));
+      };
+      const queue = () => { if (!queued) { queued = true; requestAnimationFrame(update); } };
+      window.addEventListener("scroll", queue, { passive: true });
+      window.addEventListener("resize", queue);
+      update();
+    }
+  } else {
+    statementEl.remove();
+  }
+
   const aboutCopy = $("#aboutCopy");
   (ABOUT.paragraphs || []).forEach(p => {
     const block = document.createElement("div");
@@ -71,6 +135,23 @@
     `;
     aboutCopy.appendChild(block);
   });
+
+  const tiles = $("#interestTiles");
+  if ((ABOUT.interests || []).length) {
+    ABOUT.interests.forEach((name, i) => {
+      const li = document.createElement("li");
+      li.className = "interest-tile";
+      li.style.setProperty("--i", i);
+      li.textContent = name;
+      tiles.appendChild(li);
+    });
+    onFirstView([tiles], "is-in", 0.5);
+  } else {
+    $("#aboutInterests").remove();
+  }
+
+  // A lake line draws under each section heading as it comes into view
+  onFirstView($all(".section-head h2"), "is-drawn", 0.8);
 
   /* ---------------- KSB CIRCUIT (hero) ---------------- */
   const counts = KSBS.reduce((acc, k) => { acc[k.status] = (acc[k.status] || 0) + 1; return acc; }, {});
@@ -98,7 +179,7 @@
     circuitGroups.appendChild(group);
   });
   // Fill the circuit in once on load (skipped when reduced motion is on)
-  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+  if (!reduceMotion && "IntersectionObserver" in window) {
     circuitGroups.classList.add("is-waiting");
     const fill = new IntersectionObserver(entries => {
       if (entries.some(e => e.isIntersecting)) {
@@ -259,6 +340,7 @@
     }
 
     lastFocused = document.activeElement;
+    modalBackdrop.classList.remove("is-closing");
     modalBackdrop.hidden = false;
     document.body.style.overflow = "hidden";
     $(".modal").scrollTop = 0;
@@ -267,7 +349,14 @@
   }
 
   function closeModal() {
-    modalBackdrop.hidden = true;
+    if (modalBackdrop.hidden) return;
+    if (reduceMotion) {
+      modalBackdrop.hidden = true;
+    } else {
+      // Ease out, then hide
+      modalBackdrop.classList.add("is-closing");
+      setTimeout(() => { modalBackdrop.hidden = true; modalBackdrop.classList.remove("is-closing"); }, 180);
+    }
     document.body.style.overflow = "";
     document.removeEventListener("keydown", onModalKeydown);
     if (lastFocused) lastFocused.focus();
@@ -341,11 +430,27 @@
     `;
     const more = $(".cv-more", div);
     if (more) {
+      const ul = $("ul", div);
+      const extras = $all("li", ul).slice(CV_POINTS_SHOWN);
       more.addEventListener("click", () => {
         const open = more.getAttribute("aria-expanded") !== "true";
-        $all("li", div).forEach((li, i) => { if (i >= CV_POINTS_SHOWN) li.hidden = !open; });
+        const from = ul.offsetHeight;
+        extras.forEach(li => { li.hidden = false; });
+        const fullHeight = ul.offsetHeight;
+        extras.forEach(li => { li.hidden = !open; });
+        const to = open ? fullHeight : ul.offsetHeight;
         more.setAttribute("aria-expanded", String(open));
         more.textContent = open ? "Show fewer" : `Show all ${e.points.length} points`;
+        if (reduceMotion) return;
+        // Ease the list open or closed rather than snapping
+        if (!open) extras.forEach(li => { li.hidden = false; });
+        ul.style.overflow = "hidden";
+        const anim = ul.animate([{ height: `${from}px` }, { height: `${to}px` }], { duration: 340, easing: "cubic-bezier(.2,.7,.2,1)" });
+        if (open) extras.forEach((li, i) => li.animate([{ opacity: 0, transform: "translateY(-4px)" }, { opacity: 1, transform: "none" }], { duration: 260, delay: 60 + i * 30, easing: "ease-out", fill: "backwards" }));
+        anim.onfinish = () => {
+          ul.style.overflow = "";
+          if (!open) extras.forEach(li => { li.hidden = true; });
+        };
       });
     }
     expEl.appendChild(div);
@@ -391,6 +496,22 @@
   navToggle.addEventListener("click", () => setMenu(!siteNav.classList.contains("is-open")));
   $all(".nav-link, .nav-cta").forEach(link => link.addEventListener("click", () => setMenu(false)));
 
+  // The highlight behind the current section glides between links
+  const indicator = $("#navIndicator");
+  function moveIndicator() {
+    const active = $(".nav-link.is-active", siteNav);
+    if (!indicator) return;
+    if (!active) { indicator.classList.remove("is-shown"); return; }
+    indicator.style.width = `${active.offsetWidth}px`;
+    indicator.style.transform = `translateX(${active.offsetLeft}px)`;
+    if (!indicator.classList.contains("is-shown")) {
+      indicator.classList.add("no-slide");
+      requestAnimationFrame(() => { indicator.classList.add("is-shown"); requestAnimationFrame(() => indicator.classList.remove("no-slide")); });
+    }
+  }
+  window.addEventListener("resize", moveIndicator);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveIndicator);
+
   const sections = $all(".section, .cover").filter(s => s.id);
   const navLinks = $all(".nav-link");
   const spy = new IntersectionObserver(entries => {
@@ -401,6 +522,7 @@
           l.classList.toggle("is-active", on);
           if (on) l.setAttribute("aria-current", "location"); else l.removeAttribute("aria-current");
         });
+        moveIndicator();
       }
     });
   }, { rootMargin: "-40% 0px -55% 0px" });
