@@ -279,8 +279,10 @@ main{ padding-top: var(--topbar-h); }
 .section-alt{ background: var(--sand-shade); }
 .section-head{ max-width: 680px; margin-bottom: clamp(32px, 5vw, 52px); }
 .section-head-wide{ max-width: none; }
-/* The CV summary runs across the full width in two columns, so lines stay readable */
-.section-lede.cv-summary{ max-width: none; columns: 2 320px; column-gap: clamp(32px, 4vw, 56px); }
+/* The CV summary runs across the full width as two columns, split where a sentence ends */
+.cv-summary{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 4vw, 56px); margin-top: 18px; }
+.cv-summary p{ color: var(--moss); font-size: var(--step-1); line-height: 1.55; }
+@media (max-width: 760px){ .cv-summary{ grid-template-columns: 1fr; } }
 .section-head h2{ font-size: var(--step-4); display: inline-block; position: relative; padding-bottom: 14px; }
 /* A lake line draws under each section heading as it comes into view */
 .section-head h2::after{
@@ -379,8 +381,33 @@ main{ padding-top: var(--topbar-h); }
 .project-ksb .marker{ width: 10px; height: 10px; border-width: 1.5px; }
 .project-ksb:hover{ border-color: var(--sand); }
 
+/* Projects motion: cards rise in (two at a time on desktop), the Results bar
+   draws down, then the KSB pills pop in one after another. */
+.project-card{ transition: transform .35s cubic-bezier(.2,.7,.2,1), background-color .25s ease; }
+.project-card:hover{ transform: translateY(-4px); background: #235369; }
+.project-results{ position: relative; border-left: 0; }
+.project-results::before{
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--lake-light);
+  transform-origin: top; transform: scaleY(1);
+}
+@keyframes card-in{ from{ opacity: 0; transform: translateY(32px); } to{ opacity: 1; transform: none; } }
+@keyframes bar-down{ from{ transform: scaleY(0); } to{ transform: scaleY(1); } }
+@keyframes rise{ from{ opacity: 0; transform: translateY(6px); } to{ opacity: 1; transform: none; } }
+@keyframes pop{ 0%{ opacity: 0; transform: scale(.6); } 70%{ opacity: 1; transform: scale(1.06); } 100%{ opacity: 1; transform: none; } }
+.project-card:not(.is-in){ opacity: 0; }
+.project-card.is-in{ animation: card-in .7s cubic-bezier(.2,.7,.2,1) backwards; animation-delay: calc(mod(var(--i), 2) * 140ms); }
+.project-card.is-in .project-results::before{ animation: bar-down .6s cubic-bezier(.3,.7,.2,1) both; animation-delay: .45s; }
+.project-card.is-in .project-results ul, .project-card.is-in .project-results-title{ animation: rise .5s ease-out both; animation-delay: .6s; }
+.project-card.is-in .project-ksb{ animation: pop .4s cubic-bezier(.2,.7,.2,1) backwards; animation-delay: calc(.75s + var(--j) * 45ms); }
+@supports not (animation-delay: calc(mod(1, 2) * 1ms)){
+  .project-card.is-in:nth-child(even){ animation-delay: 140ms; }
+  .project-card.is-in:nth-child(odd){ animation-delay: 0ms; }
+}
+
 @media (max-width: 860px){
   .project-grid{ grid-template-columns: 1fr; }
+  .project-card.is-in{ animation-delay: 0ms; }
 }
 @media (max-width: 480px){
   .project-top{ flex-direction: column-reverse; gap: 8px; }
@@ -393,6 +420,8 @@ main{ padding-top: var(--topbar-h); }
 .cv-block-title{ font-size: var(--step-2); padding-bottom: 14px; margin-bottom: 22px; border-bottom: 2px solid var(--lake); }
 .cv-entry{ margin-bottom: 24px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
 .cv-entry:last-child{ border-bottom: 0; }
+/* No divider under the last entry that's actually showing */
+.cv-entry:not(:has(~ .cv-entry:not([hidden]))){ border-bottom: 0; }
 .cv-role{ font-weight: 700; font-size: 17px; line-height: 1.35; }
 .cv-org{ color: var(--moss); }
 .cv-period{ font-size: 14px; color: var(--moss); font-variant-numeric: tabular-nums; margin: 2px 0 10px; }
@@ -408,6 +437,9 @@ main{ padding-top: var(--topbar-h); }
 .cv-more:hover{ text-decoration-thickness: 2px; }
 .skill-subhead{ font-size: 1rem; font-variation-settings: 'wdth' 100; font-weight: 700; margin: 22px 0 10px; }
 .skill-subhead:first-of-type{ margin-top: 0; }
+
+.cv-full-toggle{ display: flex; align-items: center; flex-wrap: wrap; gap: 12px 20px; margin-top: 12px; padding-top: 28px; border-top: 1px solid var(--line); }
+.cv-full-note{ color: var(--moss); font-size: 15px; }
 
 @media (max-width: 960px){ .cv-grid{ grid-template-columns: 1fr; } }
 

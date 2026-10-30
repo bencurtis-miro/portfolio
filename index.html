@@ -6,7 +6,9 @@
 <title>Ben Curtis – Digital Marketing Executive</title>
 <meta name="description" content="Portfolio of Ben Curtis, Digital Marketing Executive at OutsideClinic and co-founder of Mirõ MKT: projects, CV and University KSB evidence.">
 <meta name="theme-color" content="#22392D">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2322392D'/%3E%3Ccircle cx='32' cy='32' r='13' fill='%238CC3DD'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <!-- Link previews (LinkedIn, Slack, WhatsApp, email). These are read
      without running JavaScript, so they must be written out here.
      If the site moves to a custom domain, update the two URLs below. -->
@@ -22,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..800;1,62..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261031a">
+<link rel="stylesheet" href="styles.css?v=20261031b">
 </head>
 <body>
 
@@ -92,7 +94,7 @@
     <div class="section-inner">
       <header class="section-head section-head-wide">
         <h2>CV</h2>
-        <p class="section-lede cv-summary" id="cvSummary"></p>
+        <div class="cv-summary" id="cvSummary"></div>
         <div class="cv-actions" id="cvActions" hidden>
           <a href="#" id="cvView" class="btn btn-dark" target="_blank" rel="noopener">View CV (PDF)</a>
           <a href="#" id="cvDownload" class="btn btn-outline" download="Ben-Curtis-CV.pdf">Download CV</a>
@@ -115,6 +117,10 @@
           <h4 class="skill-subhead">Soft skills</h4>
           <div class="tag-list" id="cvSkillsSoft"></div>
         </div>
+      </div>
+      <div class="cv-full-toggle" id="cvFullToggleWrap" hidden>
+        <button type="button" class="btn btn-outline" id="cvFullToggle" aria-expanded="false">Show full CV</button>
+        <p class="cv-full-note" id="cvFullNote"></p>
       </div>
     </div>
   </section>
@@ -186,7 +192,7 @@
 </div>
 
 <!-- ?v= forces browsers to fetch fresh files after each update; change it whenever the files change -->
-<script src="data.js?v=20261031a"></script>
-<script src="script.js?v=20261031a"></script>
+<script src="data.js?v=20261031b"></script>
+<script src="script.js?v=20261031b"></script>
 </body>
 </html>

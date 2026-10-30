@@ -406,11 +406,21 @@
     card.querySelectorAll("[data-ksb]").forEach(btn => {
       btn.addEventListener("click", () => openModal(KSBS.find(k => k.code === btn.dataset.ksb)));
     });
+    card.style.setProperty("--i", projectGrid.children.length);
+    $all(".project-ksb", card).forEach((pill, j) => pill.style.setProperty("--j", j));
     projectGrid.appendChild(card);
   });
+  // Cards rise in as they reach the screen, then their results and KSBs follow
+  onFirstView($all(".project-card", projectGrid), "is-in", 0.2);
 
   /* ---------------- CV ---------------- */
-  $("#cvSummary").textContent = CV.summary;
+  // Summary: one column per string in data.js (a plain string still works)
+  const cvSummaryParts = Array.isArray(CV.summary) ? CV.summary : [CV.summary];
+  $("#cvSummary").innerHTML = cvSummaryParts.filter(Boolean).map(t => `<p>${t}</p>`).join("");
+
+  // Short CV: only entries marked `overview: true` show until "Show full CV"
+  const hasOverview = [...CV.experience, ...CV.education].some(e => e.overview);
+  const extraClass = e => (hasOverview && !e.overview ? " cv-extra" : "");
 
   // Each role shows its first few points (put the strongest first in data.js);
   // the rest sit behind a "Show all" button.
@@ -418,7 +428,8 @@
   const expEl = $("#cvExperience");
   CV.experience.forEach((e, idx) => {
     const div = document.createElement("div");
-    div.className = "cv-entry";
+    div.className = "cv-entry" + extraClass(e);
+    div.hidden = Boolean(extraClass(e));
     const extra = e.points.length - CV_POINTS_SHOWN;
     const listId = `cvPoints${idx}`;
     div.innerHTML = `
@@ -459,7 +470,8 @@
   const eduEl = $("#cvEducation");
   CV.education.forEach(e => {
     const div = document.createElement("div");
-    div.className = "cv-entry";
+    div.className = "cv-entry" + extraClass(e);
+    div.hidden = Boolean(extraClass(e));
     div.innerHTML = `
       <p class="cv-role">${e.qualification}</p>
       <p class="cv-org">${e.org}</p>
@@ -478,6 +490,37 @@
       el.appendChild(span);
     });
   });
+
+  const cvExtras = $all(".cv-extra");
+  if (cvExtras.length) {
+    const toggle = $("#cvFullToggle");
+    const roles = CV.experience.filter(e => !e.overview).length;
+    const quals = CV.education.filter(e => !e.overview).length;
+    const plural = (n, w) => `${n} more ${w}${n === 1 ? "" : "s"}`;
+    const note = [roles && plural(roles, "role"), quals && plural(quals, "qualification")].filter(Boolean).join(" and ");
+    $("#cvFullNote").textContent = `Includes ${note}.`;
+    $("#cvFullToggleWrap").hidden = false;
+    toggle.addEventListener("click", () => {
+      const open = toggle.getAttribute("aria-expanded") !== "true";
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.textContent = open ? "Show shorter CV" : "Show full CV";
+      $("#cvFullNote").hidden = open;
+      if (open) {
+        cvExtras.forEach((el, i) => {
+          el.hidden = false;
+          if (!reduceMotion) el.animate([{ opacity: 0, transform: "translateY(10px)" }, { opacity: 1, transform: "none" }], { duration: 380, delay: i * 60, easing: "cubic-bezier(.2,.7,.2,1)", fill: "backwards" });
+        });
+      } else {
+        const hide = () => {
+          cvExtras.forEach(el => { el.hidden = true; });
+          $("#cv").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+        };
+        if (reduceMotion) return hide();
+        const fades = cvExtras.map(el => el.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 180, easing: "ease-in", fill: "forwards" }));
+        fades[fades.length - 1].onfinish = () => { hide(); fades.forEach(f => f.cancel()); };
+      }
+    });
+  }
 
   if (SITE.cvPdf) {
     $("#cvView").href = SITE.cvPdf;
