@@ -6,7 +6,7 @@
 <title>Ben Curtis – Digital Marketing Executive</title>
 <meta name="description" content="Portfolio of Ben Curtis, Digital Marketing Executive at OutsideClinic and co-founder of Mirõ MKT: projects, CV and University KSB evidence.">
 <meta name="theme-color" content="#22392D">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2322392D'/%3E%3Ccircle cx='32' cy='32' r='13' fill='%23E9DDC4'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2322392D'/%3E%3Ccircle cx='32' cy='32' r='13' fill='%238CC3DD'/%3E%3C/svg%3E">
 <!-- Link previews (LinkedIn, Slack, WhatsApp, email). These are read
      without running JavaScript, so they must be written out here.
      If the site moves to a custom domain, update the two URLs below. -->
@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..800;1,62..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261030">
+<link rel="stylesheet" href="styles.css?v=20261030b">
 </head>
 <body>
 
@@ -38,6 +38,7 @@
     <a href="#work" class="nav-link" data-section="work">Projects</a>
     <a href="#cv" class="nav-link" data-section="cv">CV</a>
     <a href="#evidence" class="nav-link" data-section="evidence">KSB evidence</a>
+    <a href="contact.html" class="nav-cta">Get in touch</a>
   </nav>
 </header>
 
@@ -48,46 +49,17 @@
     <div class="cover-grid">
       <div class="cover-main">
         <h1 class="cover-name" id="coverName">Ben Curtis</h1>
-        <p class="cover-role" id="coverRole">Digital Marketing Executive</p>
-        <p class="cover-overview" id="briefStandard"></p>
-        <p class="cover-focus" id="briefTagline"></p>
+        <p class="cover-roles" id="coverRoles"></p>
+        <p class="cover-headline" id="coverHeadline"></p>
 
         <ul class="stat-list" id="statStrip" aria-label="Career in numbers"></ul>
 
         <div class="cover-actions">
           <a href="#work" class="btn btn-light">See my projects</a>
-          <a href="#evidence" class="btn btn-ghost">Browse KSB evidence</a>
+          <a href="contact.html" class="btn btn-ghost">Get in touch</a>
         </div>
       </div>
-
-      <aside class="cover-panel" aria-labelledby="panelHeading">
-        <h2 class="panel-heading" id="panelHeading">Currently</h2>
-        <div class="panel-role">
-          <p class="panel-role-title" id="panelRoleTitle"></p>
-          <p class="panel-role-org" id="panelRoleOrg"></p>
-        </div>
-        <div class="panel-role">
-          <p class="panel-role-title" id="panelRole2Title"></p>
-          <p class="panel-role-org" id="panelRole2Org"></p>
-        </div>
-        <h3 class="panel-subhead">Core skills</h3>
-        <div class="tag-list" id="panelSkills"></div>
-      </aside>
-    </div>
-
-    <div class="circuit" aria-labelledby="circuitHeading">
-      <div class="circuit-head">
-        <div>
-          <h2 class="circuit-title" id="circuitHeading">My KSB circuit</h2>
-          <p class="circuit-summary" id="circuitSummary"></p>
-        </div>
-        <ul class="status-key" aria-label="Key">
-          <li><span class="marker is-complete" aria-hidden="true"></span>Complete</li>
-          <li><span class="marker is-in-progress" aria-hidden="true"></span>In progress</li>
-          <li><span class="marker is-not-started" aria-hidden="true"></span>Not started</li>
-        </ul>
-      </div>
-      <div class="circuit-groups" id="circuitGroups"></div>
+      <div class="cover-photo" id="aboutPhoto"></div>
     </div>
   </section>
 
@@ -96,30 +68,19 @@
     <div class="section-inner">
       <header class="section-head">
         <h2>Introduction</h2>
-        <p class="section-lede">Thanks for visiting. Here's a little about me before you get to the work.</p>
       </header>
-
-      <div class="about-grid">
-        <div class="about-photo" id="aboutPhoto"></div>
-        <div class="about-copy" id="aboutCopy"></div>
-      </div>
+      <div class="about-copy" id="aboutCopy"></div>
     </div>
   </section>
 
   <!-- ============ PROJECTS ============ -->
-  <section class="section section-dark" id="work">
+  <section class="section section-lake" id="work">
     <div class="section-inner">
       <header class="section-head">
         <h2>Projects</h2>
         <p class="section-lede">Major projects I've led or played a part in.</p>
       </header>
-
-      <div class="project-carousel">
-        <button class="carousel-btn" id="projPrev" aria-label="Previous project"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-        <div class="project-track" id="projectGrid"></div>
-        <button class="carousel-btn" id="projNext" aria-label="Next project"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
-      </div>
-      <div class="carousel-dots" id="projDots" aria-label="Project position"></div>
+      <div class="project-grid" id="projectGrid"></div>
     </div>
   </section>
 
@@ -160,8 +121,23 @@
     <div class="section-inner">
       <header class="section-head">
         <h2>KSB evidence</h2>
-        <p class="section-lede">Every Knowledge, Skill and Behaviour from the ST0481 standard, with the evidence behind it. Filter by category or status, then open any card to see the evidence. This section is for my End-Point Assessment; the Projects section above covers the work itself.</p>
+        <p class="section-lede">Every Knowledge, Skill and Behaviour from the ST0481 standard, with the evidence behind it. This section is for my End-Point Assessment; the Projects section covers the work itself.</p>
       </header>
+
+      <div class="circuit" aria-labelledby="circuitHeading">
+        <div class="circuit-head">
+          <div>
+            <h3 class="circuit-title" id="circuitHeading">Progress at a glance</h3>
+            <p class="circuit-summary" id="circuitSummary"></p>
+          </div>
+          <ul class="status-key" aria-label="Key">
+            <li><span class="marker is-complete" aria-hidden="true"></span>Complete</li>
+            <li><span class="marker is-in-progress" aria-hidden="true"></span>In progress</li>
+            <li><span class="marker is-not-started" aria-hidden="true"></span>Not started</li>
+          </ul>
+        </div>
+        <div class="circuit-groups" id="circuitGroups"></div>
+      </div>
 
       <div class="filter-bar" role="group" aria-label="Filter KSBs">
         <div class="filter-group" role="group" aria-labelledby="filterCatLabel">
@@ -180,14 +156,14 @@
         </div>
       </div>
 
-      <div class="ksb-grid" id="ksbGrid"></div>
+      <div class="ksb-groups" id="ksbGrid"></div>
     </div>
   </section>
 
   <footer class="footer">
     <div>
       <p class="footer-name" id="footerName">Ben Curtis</p>
-      <p class="footer-sub" id="footerLocation">A living portfolio, updated as the work happens.</p>
+      <p class="footer-sub">A living portfolio, updated as the work happens.</p>
     </div>
     <div class="footer-links" id="footerLinks"></div>
   </footer>
@@ -207,7 +183,7 @@
 </div>
 
 <!-- ?v= forces browsers to fetch fresh files after each update; change it whenever the files change -->
-<script src="data.js?v=20261030"></script>
-<script src="script.js?v=20261030"></script>
+<script src="data.js?v=20261030b"></script>
+<script src="script.js?v=20261030b"></script>
 </body>
 </html>

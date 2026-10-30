@@ -7,6 +7,7 @@ Three files do everything:
 - **`index.html`** – page structure. Edit only if you want to change what sections exist.
 - **`styles.css`** – visual design (colours, type, layout).
 - **`script.js`** – behaviour (filtering, the KSB detail popup, navigation). You shouldn't need to touch this.
+- **`contact.html`** and **`contact.js`** – the Get in touch page and its form.
 
 ## Editing your content
 
@@ -21,6 +22,12 @@ Open `data.js` in any text editor (VS Code is a good free option). It's split in
 4. **`CV`** – your experience, education and skills, in the same format as the placeholder entries.
 
 Save the file, refresh the page in your browser (just double-click `index.html`), and you'll see your changes.
+
+## The Get in touch form
+
+GitHub Pages can't receive form submissions on its own. Out of the box, the form on `contact.html` opens the visitor's email app with their message filled in, addressed to the `email` in `SITE`.
+
+To have messages arrive straight in your inbox instead, create a free form at a service such as [Formspree](https://formspree.io), copy the form's endpoint (it looks like `https://formspree.io/f/abcdwxyz`) and paste it into `contactForm` in `SITE` in `data.js`.
 
 ## Previewing locally
 

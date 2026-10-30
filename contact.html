@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get in touch – Ben Curtis</title>
+<meta name="description" content="Get in touch with Ben Curtis, Digital Marketing Executive and co-founder of Mirõ MKT.">
+<meta name="theme-color" content="#22392D">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2322392D'/%3E%3Ccircle cx='32' cy='32' r='13' fill='%238CC3DD'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Get in touch – Ben Curtis">
+<meta property="og:image" content="https://bencurtis-miro.github.io/portfolio/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..800;1,62..125,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20261030b">
+</head>
+<body>
+
+<a class="skip-link" href="#contactForm">Skip to the form</a>
+
+<header class="topbar">
+  <a class="topbar-name" href="index.html" id="topbarName">Ben Curtis</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+    <span></span><span></span>
+  </button>
+  <nav class="site-nav" id="siteNav" aria-label="Sections">
+    <a href="index.html#about" class="nav-link">Introduction</a>
+    <a href="index.html#work" class="nav-link">Projects</a>
+    <a href="index.html#cv" class="nav-link">CV</a>
+    <a href="index.html#evidence" class="nav-link">KSB evidence</a>
+  </nav>
+</header>
+
+<main>
+  <section class="contact-hero">
+    <div class="contact-hero-inner">
+      <a class="contact-back" href="index.html">Back to the portfolio</a>
+      <h1 class="contact-title">Get in touch</h1>
+      <p class="contact-intro">Whether it's a role, a project for Mirõ MKT, or a question about my work, leave your email and I'll get back to you.</p>
+    </div>
+  </section>
+
+  <div class="contact-body">
+    <div>
+      <form class="contact-form" id="contactForm" novalidate>
+        <fieldset class="topic-options">
+          <legend>What's it about? <span class="field-hint">(optional)</span></legend>
+          <label><input type="radio" name="topic" value="A role or opportunity"><span>A role or opportunity</span></label>
+          <label><input type="radio" name="topic" value="Working with Mirõ MKT"><span>Working with Mirõ MKT</span></label>
+          <label><input type="radio" name="topic" value="My apprenticeship"><span>My apprenticeship</span></label>
+          <label><input type="radio" name="topic" value="Something else"><span>Something else</span></label>
+        </fieldset>
+
+        <div class="field">
+          <label for="name">Name <span class="field-hint">(optional)</span></label>
+          <input id="name" name="name" type="text" autocomplete="name">
+        </div>
+
+        <div class="field">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="emailError" placeholder="name@company.com">
+          <p class="field-error" id="emailError" hidden></p>
+        </div>
+
+        <div class="field">
+          <label for="message">Message <span class="field-hint">(optional)</span></label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-dark" id="sendBtn">Send message</button>
+          <p class="form-note" id="formNote"></p>
+        </div>
+      </form>
+      <div class="form-status" id="formStatus" role="status" aria-live="polite" tabindex="-1" hidden></div>
+    </div>
+
+    <aside class="contact-aside" aria-labelledby="otherWays">
+      <h2 id="otherWays">Other ways to reach me</h2>
+      <ul id="contactLinks"></ul>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <div>
+      <p class="footer-name" id="footerName">Ben Curtis</p>
+      <p class="footer-sub">A living portfolio, updated as the work happens.</p>
+    </div>
+    <div class="footer-links" id="footerLinks"></div>
+  </footer>
+</main>
+
+<script src="data.js?v=20261030b"></script>
+<script src="contact.js?v=20261030b"></script>
+</body>
+</html>

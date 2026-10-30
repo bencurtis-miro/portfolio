@@ -27,9 +27,11 @@
   document.title = `${SITE.name} – ${SITE.title}`;
   $("#topbarName").textContent = SITE.name;
   $("#coverName").textContent = SITE.name;
-  $("#coverRole").textContent = SITE.location ? `${SITE.title}, ${SITE.location}` : SITE.title;
-  $("#briefStandard").textContent = SITE.brief;
-  $("#briefTagline").textContent = SITE.currentFocus;
+  const roles = [[SITE.title, SITE.org || SITE.client], [SITE.secondaryTitle, SITE.secondaryOrg]]
+    .filter(([t]) => t)
+    .map(([t, o]) => `<span>${t}${o ? `, ${o}` : ""}</span>`);
+  $("#coverRoles").innerHTML = roles.join("");
+  $("#coverHeadline").textContent = SITE.headline || SITE.brief;
   $("#footerName").textContent = SITE.name;
 
   const footerLinks = $("#footerLinks");
@@ -57,20 +59,6 @@
     statStrip.appendChild(li);
   });
 
-  /* ---------------- "CURRENTLY" PANEL ---------------- */
-  $("#panelRoleTitle").textContent = SITE.title;
-  $("#panelRoleOrg").textContent = SITE.org || SITE.client;
-  $("#panelRole2Title").textContent = SITE.secondaryTitle;
-  $("#panelRole2Org").textContent = SITE.secondaryOrg;
-
-  const panelSkills = $("#panelSkills");
-  (CV.skills.technical || []).slice(0, 5).forEach(s => {
-    const span = document.createElement("span");
-    span.className = "tag";
-    span.textContent = s.split(" (")[0]; // drop the parenthetical detail for a tighter tag
-    panelSkills.appendChild(span);
-  });
-
   /* ---------------- ABOUT / INTRODUCTION ---------------- */
   const aboutPhoto = $("#aboutPhoto");
   if (ABOUT.photo) {
@@ -96,7 +84,7 @@
   const summaryParts = ["complete", "in-progress", "not-started"]
     .filter(s => counts[s])
     .map(s => `${counts[s]} ${statusLabel(s).toLowerCase()}`);
-  $("#circuitSummary").textContent = `${KSBS.length} KSBs: ${summaryParts.join(", ")}. Select any one to see its evidence.`;
+  $("#circuitSummary").textContent = `${KSBS.length} KSBs: ${summaryParts.join(", ")}. Select any circle to see its evidence.`;
 
   const circuitGroups = $("#circuitGroups");
   const groupOrder = [["knowledge", "Knowledge"], ["skill", "Skills"], ["behaviour", "Behaviours"]];
@@ -106,7 +94,7 @@
     if (!items.length) return;
     const group = document.createElement("div");
     group.className = "circuit-group";
-    group.innerHTML = `<h3 class="circuit-group-title">${label}</h3><ol class="circuit-row"></ol>`;
+    group.innerHTML = `<h4 class="circuit-group-title">${label}</h4><ol class="circuit-row"></ol>`;
     const row = $(".circuit-row", group);
     items.forEach(k => {
       const li = document.createElement("li");
@@ -117,40 +105,60 @@
     circuitGroups.appendChild(group);
   });
   // Fill the circuit in once on load (skipped when reduced motion is on)
-  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    circuitGroups.classList.add("js-paint");
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+    circuitGroups.classList.add("is-waiting");
+    const fill = new IntersectionObserver(entries => {
+      if (entries.some(e => e.isIntersecting)) {
+        circuitGroups.classList.replace("is-waiting", "js-paint");
+        fill.disconnect();
+      }
+    }, { threshold: 0.3 });
+    fill.observe(circuitGroups);
   }
 
   /* ---------------- KSB GRID ---------------- */
-  // Same order as the circuit and the filters: Knowledge, then Skills, then Behaviours
-  const KSBS_ORDERED = groupOrder.flatMap(([cat]) => KSBS.filter(k => k.category === cat));
   const ksbGrid = $("#ksbGrid");
   let activeCat = "all";
   let activeStatus = "all";
 
   function renderKsbs() {
     ksbGrid.innerHTML = "";
-    const filtered = KSBS_ORDERED.filter(k =>
-      (activeCat === "all" || k.category === activeCat) &&
-      (activeStatus === "all" || k.status === activeStatus)
-    );
-    if (!filtered.length) {
-      ksbGrid.innerHTML = `<p class="ksb-empty">No KSBs match these filters. Try a different category or status.</p>`;
-      return;
-    }
-    filtered.forEach(k => {
-      const n = evidenceFor(k).length;
-      const card = document.createElement("button");
-      card.type = "button";
-      card.className = "ksb-card";
-      card.innerHTML = `
-        <span class="ksb-top">${marker(k.status)}<span class="ksb-code">${k.code}</span><span class="ksb-category">${CATEGORY_LABEL[k.category] || k.category}</span></span>
-        <span class="ksb-title">${k.title}</span>
-        <span class="ksb-meta">${statusLabel(k.status)}${n ? `, ${evidenceCount(n)}` : ""}</span>
-      `;
-      card.addEventListener("click", () => openModal(k));
-      ksbGrid.appendChild(card);
+    let shown = 0;
+    groupOrder.forEach(([cat, label]) => {
+      if (activeCat !== "all" && activeCat !== cat) return;
+      const all = KSBS.filter(k => k.category === cat);
+      const items = all.filter(k => activeStatus === "all" || k.status === activeStatus);
+      if (!items.length) return;
+      shown += items.length;
+      const done = all.filter(k => k.status === "complete").length;
+      const group = document.createElement("section");
+      group.className = "ksb-group";
+      group.setAttribute("aria-label", label);
+      group.innerHTML = `
+        <div class="ksb-group-head">
+          <h3 class="ksb-group-title">${label}</h3>
+          <p class="ksb-group-count">${done} of ${all.length} complete</p>
+        </div>
+        <div class="ksb-grid"></div>`;
+      const grid = $(".ksb-grid", group);
+      items.forEach(k => {
+        const n = evidenceFor(k).length;
+        const card = document.createElement("button");
+        card.type = "button";
+        card.className = "ksb-card";
+        card.innerHTML = `
+          <span class="ksb-top">${marker(k.status)}<span class="ksb-code">${k.code}</span></span>
+          <span class="ksb-title">${k.title}</span>
+          <span class="ksb-meta">${statusLabel(k.status)}${n ? `, ${evidenceCount(n)}` : ""}</span>
+        `;
+        card.addEventListener("click", () => openModal(k));
+        grid.appendChild(card);
+      });
+      ksbGrid.appendChild(group);
     });
+    if (!shown) {
+      ksbGrid.innerHTML = `<p class="ksb-empty">No KSBs match these filters. Try a different category or status.</p>`;
+    }
   }
 
   function setFilter(attr, value) {
@@ -297,12 +305,18 @@
     card.className = "project-card";
     const statusBadge = p.status && STATUS_LABEL[p.status]
       ? `<p class="project-status">${marker(p.status)}${statusLabel(p.status)}</p>` : "";
+    const results = (p.results || []).filter(Boolean);
     const linkedKsbs = KSBS.filter(k => evidenceFor(k).some(e => e && e.project === p.id));
     card.innerHTML = `
-      ${statusBadge}
-      <h3 class="project-title">${p.title}</h3>
-      <p class="project-period">${p.period}${p.role ? `<br><span class="project-role">${p.role}</span>` : ""}</p>
+      <div class="project-top">
+        <div>
+          <h3 class="project-title">${p.title}</h3>
+          <p class="project-period">${p.period}${p.role ? `<br><span class="project-role">${p.role}</span>` : ""}</p>
+        </div>
+        ${statusBadge}
+      </div>
       <p class="project-summary">${p.summary}</p>
+      ${results.length ? `<div class="project-results"><h4 class="project-results-title">Results</h4><ul>${results.map(r => `<li>${r}</li>`).join("")}</ul></div>` : ""}
       <div class="tag-list project-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
       ${linkedKsbs.length ? `<div class="project-ksbs"><p class="project-ksbs-label">KSB evidence from this project</p><div class="project-ksb-list">${linkedKsbs.map(k => `<button type="button" class="project-ksb" data-ksb="${k.code}" aria-label="Open ${k.code}: ${k.title}">${marker(k.status)}${k.code}</button>`).join("")}</div></div>` : ""}
     `;
@@ -312,60 +326,34 @@
     projectGrid.appendChild(card);
   });
 
-  /* Carousel controls */
-  const projPrev = $("#projPrev");
-  const projNext = $("#projNext");
-  const scrollStep = () => (projectGrid.querySelector(".project-card")?.offsetWidth || 360) + 20;
-
-  function updateCarouselButtons() {
-    const maxScroll = projectGrid.scrollWidth - projectGrid.clientWidth - 2;
-    projPrev.disabled = projectGrid.scrollLeft <= 0;
-    projNext.disabled = projectGrid.scrollLeft >= maxScroll || maxScroll <= 0;
-  }
-  projPrev.addEventListener("click", () => projectGrid.scrollBy({ left: -scrollStep(), behavior: "smooth" }));
-  projNext.addEventListener("click", () => projectGrid.scrollBy({ left: scrollStep(), behavior: "smooth" }));
-  projectGrid.addEventListener("scroll", updateCarouselButtons);
-  window.addEventListener("resize", updateCarouselButtons);
-  updateCarouselButtons();
-
-  /* Carousel position dots – shown on phones, where the arrows are hidden */
-  const projDots = $("#projDots");
-  const projCards = $all(".project-card", projectGrid);
-  projCards.forEach((card, i) => {
-    const dot = document.createElement("button");
-    dot.type = "button";
-    dot.className = "carousel-dot";
-    dot.setAttribute("aria-label", `Show project ${i + 1} of ${projCards.length}`);
-    dot.addEventListener("click", () => {
-      projectGrid.scrollTo({ left: card.offsetLeft - projectGrid.offsetLeft, behavior: "smooth" });
-    });
-    projDots.appendChild(dot);
-  });
-  function updateCarouselDots() {
-    const atEnd = projectGrid.scrollLeft >= projectGrid.scrollWidth - projectGrid.clientWidth - 2;
-    const active = atEnd ? projCards.length - 1 : Math.round(projectGrid.scrollLeft / scrollStep());
-    $all(".carousel-dot", projDots).forEach((d, i) => {
-      d.classList.toggle("is-active", i === active);
-      d.setAttribute("aria-current", i === active ? "true" : "false");
-    });
-  }
-  projectGrid.addEventListener("scroll", updateCarouselDots, { passive: true });
-  window.addEventListener("resize", updateCarouselDots);
-  updateCarouselDots();
-
   /* ---------------- CV ---------------- */
   $("#cvSummary").textContent = CV.summary;
 
+  // Each role shows its first few points (put the strongest first in data.js);
+  // the rest sit behind a "Show all" button.
+  const CV_POINTS_SHOWN = 5;
   const expEl = $("#cvExperience");
-  CV.experience.forEach(e => {
+  CV.experience.forEach((e, idx) => {
     const div = document.createElement("div");
     div.className = "cv-entry";
+    const extra = e.points.length - CV_POINTS_SHOWN;
+    const listId = `cvPoints${idx}`;
     div.innerHTML = `
       <p class="cv-role">${e.role}</p>
       <p class="cv-org">${e.org}</p>
       <p class="cv-period">${e.period}</p>
-      <ul class="cv-points">${e.points.map(pt => `<li>${pt}</li>`).join("")}</ul>
+      <ul class="cv-points" id="${listId}">${e.points.map((pt, i) => `<li${i >= CV_POINTS_SHOWN ? " hidden" : ""}>${pt}</li>`).join("")}</ul>
+      ${extra > 0 ? `<button type="button" class="cv-more" aria-expanded="false" aria-controls="${listId}">Show all ${e.points.length} points</button>` : ""}
     `;
+    const more = $(".cv-more", div);
+    if (more) {
+      more.addEventListener("click", () => {
+        const open = more.getAttribute("aria-expanded") !== "true";
+        $all("li", div).forEach((li, i) => { if (i >= CV_POINTS_SHOWN) li.hidden = !open; });
+        more.setAttribute("aria-expanded", String(open));
+        more.textContent = open ? "Show fewer" : `Show all ${e.points.length} points`;
+      });
+    }
     expEl.appendChild(div);
   });
 
@@ -407,7 +395,7 @@
     navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   };
   navToggle.addEventListener("click", () => setMenu(!siteNav.classList.contains("is-open")));
-  $all(".nav-link").forEach(link => link.addEventListener("click", () => setMenu(false)));
+  $all(".nav-link, .nav-cta").forEach(link => link.addEventListener("click", () => setMenu(false)));
 
   const sections = $all(".section, .cover").filter(s => s.id);
   const navLinks = $all(".nav-link");

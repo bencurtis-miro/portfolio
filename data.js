@@ -18,12 +18,20 @@ const SITE = {
     "Digital Marketing Executive with experience leading multi-channel acquisition, CRM and lifecycle marketing strategy within a £40m business.", // feeds "Overview" – your personal statement
   currentFocus:
     "Scaling acquisition and lifecycle marketing at OutsideClinic, while building Mirõ MKT alongside it.", // feeds "Objective" – what you're actually doing right now
+  headline:
+    "Multi-channel acquisition, CRM and lifecycle marketing for a £40m business.", // one line under your name in the hero – keep it short
   secondaryTitle: "Co-Founder",
   secondaryOrg: "Mirõ MKT",
   email: "curtis_btc@hotmail.com",
   phone: "", // removed from the public site; leave empty to hide the Phone link
   linkedin: "https://www.linkedin.com/in/bentcurtismarketing",
   cvPdf: "cv/Ben-Curtis-CV.pdf", // web copy of your CV (phone number removed). Replace the file to update it; set to "" to hide the CV buttons
+  // Get in touch form (contact.html). Leave empty and the form opens the
+  // visitor's email app with their message filled in, addressed to `email`.
+  // To receive submissions directly instead, create a free form at a service
+  // such as formspree.io and paste its endpoint here, e.g.
+  // "https://formspree.io/f/abcdwxyz".
+  contactForm: "",
 };
 
 /* ------------------------------------------------------------
@@ -455,46 +463,62 @@ const KSBS = [
 const PROJECTS = [
   {
     id: "hubspot-implementation",
-    status: "complete", // "complete" shows a ✓ Completed badge; "in-progress" shows In progress
+    status: "complete", // "complete" or "in-progress" – shown with a status circle on the card
     title: "HubSpot CRM Implementation",
     period: "Sep 2024 – Feb 2025",
     role: "Project Manager",
     summary:
       "Led the end-to-end implementation of HubSpot CRM at OutsideClinic – building live assets, dynamic customer journeys and sales pipelines from scratch, while keeping stakeholders from employee level through to SLT and suppliers informed throughout. Delivered on time, with staff training built in to ensure a smooth handover into day-to-day use.",
     tags: ["CRM Implementation", "Lifecycle Automation", "Stakeholder Management"],
+    // Headline outcomes, shown on the card. Swap the placeholder for a real
+    // figure (rough is fine, e.g. "~30% more webform conversions"). Add more
+    // lines by adding more strings, or leave the list empty to hide the box.
+    results: ["[Place result here]"],
     link: "",
   },
   {
     id: "webform-relaunch",
-    status: "complete", // "complete" shows a ✓ Completed badge; "in-progress" shows In progress
+    status: "complete", // "complete" or "in-progress" – shown with a status circle on the card
     title: "Webform Relaunch",
     period: "Dec 2025 – Feb 2026",
     role: "Project Lead",
     summary:
       "Led the redesign and relaunch of the company webform, working alongside an external agency and internal IT to rebuild it from the ground up. Used market-relevant insight and data to inform the new design before implementing it live on the website.",
     tags: ["UX & Conversion", "Landing Pages", "Agency Management"],
+    // Headline outcomes, shown on the card. Swap the placeholder for a real
+    // figure (rough is fine, e.g. "~30% more webform conversions"). Add more
+    // lines by adding more strings, or leave the list empty to hide the box.
+    results: ["[Place result here]"],
     link: "",
   },
   {
     id: "website-revamp",
-    status: "in-progress", // "complete" shows a ✓ Completed badge; "in-progress" shows In progress
+    status: "in-progress", // "complete" or "in-progress" – shown with a status circle on the card
     title: "Website Revamp",
     period: "2026 – ongoing, launching Oct 2026",
     role: "Project Lead",
     summary:
       "Leading OutsideClinic's full website rebuild alongside a partner design agency – creating and proofing concepts and content, aligning internal stakeholders to secure approvals, and setting and enforcing the delivery timeline to keep the project on track for its October 2026 launch.",
     tags: ["Website Design", "Agency Management", "Stakeholder Alignment"],
+    // Headline outcomes, shown on the card. Swap the placeholder for a real
+    // figure (rough is fine, e.g. "~30% more webform conversions"). Add more
+    // lines by adding more strings, or leave the list empty to hide the box.
+    results: ["[Place result here]"],
     link: "",
   },
   {
     id: "brand-refresh",
-    status: "complete", // "complete" shows a ✓ Completed badge; "in-progress" shows In progress
+    status: "complete", // "complete" or "in-progress" – shown with a status circle on the card
     title: "Brand Refresh",
     period: "Mar 2026 – Oct 2026",
     role: "Co-Lead (Client-Side)",
     summary:
       "Co-led the client side of a full brand identity relaunch for OutsideClinic alongside an external design agency partner. Managed sign-off across internal stakeholders on assets and copy, flagged and requested changes where needed, and held the line on deadlines once designs were locked.",
     tags: ["Brand Identity", "Agency Management", "Stakeholder Alignment"],
+    // Headline outcomes, shown on the card. Swap the placeholder for a real
+    // figure (rough is fine, e.g. "~30% more webform conversions"). Add more
+    // lines by adding more strings, or leave the list empty to hide the box.
+    results: ["[Place result here]"],
     link: "",
   },
 ];
