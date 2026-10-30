@@ -14,23 +14,30 @@
     }
   });
 
+  /* Shared labels */
+  const STATUS_LABEL = { "complete": "Complete", "in-progress": "In progress", "not-started": "Not started" };
+  const statusLabel = s => STATUS_LABEL[s] || s;
+  const CATEGORY_LABEL = { knowledge: "Knowledge", skill: "Skill", behaviour: "Behaviour" };
+  const evidenceCount = n => `${n} piece${n === 1 ? "" : "s"} of evidence`;
+
+  /* The painted circuit arrow – its colour shows the status */
+  const arrow = status => `<svg class="arrow is-${status}" aria-hidden="true"><use href="#arrow"/></svg>`;
+
   /* ---------------- SITE / COVER ---------------- */
   document.title = `${SITE.name} – ${SITE.title}`;
-  $(".rail-mark-code").textContent = SITE.name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
+  $("#topbarName").textContent = SITE.name;
   $("#coverName").textContent = SITE.name;
-  $("#coverRole").textContent = `${SITE.title} · ${SITE.location}`;
-  $("#briefInstitution").textContent = SITE.client;
+  $("#coverRole").textContent = SITE.location ? `${SITE.title}, ${SITE.location}` : SITE.title;
   $("#briefStandard").textContent = SITE.brief;
   $("#briefTagline").textContent = SITE.currentFocus;
   $("#footerName").textContent = SITE.name;
-  if (SITE.location) $("#footerLocation").textContent = SITE.location;
 
   const footerLinks = $("#footerLinks");
   const linkDefs = [
     ["Email", SITE.email ? `mailto:${SITE.email}` : null],
     ["Phone", SITE.phone ? `tel:${SITE.phone.replace(/\s+/g, "")}` : null],
     ["LinkedIn", SITE.linkedin || null],
-    ["CV", SITE.cvPdf || null],
+    ["CV (PDF)", SITE.cvPdf || null],
   ];
   linkDefs.forEach(([label, href]) => {
     if (!href) return;
@@ -39,6 +46,29 @@
     a.textContent = label;
     if (href.startsWith("http") || href.endsWith(".pdf")) { a.target = "_blank"; a.rel = "noopener"; }
     footerLinks.appendChild(a);
+  });
+
+  /* ---------------- STATS ---------------- */
+  const statStrip = $("#statStrip");
+  HERO_STATS.forEach(s => {
+    const li = document.createElement("li");
+    li.className = "stat";
+    li.innerHTML = `<span class="stat-num">${s.value}</span><span class="stat-label">${s.label}</span>`;
+    statStrip.appendChild(li);
+  });
+
+  /* ---------------- "CURRENTLY" PANEL ---------------- */
+  $("#panelRoleTitle").textContent = SITE.title;
+  $("#panelRoleOrg").textContent = SITE.org || SITE.client;
+  $("#panelRole2Title").textContent = SITE.secondaryTitle;
+  $("#panelRole2Org").textContent = SITE.secondaryOrg;
+
+  const panelSkills = $("#panelSkills");
+  (CV.skills.technical || []).slice(0, 5).forEach(s => {
+    const span = document.createElement("span");
+    span.className = "tag";
+    span.textContent = s.split(" (")[0]; // drop the parenthetical detail for a tighter tag
+    panelSkills.appendChild(span);
   });
 
   /* ---------------- ABOUT / INTRODUCTION ---------------- */
@@ -55,83 +85,92 @@
     const block = document.createElement("div");
     block.className = "about-block";
     block.innerHTML = `
-      <p class="about-block-heading">${p.heading}</p>
+      <h3 class="about-block-heading">${p.heading}</h3>
       <p class="about-block-text">${p.text}</p>
     `;
     aboutCopy.appendChild(block);
   });
 
-  /* ---------------- STAT STRIP ---------------- */
-  const stats = HERO_STATS.map(s => [s.value, s.label]);
-  const statStrip = $("#statStrip");
-  stats.forEach(([num, label]) => {
-    const el = document.createElement("div");
-    el.className = "stat";
-    el.innerHTML = `<span class="stat-num">${num}</span><span class="stat-label">${label}</span>`;
-    statStrip.appendChild(el);
-  });
+  /* ---------------- KSB CIRCUIT (hero) ---------------- */
+  const counts = KSBS.reduce((acc, k) => { acc[k.status] = (acc[k.status] || 0) + 1; return acc; }, {});
+  const summaryParts = ["complete", "in-progress", "not-started"]
+    .filter(s => counts[s])
+    .map(s => `${counts[s]} ${statusLabel(s).toLowerCase()}`);
+  $("#circuitSummary").textContent = `${KSBS.length} KSBs: ${summaryParts.join(", ")}. Select any arrow to see its evidence.`;
 
-  /* ---------------- HERO SNAPSHOT PANEL ---------------- */
-  $("#panelRoleTitle").textContent = SITE.title;
-  $("#panelRoleOrg").textContent = SITE.org || SITE.client;
-  $("#panelRole2Title").textContent = SITE.secondaryTitle;
-  $("#panelRole2Org").textContent = SITE.secondaryOrg;
-
-  const panelSkills = $("#panelSkills");
-  (CV.skills.technical || []).slice(0, 5).forEach(s => {
-    const short = s.split(" (")[0]; // drop the parenthetical detail for a tighter tag
-    const span = document.createElement("span");
-    span.className = "tag";
-    span.textContent = short;
-    panelSkills.appendChild(span);
+  const circuitGroups = $("#circuitGroups");
+  const groupOrder = [["knowledge", "Knowledge"], ["skill", "Skills"], ["behaviour", "Behaviours"]];
+  let stopIndex = 0;
+  groupOrder.forEach(([cat, label]) => {
+    const items = KSBS.filter(k => k.category === cat);
+    if (!items.length) return;
+    const group = document.createElement("div");
+    group.className = "circuit-group";
+    group.innerHTML = `<h3 class="circuit-group-title">${label}</h3><ol class="circuit-row"></ol>`;
+    const row = $(".circuit-row", group);
+    items.forEach(k => {
+      const li = document.createElement("li");
+      li.innerHTML = `<button type="button" class="circuit-stop" style="--i:${stopIndex++}" aria-label="${k.code}: ${k.title}. ${statusLabel(k.status)}">${arrow(k.status)}<span class="circuit-code" aria-hidden="true">${k.code}</span></button>`;
+      $("button", li).addEventListener("click", () => openModal(k));
+      row.appendChild(li);
+    });
+    circuitGroups.appendChild(group);
   });
-  $("#panelFoot").textContent = "Full role history & CV below.";
+  // Paint the circuit in once on load (skipped when reduced motion is on)
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    circuitGroups.classList.add("js-paint");
+  }
 
   /* ---------------- KSB GRID ---------------- */
+  // Same order as the circuit and the filters: Knowledge, then Skills, then Behaviours
+  const KSBS_ORDERED = groupOrder.flatMap(([cat]) => KSBS.filter(k => k.category === cat));
   const ksbGrid = $("#ksbGrid");
   let activeCat = "all";
   let activeStatus = "all";
 
-  function statusLabel(s) {
-    return { "complete": "Complete", "in-progress": "In progress", "not-started": "Not started" }[s] || s;
-  }
-
   function renderKsbs() {
     ksbGrid.innerHTML = "";
-    const filtered = KSBS.filter(k =>
+    const filtered = KSBS_ORDERED.filter(k =>
       (activeCat === "all" || k.category === activeCat) &&
       (activeStatus === "all" || k.status === activeStatus)
     );
     if (!filtered.length) {
-      ksbGrid.innerHTML = `<p style="font-family:var(--font-mono); font-size:13px; color:var(--slate);">No KSBs match this filter.</p>`;
+      ksbGrid.innerHTML = `<p class="ksb-empty">No KSBs match these filters. Try a different category or status.</p>`;
       return;
     }
     filtered.forEach(k => {
+      const n = evidenceFor(k).length;
       const card = document.createElement("button");
+      card.type = "button";
       card.className = "ksb-card";
       card.innerHTML = `
-        <div class="ksb-top">
-          <span class="ksb-code ${k.category}">${k.code}</span>
-        </div>
+        <span class="ksb-top">${arrow(k.status)}<span class="ksb-code">${k.code}</span><span class="ksb-category">${CATEGORY_LABEL[k.category] || k.category}</span></span>
         <span class="ksb-title">${k.title}</span>
-        <span class="ksb-status-label"><span class="status-dot ${k.status}"></span>${statusLabel(k.status)}${evidenceFor(k).length ? `<span class="ksb-evidence-count">· ${evidenceFor(k).length} evidence</span>` : ""}</span>
+        <span class="ksb-meta">${statusLabel(k.status)}${n ? `, ${evidenceCount(n)}` : ""}</span>
       `;
       card.addEventListener("click", () => openModal(k));
       ksbGrid.appendChild(card);
     });
   }
 
+  function setFilter(attr, value) {
+    $all(`[data-filter-${attr}]`).forEach(b => {
+      const on = b.dataset[attr === "cat" ? "filterCat" : "filterStatus"] === value;
+      b.classList.toggle("is-active", on);
+      b.setAttribute("aria-pressed", String(on));
+    });
+  }
   $all("[data-filter-cat]").forEach(btn => {
     btn.addEventListener("click", () => {
       activeCat = btn.dataset.filterCat;
-      $all("[data-filter-cat]").forEach(b => b.classList.toggle("is-active", b === btn));
+      setFilter("cat", activeCat);
       renderKsbs();
     });
   });
   $all("[data-filter-status]").forEach(btn => {
     btn.addEventListener("click", () => {
       activeStatus = btn.dataset.filterStatus;
-      $all("[data-filter-status]").forEach(b => b.classList.toggle("is-active", b === btn));
+      setFilter("status", activeStatus);
       renderKsbs();
     });
   });
@@ -140,21 +179,22 @@
 
   /* ---------------- MODAL ---------------- */
   const modalBackdrop = $("#modalBackdrop");
+  const chevron = dir => `<svg aria-hidden="true" viewBox="0 0 24 24"><path d="${dir < 0 ? "M15 5l-7 7 7 7" : "M9 5l7 7-7 7"}"/></svg>`;
   let lastFocused = null;
   let modalStep = null;
 
   function openModal(k) {
     modalStep = null;
-    $("#modalCode").textContent = `${k.code} · ${k.category.charAt(0).toUpperCase() + k.category.slice(1)}`;
+    $("#modalCode").innerHTML = `<span class="modal-code-id">${k.code}</span><span class="modal-code-cat">${CATEGORY_LABEL[k.category] || k.category}</span>`;
     $("#modalTitle").textContent = k.title;
-    $("#modalStatus").innerHTML = `<span class="status-dot ${k.status}" style="margin-right:6px;"></span>${statusLabel(k.status)}`;
+    $("#modalStatus").innerHTML = `${arrow(k.status)}${statusLabel(k.status)}`;
     $("#modalDesc").textContent = k.description;
 
     const evEl = $("#modalEvidence");
     evEl.innerHTML = "";
     const items = evidenceFor(k);
     if (!items.length) {
-      evEl.innerHTML = `<p class="modal-evidence-empty">Evidence in progress.</p>`;
+      evEl.innerHTML = `<p class="modal-evidence-empty">Evidence for this one is still being gathered.</p>`;
     } else {
       const track = document.createElement("div");
       track.className = "ev-track";
@@ -172,7 +212,7 @@
             : item.source ? `<span class="evidence-source">${item.source}</span>` : "";
           const images = item.images || (item.image ? [{ src: item.image, caption: item.imageCaption }] : []);
           slide.innerHTML = `
-            <p class="evidence-meta">${item.date ? `<span class="evidence-date">${item.date}</span>` : ""}${where}</p>
+            <p class="evidence-meta">${where}${item.date ? `<span class="evidence-date">${item.date}</span>` : ""}</p>
             ${item.text ? `<p class="evidence-text">${item.text}</p>` : ""}
             ${images.length ? `<div class="evidence-images${images.length > 1 ? " is-multi" : ""}">${images.map(im => `
               <figure class="evidence-figure">
@@ -193,18 +233,17 @@
         const nav = document.createElement("div");
         nav.className = "ev-nav";
         nav.innerHTML = `
-          <button type="button" class="ev-btn" data-dir="-1" aria-label="Previous evidence">&#8249;</button>
+          <button type="button" class="ev-btn" data-dir="-1" aria-label="Previous evidence">${chevron(-1)}</button>
           <span class="ev-count" aria-live="polite"></span>
           <div class="ev-dots">${items.map((_, i) => `<button type="button" class="ev-dot" data-i="${i}" aria-label="Show evidence ${i + 1}"></button>`).join("")}</div>
-          <button type="button" class="ev-btn" data-dir="1" aria-label="Next evidence">&#8250;</button>
+          <button type="button" class="ev-btn" data-dir="1" aria-label="Next evidence">${chevron(1)}</button>
         `;
         evEl.prepend(nav);
         const go = i => track.scrollTo({ left: track.clientWidth * i, behavior: "smooth" });
         const current = () => Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
         const update = () => {
           const c = current();
-          $(".ev-count", nav).textContent = `${c + 1} / ${items.length}`;
-          $(".ev-count", nav).setAttribute("aria-label", `Evidence ${c + 1} of ${items.length}`);
+          $(".ev-count", nav).textContent = `${c + 1} of ${items.length}`;
           $all(".ev-dot", nav).forEach((d, i) => d.classList.toggle("is-active", i === c));
           $all(".ev-btn", nav)[0].disabled = c === 0;
           $all(".ev-btn", nav)[1].disabled = c === items.length - 1;
@@ -219,6 +258,7 @@
 
     lastFocused = document.activeElement;
     modalBackdrop.hidden = false;
+    document.body.style.overflow = "hidden";
     $(".modal").scrollTop = 0;
     $("#modalClose").focus();
     document.addEventListener("keydown", onModalKeydown);
@@ -226,6 +266,7 @@
 
   function closeModal() {
     modalBackdrop.hidden = true;
+    document.body.style.overflow = "";
     document.removeEventListener("keydown", onModalKeydown);
     if (lastFocused) lastFocused.focus();
   }
@@ -235,6 +276,14 @@
     if (modalStep && (e.key === "ArrowRight" || e.key === "ArrowLeft")) {
       e.preventDefault();
       modalStep(e.key === "ArrowRight" ? 1 : -1);
+    }
+    // Keep keyboard focus inside the popup while it's open
+    if (e.key === "Tab") {
+      const focusable = $all("button:not([disabled]), a[href]", $(".modal"));
+      if (!focusable.length) return;
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     }
   }
 
@@ -246,17 +295,16 @@
   PROJECTS.forEach(p => {
     const card = document.createElement("article");
     card.className = "project-card";
-    const statusBadge = p.status === "complete"
-      ? `<span class="project-status is-complete">✓ Completed</span>`
-      : p.status === "in-progress" ? `<span class="project-status">In progress</span>` : "";
+    const statusBadge = p.status && STATUS_LABEL[p.status]
+      ? `<p class="project-status">${arrow(p.status)}${statusLabel(p.status)}</p>` : "";
     const linkedKsbs = KSBS.filter(k => evidenceFor(k).some(e => e && e.project === p.id));
     card.innerHTML = `
       ${statusBadge}
-      <p class="project-period">${p.period}${p.role ? ` · <span class="project-role">${p.role}</span>` : ""}</p>
       <h3 class="project-title">${p.title}</h3>
+      <p class="project-period">${p.period}${p.role ? `<br><span class="project-role">${p.role}</span>` : ""}</p>
       <p class="project-summary">${p.summary}</p>
-      <div class="project-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
-      ${linkedKsbs.length ? `<div class="project-ksbs"><span class="project-ksbs-label">KSB evidence</span>${linkedKsbs.map(k => `<button type="button" class="project-ksb ${k.category}" data-ksb="${k.code}" aria-label="Open ${k.code}: ${k.title}">${k.code}</button>`).join("")}</div>` : ""}
+      <div class="tag-list project-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+      ${linkedKsbs.length ? `<div class="project-ksbs"><p class="project-ksbs-label">KSB evidence from this project</p><div class="project-ksb-list">${linkedKsbs.map(k => `<button type="button" class="project-ksb" data-ksb="${k.code}" aria-label="Open ${k.code}: ${k.title}">${arrow(k.status)}${k.code}</button>`).join("")}</div></div>` : ""}
     `;
     card.querySelectorAll("[data-ksb]").forEach(btn => {
       btn.addEventListener("click", () => openModal(KSBS.find(k => k.code === btn.dataset.ksb)));
@@ -267,26 +315,20 @@
   /* Carousel controls */
   const projPrev = $("#projPrev");
   const projNext = $("#projNext");
-  const scrollStep = () => (projectGrid.querySelector(".project-card")?.offsetWidth || 340) + 22;
+  const scrollStep = () => (projectGrid.querySelector(".project-card")?.offsetWidth || 360) + 20;
 
   function updateCarouselButtons() {
     const maxScroll = projectGrid.scrollWidth - projectGrid.clientWidth - 2;
     projPrev.disabled = projectGrid.scrollLeft <= 0;
     projNext.disabled = projectGrid.scrollLeft >= maxScroll || maxScroll <= 0;
   }
-
-  projPrev.addEventListener("click", () => {
-    projectGrid.scrollBy({ left: -scrollStep(), behavior: "smooth" });
-  });
-  projNext.addEventListener("click", () => {
-    projectGrid.scrollBy({ left: scrollStep(), behavior: "smooth" });
-  });
+  projPrev.addEventListener("click", () => projectGrid.scrollBy({ left: -scrollStep(), behavior: "smooth" }));
+  projNext.addEventListener("click", () => projectGrid.scrollBy({ left: scrollStep(), behavior: "smooth" }));
   projectGrid.addEventListener("scroll", updateCarouselButtons);
   window.addEventListener("resize", updateCarouselButtons);
   updateCarouselButtons();
 
-  /* Carousel position dots – shown on phones, where the arrows are
-     hidden, so it's clear there are more projects to swipe to. */
+  /* Carousel position dots – shown on phones, where the arrows are hidden */
   const projDots = $("#projDots");
   const projCards = $all(".project-card", projectGrid);
   projCards.forEach((card, i) => {
@@ -340,20 +382,14 @@
     eduEl.appendChild(div);
   });
 
-  const technicalEl = $("#cvSkillsTechnical");
-  (CV.skills.technical || []).forEach(s => {
-    const span = document.createElement("span");
-    span.className = "tag";
-    span.textContent = s;
-    technicalEl.appendChild(span);
-  });
-
-  const softEl = $("#cvSkillsSoft");
-  (CV.skills.soft || []).forEach(s => {
-    const span = document.createElement("span");
-    span.className = "tag";
-    span.textContent = s;
-    softEl.appendChild(span);
+  [["#cvSkillsTechnical", CV.skills.technical], ["#cvSkillsSoft", CV.skills.soft]].forEach(([sel, list]) => {
+    const el = $(sel);
+    (list || []).forEach(s => {
+      const span = document.createElement("span");
+      span.className = "tag";
+      span.textContent = s;
+      el.appendChild(span);
+    });
   });
 
   if (SITE.cvPdf) {
@@ -362,23 +398,27 @@
     $("#cvActions").hidden = false;
   }
 
-  /* ---------------- NAV: mobile toggle + scrollspy ---------------- */
-  const railToggle = $("#railToggle");
-  const railNav = $("#railNav") || $(".rail-nav");
-  railToggle.addEventListener("click", () => {
-    const open = railNav.classList.toggle("is-open");
-    railToggle.setAttribute("aria-expanded", String(open));
-  });
-  $all(".rail-link").forEach(link => {
-    link.addEventListener("click", () => railNav.classList.remove("is-open"));
-  });
+  /* ---------------- NAV: mobile menu + current section ---------------- */
+  const navToggle = $("#navToggle");
+  const siteNav = $("#siteNav");
+  const setMenu = open => {
+    siteNav.classList.toggle("is-open", open);
+    navToggle.setAttribute("aria-expanded", String(open));
+    navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  };
+  navToggle.addEventListener("click", () => setMenu(!siteNav.classList.contains("is-open")));
+  $all(".nav-link").forEach(link => link.addEventListener("click", () => setMenu(false)));
 
   const sections = $all(".section, .cover").filter(s => s.id);
-  const railLinks = $all(".rail-link");
+  const navLinks = $all(".nav-link");
   const spy = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        railLinks.forEach(l => l.classList.toggle("is-active", l.dataset.section === entry.target.id));
+        navLinks.forEach(l => {
+          const on = l.dataset.section === entry.target.id;
+          l.classList.toggle("is-active", on);
+          if (on) l.setAttribute("aria-current", "location"); else l.removeAttribute("aria-current");
+        });
       }
     });
   }, { rootMargin: "-40% 0px -55% 0px" });

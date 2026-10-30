@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ben Curtis – Digital Marketing Executive</title>
 <meta name="description" content="Portfolio of Ben Curtis, Digital Marketing Executive at OutsideClinic and co-founder of Mirõ MKT: projects, CV and University KSB evidence.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312213A'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='%23FF6B4A' text-anchor='middle'%3EBC%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#22392D">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2322392D'/%3E%3Cpath d='M10 27h26V16l18 16-18 16V37H10z' fill='%23F08A3C'/%3E%3C/svg%3E">
 <!-- Link previews (LinkedIn, Slack, WhatsApp, email). These are read
      without running JavaScript, so they must be written out here.
      If the site moves to a custom domain, update the two URLs below. -->
@@ -20,93 +21,92 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261029">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..800;1,62..125,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20261030">
 </head>
 <body>
 
-<div class="rail" id="rail">
-  <a class="rail-mark" href="#top" aria-label="Back to top">
-    <span class="rail-mark-code">BC</span>
-  </a>
-  <nav class="rail-nav" aria-label="Section navigation">
-    <a href="#brief" class="rail-link" data-section="brief"><span class="rail-num">00</span>Overview</a>
-    <a href="#about" class="rail-link" data-section="about"><span class="rail-num">01</span>Introduction</a>
-    <a href="#work" class="rail-link" data-section="work"><span class="rail-num">02</span>Projects</a>
-    <a href="#cv" class="rail-link" data-section="cv"><span class="rail-num">03</span>Curriculum Vitae</a>
-    <a href="#evidence" class="rail-link" data-section="evidence"><span class="rail-num">04</span>University</a>
-  </nav>
-  <button class="rail-toggle" id="railToggle" aria-label="Toggle navigation" aria-expanded="false">
-    <span></span><span></span><span></span>
+<!-- The painted circuit arrow, reused across the site. Its colour shows
+     a KSB's status: blue = complete, orange = in progress, outline = not started. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="arrow" viewBox="0 0 26 16"><path d="M1.5 5.6c4.1-.3 8.3-.4 12.6-.2l-.2-4.1c3.6 2.1 7.2 4.3 10.6 6.7-3.4 2.4-7 4.6-10.5 6.8l.1-4.2c-4.2.1-8.4 0-12.6-.3z"/></symbol>
+</svg>
+
+<a class="skip-link" href="#about">Skip to content</a>
+
+<header class="topbar" id="topbar">
+  <a class="topbar-name" href="#top" id="topbarName">Ben Curtis</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+    <span></span><span></span>
   </button>
-</div>
+  <nav class="site-nav" id="siteNav" aria-label="Sections">
+    <a href="#about" class="nav-link" data-section="about">Introduction</a>
+    <a href="#work" class="nav-link" data-section="work">Projects</a>
+    <a href="#cv" class="nav-link" data-section="cv">CV</a>
+    <a href="#evidence" class="nav-link" data-section="evidence">KSB evidence</a>
+  </nav>
+</header>
 
 <main id="top">
 
   <!-- ============ HERO ============ -->
   <section class="cover" id="brief">
-    <div class="cover-inner">
-      <p class="eyebrow">Personal Portfolio</p>
-      <h1 class="cover-name" id="coverName">Your Name</h1>
-      <p class="cover-role" id="coverRole">Digital Marketing Executive · United Kingdom</p>
+    <div class="cover-grid">
+      <div class="cover-main">
+        <h1 class="cover-name" id="coverName">Ben Curtis</h1>
+        <p class="cover-role" id="coverRole">Digital Marketing Executive</p>
+        <p class="cover-overview" id="briefStandard"></p>
+        <p class="cover-focus" id="briefTagline"></p>
 
-      <dl class="brief-meta">
-        <div>
-          <dt>Current Position</dt>
-          <dd id="briefInstitution">OutsideClinic</dd>
-        </div>
-        <div>
-          <dt>Overview</dt>
-          <dd id="briefStandard"></dd>
-        </div>
-        <div>
-          <dt>Objective</dt>
-          <dd id="briefTagline"></dd>
-        </div>
-      </dl>
+        <ul class="stat-list" id="statStrip" aria-label="Career in numbers"></ul>
 
-      <div class="stat-strip" id="statStrip" aria-label="Portfolio statistics"></div>
-
-      <div class="cover-actions">
-        <a href="#work" class="btn btn-primary">View Projects</a>
-        <a href="#about" class="btn btn-ghost">Jump to Introduction</a>
-        <a href="#cv" class="btn btn-ghost">Jump to CV</a>
-        <a href="#evidence" class="btn btn-ghost">View University evidence</a>
+        <div class="cover-actions">
+          <a href="#work" class="btn btn-light">See my projects</a>
+          <a href="#evidence" class="btn btn-ghost">Browse KSB evidence</a>
+        </div>
       </div>
+
+      <aside class="cover-panel" aria-labelledby="panelHeading">
+        <h2 class="panel-heading" id="panelHeading">Currently</h2>
+        <div class="panel-role">
+          <p class="panel-role-title" id="panelRoleTitle"></p>
+          <p class="panel-role-org" id="panelRoleOrg"></p>
+        </div>
+        <div class="panel-role">
+          <p class="panel-role-title" id="panelRole2Title"></p>
+          <p class="panel-role-org" id="panelRole2Org"></p>
+        </div>
+        <h3 class="panel-subhead">Core skills</h3>
+        <div class="tag-list" id="panelSkills"></div>
+      </aside>
     </div>
 
-    <aside class="cover-panel" id="coverPanel">
-      <p class="panel-eyebrow">Currently</p>
-
-      <div class="panel-role">
-        <p class="panel-role-title" id="panelRoleTitle"></p>
-        <p class="panel-role-org" id="panelRoleOrg"></p>
+    <div class="circuit" aria-labelledby="circuitHeading">
+      <div class="circuit-head">
+        <div>
+          <h2 class="circuit-title" id="circuitHeading">My KSB circuit</h2>
+          <p class="circuit-summary" id="circuitSummary"></p>
+        </div>
+        <ul class="status-key" aria-label="Arrow colours">
+          <li><svg class="arrow is-complete" aria-hidden="true"><use href="#arrow"/></svg>Complete</li>
+          <li><svg class="arrow is-in-progress" aria-hidden="true"><use href="#arrow"/></svg>In progress</li>
+          <li><svg class="arrow is-not-started" aria-hidden="true"><use href="#arrow"/></svg>Not started</li>
+        </ul>
       </div>
-      <div class="panel-role panel-role-secondary">
-        <p class="panel-role-title" id="panelRole2Title"></p>
-        <p class="panel-role-org" id="panelRole2Org"></p>
-      </div>
-
-      <p class="panel-subhead">Core Skills</p>
-      <div class="skill-tags" id="panelSkills"></div>
-
-      <p class="panel-foot" id="panelFoot"></p>
-    </aside>
+      <div class="circuit-groups" id="circuitGroups"></div>
+    </div>
   </section>
 
   <!-- ============ INTRODUCTION ============ -->
   <section class="section" id="about">
     <div class="section-inner">
       <header class="section-head">
-        <p class="section-eyebrow">01 / Introduction</p>
         <h2>Introduction</h2>
-        <p class="section-lede">Thank you for viewing my portfolio.</p>
+        <p class="section-lede">Thanks for visiting. Here's a little about me before you get to the work.</p>
       </header>
 
       <div class="about-grid">
-        <div class="about-photo-frame">
-          <div class="about-photo" id="aboutPhoto"></div>
-        </div>
+        <div class="about-photo" id="aboutPhoto"></div>
         <div class="about-copy" id="aboutCopy"></div>
       </div>
     </div>
@@ -116,18 +116,16 @@
   <section class="section section-dark" id="work">
     <div class="section-inner">
       <header class="section-head">
-        <p class="section-eyebrow">02 / Projects</p>
         <h2>Projects</h2>
-        <p class="section-lede">Major projects I've led or featured in – a showcase of my key work.</p>
+        <p class="section-lede">Major projects I've led or played a part in.</p>
       </header>
 
       <div class="project-carousel">
-        <button class="carousel-btn carousel-prev" id="projPrev" aria-label="Previous project">&#8249;</button>
+        <button class="carousel-btn" id="projPrev" aria-label="Previous project"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
         <div class="project-track" id="projectGrid"></div>
-        <button class="carousel-btn carousel-next" id="projNext" aria-label="Next project">&#8250;</button>
+        <button class="carousel-btn" id="projNext" aria-label="Next project"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
       </div>
-      <div class="carousel-dots" id="projDots" aria-label="Project position">
-      </div>
+      <div class="carousel-dots" id="projDots" aria-label="Project position"></div>
     </div>
   </section>
 
@@ -135,12 +133,11 @@
   <section class="section" id="cv">
     <div class="section-inner">
       <header class="section-head">
-        <p class="section-eyebrow">03 / Curriculum Vitae</p>
-        <h2>Curriculum Vitae</h2>
+        <h2>CV</h2>
         <p class="section-lede" id="cvSummary"></p>
         <div class="cv-actions" id="cvActions" hidden>
-          <a href="#" id="cvView" class="btn btn-primary" target="_blank" rel="noopener">View CV (PDF)</a>
-          <a href="#" id="cvDownload" class="btn btn-outline" download="Ben-Curtis-CV.pdf">Download</a>
+          <a href="#" id="cvView" class="btn btn-dark" target="_blank" rel="noopener">View CV (PDF)</a>
+          <a href="#" id="cvDownload" class="btn btn-outline" download="Ben-Curtis-CV.pdf">Download CV</a>
         </div>
       </header>
 
@@ -155,40 +152,37 @@
         </div>
         <div class="cv-block">
           <h3 class="cv-block-title">Skills</h3>
-          <p class="skill-subhead">Technical</p>
-          <div class="skill-tags" id="cvSkillsTechnical"></div>
-          <p class="skill-subhead">Soft Skills</p>
-          <div class="skill-tags" id="cvSkillsSoft"></div>
+          <h4 class="skill-subhead">Technical</h4>
+          <div class="tag-list" id="cvSkillsTechnical"></div>
+          <h4 class="skill-subhead">Soft skills</h4>
+          <div class="tag-list" id="cvSkillsSoft"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="section-divider" aria-hidden="true"></div>
-
   <!-- ============ KSB EVIDENCE ============ -->
   <section class="section section-alt" id="evidence">
     <div class="section-inner">
       <header class="section-head">
-        <p class="section-eyebrow">04 / University</p>
-        <h2>KSB Evidence Log</h2>
-        <p class="section-lede">Every Knowledge, Skill and Behaviour from ST0481, tagged and tracked like a campaign – filter by category or status to see what's covered and what's next. This section is EPA-facing; see Projects for the work itself.</p>
+        <h2>KSB evidence</h2>
+        <p class="section-lede">Every Knowledge, Skill and Behaviour from the ST0481 standard, with the evidence behind it. Filter by category or status, then open any card to see the evidence. This section is for my End-Point Assessment; the Projects section above covers the work itself.</p>
       </header>
 
       <div class="filter-bar" role="group" aria-label="Filter KSBs">
-        <div class="filter-group">
-          <span class="filter-label">Category</span>
-          <button class="chip is-active" data-filter-cat="all">All</button>
-          <button class="chip chip-skill" data-filter-cat="skill">Skill</button>
-          <button class="chip chip-knowledge" data-filter-cat="knowledge">Knowledge</button>
-          <button class="chip chip-behaviour" data-filter-cat="behaviour">Behaviour</button>
+        <div class="filter-group" role="group" aria-labelledby="filterCatLabel">
+          <span class="filter-label" id="filterCatLabel">Category</span>
+          <button class="chip is-active" data-filter-cat="all" aria-pressed="true">All</button>
+          <button class="chip" data-filter-cat="knowledge" aria-pressed="false">Knowledge</button>
+          <button class="chip" data-filter-cat="skill" aria-pressed="false">Skills</button>
+          <button class="chip" data-filter-cat="behaviour" aria-pressed="false">Behaviours</button>
         </div>
-        <div class="filter-group">
-          <span class="filter-label">Status</span>
-          <button class="chip is-active" data-filter-status="all">All</button>
-          <button class="chip" data-filter-status="complete">Complete</button>
-          <button class="chip" data-filter-status="in-progress">In progress</button>
-          <button class="chip" data-filter-status="not-started">Not started</button>
+        <div class="filter-group" role="group" aria-labelledby="filterStatusLabel">
+          <span class="filter-label" id="filterStatusLabel">Status</span>
+          <button class="chip is-active" data-filter-status="all" aria-pressed="true">All</button>
+          <button class="chip" data-filter-status="complete" aria-pressed="false"><svg class="arrow is-complete" aria-hidden="true"><use href="#arrow"/></svg>Complete</button>
+          <button class="chip" data-filter-status="in-progress" aria-pressed="false"><svg class="arrow is-in-progress" aria-hidden="true"><use href="#arrow"/></svg>In progress</button>
+          <button class="chip" data-filter-status="not-started" aria-pressed="false"><svg class="arrow is-not-started" aria-hidden="true"><use href="#arrow"/></svg>Not started</button>
         </div>
       </div>
 
@@ -198,8 +192,8 @@
 
   <footer class="footer">
     <div>
-      <p class="footer-name" id="footerName">Your Name</p>
-      <p class="footer-sub" id="footerLocation">Built as a living portfolio – updated as work happens.</p>
+      <p class="footer-name" id="footerName">Ben Curtis</p>
+      <p class="footer-sub" id="footerLocation">A living portfolio, updated as the work happens.</p>
     </div>
     <div class="footer-links" id="footerLinks"></div>
   </footer>
@@ -209,8 +203,8 @@
 <!-- ============ KSB DETAIL MODAL ============ -->
 <div class="modal-backdrop" id="modalBackdrop" hidden>
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
-    <p class="modal-eyebrow" id="modalCode"></p>
+    <button class="modal-close" id="modalClose" aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <p class="modal-code" id="modalCode"></p>
     <h3 id="modalTitle"></h3>
     <p class="modal-status" id="modalStatus"></p>
     <p class="modal-desc" id="modalDesc"></p>
@@ -219,7 +213,7 @@
 </div>
 
 <!-- ?v= forces browsers to fetch fresh files after each update; change it whenever the files change -->
-<script src="data.js?v=20261029"></script>
-<script src="script.js?v=20261029"></script>
+<script src="data.js?v=20261030"></script>
+<script src="script.js?v=20261030"></script>
 </body>
 </html>
