@@ -186,7 +186,35 @@ main{ padding-top: var(--topbar-h); }
   background: var(--pine);
   color: var(--sand);
   padding: clamp(48px, 7vw, 96px) var(--gutter);
+  position: relative;
+  overflow: hidden;
 }
+/* Drifting contour lines (contours.js); fade towards the text side so the name stays crisp */
+.hero-contours{
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 2s ease .3s;
+  -webkit-mask-image: linear-gradient(100deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.75) 45%, #000 75%);
+          mask-image: linear-gradient(100deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.75) 45%, #000 75%);
+}
+.hero-contours.is-ready{ opacity: 1; }
+.cover-grid{ position: relative; z-index: 1; }
+
+/* Hero entrance: the name rises letter by letter, then the rest follows */
+.cn-word{ display: inline-block; clip-path: inset(-40% -15% 0 -15%); }
+.cn-letter{ display: inline-block; }
+@keyframes letter-up{ from{ transform: translateY(105%); } to{ transform: none; } }
+@keyframes hero-fade{ from{ opacity: 0; transform: translateY(10px); } to{ opacity: 1; transform: none; } }
+.cover.is-entering .cn-letter{ animation: letter-up .9s cubic-bezier(.2,.75,.15,1) backwards; animation-delay: calc(var(--k) * 45ms + 100ms); }
+.cover.is-entering .cover-roles{ animation: hero-fade .7s ease-out backwards .65s; }
+.cover.is-entering .cover-headline{ animation: hero-fade .7s ease-out backwards .8s; }
+.cover.is-entering .cover-actions{ animation: hero-fade .7s ease-out backwards .95s; }
+.cover.is-entering .stat{ animation: hero-fade .7s ease-out backwards; }
+.cover.is-entering .stat:nth-child(1){ animation-delay: .8s; }
+.cover.is-entering .stat:nth-child(2){ animation-delay: .92s; }
+.cover.is-entering .stat:nth-child(3){ animation-delay: 1.04s; }
+.cover.is-entering .stat:nth-child(4){ animation-delay: 1.16s; }
 .cover-grid{
   max-width: 1240px; margin: 0 auto;
   display: grid;

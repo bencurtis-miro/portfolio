@@ -39,7 +39,14 @@
   /* ---------------- SITE / COVER ---------------- */
   document.title = `${SITE.name} – ${SITE.title}`;
   $("#topbarName").textContent = SITE.name;
-  $("#coverName").textContent = SITE.name;
+  // The name rises in letter by letter; screen readers get it whole
+  const coverName = $("#coverName");
+  coverName.setAttribute("aria-label", SITE.name);
+  let letterIndex = 0;
+  coverName.innerHTML = SITE.name.split(" ").map(word =>
+    `<span class="cn-word" aria-hidden="true">${[...word].map(ch => `<span class="cn-letter" style="--k:${letterIndex++}">${ch}</span>`).join("")}</span>`
+  ).join(" ");
+  if (!reduceMotion) document.querySelector(".cover").classList.add("is-entering");
   const roles = [[SITE.title, SITE.org || SITE.client], [SITE.secondaryTitle, SITE.secondaryOrg]]
     .filter(([t]) => t)
     .map(([t, o]) => `<span>${t}${o ? `, ${o}` : ""}</span>`);
@@ -71,7 +78,7 @@
     li.className = "stat";
     li.innerHTML = `<span class="stat-num">${s.value}</span><span class="stat-label">${s.label}</span>`;
     statStrip.appendChild(li);
-    countUp($(".stat-num", li), s.value, 250 + i * 140);
+    countUp($(".stat-num", li), s.value, 900 + i * 140);
   });
 
   // Ticks a stat like "£750k+" up from zero, keeping its prefix and suffix

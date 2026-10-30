@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..800;1,62..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261031b">
+<link rel="stylesheet" href="styles.css?v=20261031c">
 </head>
 <body>
 
@@ -49,6 +49,7 @@
 
   <!-- ============ HERO ============ -->
   <section class="cover" id="brief">
+    <canvas class="hero-contours" id="heroContours" aria-hidden="true"></canvas>
     <div class="cover-grid">
       <div class="cover-main">
         <h1 class="cover-name" id="coverName">Ben Curtis</h1>
@@ -192,7 +193,8 @@
 </div>
 
 <!-- ?v= forces browsers to fetch fresh files after each update; change it whenever the files change -->
-<script src="data.js?v=20261031b"></script>
-<script src="script.js?v=20261031b"></script>
+<script src="data.js?v=20261031c"></script>
+<script src="script.js?v=20261031c"></script>
+<script src="contours.js?v=20261031c"></script>
 </body>
 </html>

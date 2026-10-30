@@ -8,6 +8,7 @@ Three files do everything:
 - **`styles.css`** – visual design (colours, type, layout).
 - **`script.js`** – behaviour (filtering, the KSB detail popup, navigation). You shouldn't need to touch this.
 - **`contact.html`** and **`contact.js`** – the Get in touch page and its form.
+- **`contours.js`** – the drifting contour lines behind the hero. Colours and speed are at the top of the file under Settings.
 
 ## Editing your content
 
