@@ -24,9 +24,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..800;1,62..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261031d">
+<link rel="stylesheet" href="styles.css?v=20261031e">
 <!-- KSB evidence (University) – remove this line when retiring the section -->
-<link rel="stylesheet" href="ksb.css?v=20261031d">
+<link rel="stylesheet" href="ksb.css?v=20261031e">
 </head>
 <body>
 
@@ -188,20 +188,27 @@
 <div class="modal-backdrop" id="modalBackdrop" data-ksb hidden>
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <button class="modal-close" id="modalClose" aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-    <p class="modal-code" id="modalCode"></p>
-    <h3 id="modalTitle"></h3>
-    <p class="modal-status" id="modalStatus"></p>
-    <p class="modal-desc" id="modalDesc"></p>
-    <div class="modal-evidence" id="modalEvidence"></div>
+    <div class="modal-body" id="modalBody">
+      <p class="modal-code" id="modalCode"></p>
+      <h3 id="modalTitle"></h3>
+      <p class="modal-status" id="modalStatus"></p>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="modal-evidence" id="modalEvidence"></div>
+    </div>
+    <nav class="modal-ksb-nav" id="modalKsbNav" aria-label="Other KSBs">
+      <button type="button" class="ksb-step ksb-step-prev" id="ksbPrev"></button>
+      <span class="ksb-step-pos" id="ksbPos" aria-live="polite"></span>
+      <button type="button" class="ksb-step ksb-step-next" id="ksbNext"></button>
+    </nav>
   </div>
 </div>
 
 <!-- ?v= forces browsers to fetch fresh files after each update; change it whenever the files change -->
-<script src="data.js?v=20261031d"></script>
+<script src="data.js?v=20261031e"></script>
 <!-- KSB evidence (University) – remove these two lines when retiring the section -->
-<script src="ksb-data.js?v=20261031d"></script>
-<script src="script.js?v=20261031d"></script>
-<script src="ksb.js?v=20261031d"></script>
-<script src="contours.js?v=20261031d"></script>
+<script src="ksb-data.js?v=20261031e"></script>
+<script src="script.js?v=20261031e"></script>
+<script src="ksb.js?v=20261031e"></script>
+<script src="contours.js?v=20261031e"></script>
 </body>
 </html>

@@ -232,3 +232,40 @@
 @media (pointer: coarse){
   .chip{ padding: 10px 14px; }
 }
+
+/* ---------- Previous / next KSB, pinned to the bottom of the popup ---------- */
+.modal-ksb-nav{
+  position: sticky; bottom: -36px;
+  margin: 26px -36px -36px;
+  padding: 12px 20px;
+  background: var(--sand-card);
+  border-top: 1px solid var(--line);
+  border-radius: 0 0 12px 12px;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center; gap: 10px;
+}
+.ksb-step{
+  font: inherit; color: var(--pine);
+  background: none; border: 0; border-radius: 8px;
+  padding: 8px 10px;
+  display: flex; align-items: center; gap: 8px;
+  min-width: 0; min-height: 44px;
+  cursor: pointer;
+  transition: background-color .15s ease, transform .12s ease;
+}
+.ksb-step:hover{ background: var(--sand); }
+.ksb-step:active{ transform: scale(.97); }
+.ksb-step-prev{ justify-self: start; text-align: left; }
+.ksb-step-next{ justify-self: end; text-align: right; grid-column: 3; }
+.ksb-step svg{ width: 18px; height: 18px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s ease; }
+.ksb-step-prev:hover svg{ transform: translateX(-3px); }
+.ksb-step-next:hover svg{ transform: translateX(3px); }
+.ksb-step-text{ display: flex; flex-direction: column; min-width: 0; line-height: 1.25; }
+.ksb-step-code{ font-weight: 800; font-variation-settings: var(--display); font-size: 1.125rem; color: var(--cat, var(--pine)); }
+.ksb-step-title{ font-size: 13px; color: var(--moss); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ksb-step-pos{ grid-column: 2; grid-row: 1; font-size: 13px; color: var(--moss); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+@media (max-width: 480px){
+  .modal-ksb-nav{ bottom: -28px; margin: 22px -20px -28px; padding: 10px 8px; }
+  .ksb-step-title{ display: none; }
+}
