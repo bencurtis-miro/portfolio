@@ -33,6 +33,7 @@
   $("#coverRoles").innerHTML = roles.join("");
   $("#coverHeadline").textContent = SITE.headline || SITE.brief;
   $("#footerName").textContent = SITE.name;
+  $("#footerSub").textContent = SITE.headline || "";
 
   const footerLinks = $("#footerLinks");
   const linkDefs = [
@@ -85,7 +86,7 @@
     const items = KSBS.filter(k => k.category === cat);
     if (!items.length) return;
     const group = document.createElement("div");
-    group.className = "circuit-group";
+    group.className = `circuit-group cat-${cat}`;
     group.innerHTML = `<h4 class="circuit-group-title">${label}</h4><ol class="circuit-row"></ol>`;
     const row = $(".circuit-row", group);
     items.forEach(k => {
@@ -124,7 +125,7 @@
       shown += items.length;
       const done = all.filter(k => k.status === "complete").length;
       const group = document.createElement("section");
-      group.className = "ksb-group";
+      group.className = `ksb-group cat-${cat}`;
       group.setAttribute("aria-label", label);
       group.innerHTML = `
         <div class="ksb-group-head">
@@ -137,7 +138,7 @@
         const n = evidenceFor(k).length;
         const card = document.createElement("button");
         card.type = "button";
-        card.className = "ksb-card";
+        card.className = `ksb-card cat-${k.category}`;
         card.innerHTML = `
           <span class="ksb-top">${marker(k.status)}<span class="ksb-code">${k.code}</span></span>
           <span class="ksb-title">${k.title}</span>
@@ -185,6 +186,7 @@
 
   function openModal(k) {
     modalStep = null;
+    $(".modal").className = `modal cat-${k.category}`;
     $("#modalCode").innerHTML = `<span class="modal-code-id">${k.code}</span><span class="modal-code-cat">${CATEGORY_LABEL[k.category] || k.category}</span>`;
     $("#modalTitle").textContent = k.title;
     $("#modalStatus").innerHTML = `${marker(k.status)}${statusLabel(k.status)}`;
@@ -310,7 +312,7 @@
       <p class="project-summary">${p.summary}</p>
       ${results.length ? `<div class="project-results"><h4 class="project-results-title">Results</h4><ul>${results.map(r => `<li>${r}</li>`).join("")}</ul></div>` : ""}
       <div class="tag-list project-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
-      ${linkedKsbs.length ? `<div class="project-ksbs"><p class="project-ksbs-label">KSB evidence from this project</p><div class="project-ksb-list">${linkedKsbs.map(k => `<button type="button" class="project-ksb" data-ksb="${k.code}" aria-label="Open ${k.code}: ${k.title}">${marker(k.status)}${k.code}</button>`).join("")}</div></div>` : ""}
+      ${linkedKsbs.length ? `<div class="project-ksbs"><p class="project-ksbs-label">KSB evidence from this project</p><div class="project-ksb-list">${linkedKsbs.map(k => `<button type="button" class="project-ksb cat-${k.category}" data-ksb="${k.code}" aria-label="Open ${k.code}: ${k.title}">${marker(k.status)}${k.code}</button>`).join("")}</div></div>` : ""}
     `;
     card.querySelectorAll("[data-ksb]").forEach(btn => {
       btn.addEventListener("click", () => openModal(KSBS.find(k => k.code === btn.dataset.ksb)));

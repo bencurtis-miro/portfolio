@@ -6,6 +6,7 @@
   /* ---------------- Names, links and menu ---------------- */
   $("#topbarName").textContent = SITE.name;
   $("#footerName").textContent = SITE.name;
+  $("#footerSub").textContent = SITE.headline || "";
 
   const links = [
     ["Email", SITE.email, SITE.email ? `mailto:${SITE.email}` : null],

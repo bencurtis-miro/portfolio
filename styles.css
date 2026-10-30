@@ -17,6 +17,14 @@
   --lake-deep: #173A4A;      /* lake – Projects section */
   --lake-card: #1F4A5D;      /* lake – cards on the Projects section */
 
+  /* KSB categories – each has its own colour; light versions for dark backgrounds */
+  --knowledge: #24576F;      /* lake */
+  --skill: #7A4F0D;          /* ochre */
+  --behaviour: #5E4470;      /* heather */
+  --knowledge-light: #8CC3DD;
+  --skill-light: #E3B35A;
+  --behaviour-light: #CDB4DC;
+
   --line: rgba(34,57,45,0.16);
   --line-strong: rgba(34,57,45,0.42);
   --line-dark: rgba(233,221,196,0.18);
@@ -80,6 +88,16 @@ p{ margin: 0; }
 .marker.is-complete{ background: var(--m); }
 .marker.is-in-progress{ background: linear-gradient(90deg, var(--m) 50%, transparent 50%); }
 .section-lake .marker, .chip.is-active .marker{ --m: var(--lake-light); }
+
+/* Category colour: Knowledge = lake, Skills = ochre, Behaviours = heather.
+   Status is shown by the circle's shape; its colour shows the category. */
+.cat-knowledge{ --cat: var(--knowledge); --cat-light: var(--knowledge-light); }
+.cat-skill{ --cat: var(--skill); --cat-light: var(--skill-light); }
+.cat-behaviour{ --cat: var(--behaviour); --cat-light: var(--behaviour-light); }
+.cat-knowledge .marker, .cat-skill .marker, .cat-behaviour .marker{ --m: var(--cat); }
+.section-lake .project-ksb .marker{ --m: var(--cat-light); }
+.status-key .marker, .chip[data-filter-status] .marker{ --m: var(--pine); }
+.chip.is-active[data-filter-status] .marker{ --m: var(--sand); }
 
 /* ============================================================
    TOP BAR
@@ -243,6 +261,9 @@ main{ padding-top: var(--topbar-h); }
 .section-lake{ background: var(--lake-deep); color: var(--sand); }
 .section-alt{ background: var(--sand-shade); }
 .section-head{ max-width: 680px; margin-bottom: clamp(32px, 5vw, 52px); }
+.section-head-wide{ max-width: none; }
+/* The CV summary runs across the full width in two columns, so lines stay readable */
+.section-lede.cv-summary{ max-width: none; columns: 2 320px; column-gap: clamp(32px, 4vw, 56px); }
 .section-head h2{ font-size: var(--step-4); }
 .section-lede{ color: var(--moss); font-size: var(--step-1); line-height: 1.55; max-width: 64ch; margin-top: 14px; }
 .section-lake .section-lede{ color: var(--lichen); }
@@ -342,7 +363,7 @@ main{ padding-top: var(--topbar-h); }
 .status-key li{ display: flex; align-items: center; gap: 8px; }
 
 .circuit-groups{ display: flex; flex-wrap: wrap; gap: 20px 44px; }
-.circuit-group-title{ font-size: 14px; font-weight: 600; color: var(--moss); margin-bottom: 6px; font-variation-settings: 'wdth' 100; }
+.circuit-group-title{ font-size: 14px; font-weight: 700; color: var(--cat, var(--moss)); margin-bottom: 6px; font-variation-settings: 'wdth' 100; }
 .circuit-row{ list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 2px; }
 .circuit-stop{
   appearance: none; background: none; border: 0; cursor: pointer;
@@ -388,10 +409,13 @@ main{ padding-top: var(--topbar-h); }
 .chip .marker{ width: 11px; height: 11px; }
 .chip:hover{ border-color: var(--pine); }
 .chip.is-active{ background: var(--pine); color: var(--sand); border-color: var(--pine); }
+.cat-dot{ width: 10px; height: 10px; border-radius: 3px; background: var(--cat); }
+.chip.cat-knowledge.is-active, .chip.cat-skill.is-active, .chip.cat-behaviour.is-active{ background: var(--cat); border-color: var(--cat); }
+.chip.is-active .cat-dot{ background: var(--sand); }
 
 .ksb-group + .ksb-group{ margin-top: 44px; }
-.ksb-group-head{ display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; padding-bottom: 12px; margin-bottom: 16px; border-bottom: 2px solid var(--pine); }
-.ksb-group-title{ font-size: var(--step-3); }
+.ksb-group-head{ display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; padding-bottom: 12px; margin-bottom: 16px; border-bottom: 3px solid var(--cat, var(--pine)); }
+.ksb-group-title{ font-size: var(--step-3); color: var(--cat, var(--pine)); }
 .ksb-group-count{ color: var(--moss); font-size: 15px; }
 .ksb-grid{ display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
 .ksb-card{
@@ -404,9 +428,10 @@ main{ padding-top: var(--topbar-h); }
   cursor: pointer;
   transition: border-color .12s ease;
 }
-.ksb-card:hover{ border-color: var(--pine); }
+.ksb-card.cat-knowledge, .ksb-card.cat-skill, .ksb-card.cat-behaviour{ border-left: 4px solid var(--cat); }
+.ksb-card:hover{ border-color: var(--cat, var(--pine)); }
 .ksb-top{ display: flex; align-items: center; gap: 10px; }
-.ksb-code{ font-size: var(--step-2); font-weight: 800; font-variation-settings: var(--display); line-height: 1; }
+.ksb-code{ font-size: var(--step-2); font-weight: 800; font-variation-settings: var(--display); line-height: 1; color: var(--cat, var(--pine)); }
 .ksb-title{ font-size: 15.5px; font-weight: 600; line-height: 1.35; }
 .ksb-meta{ font-size: 13px; color: var(--moss); margin-top: auto; }
 .ksb-empty{ color: var(--moss); }
@@ -456,8 +481,8 @@ main{ padding-top: var(--topbar-h); }
 .modal-close:hover{ background: var(--sand); }
 .modal-close svg{ width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
 .modal-code{ display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
-.modal-code-id{ font-size: var(--step-3); font-weight: 800; font-variation-settings: var(--display); line-height: 1; }
-.modal-code-cat{ font-size: 14px; color: var(--moss); }
+.modal-code-id{ font-size: var(--step-3); font-weight: 800; font-variation-settings: var(--display); line-height: 1; color: var(--cat, var(--pine)); }
+.modal-code-cat{ font-size: 14px; font-weight: 600; color: var(--cat, var(--moss)); }
 .modal h3{ font-size: var(--step-3); padding-right: 32px; margin-bottom: 12px; }
 .modal-status{ display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; margin-bottom: 16px; }
 .modal-desc{ font-size: 16px; line-height: 1.6; margin-bottom: 22px; }
