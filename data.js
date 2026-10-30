@@ -57,13 +57,10 @@ const HERO_STATS = [
    like a template. Treat every paragraph below as a starting
    point to rewrite in your own words, not final copy.
 
-   `photo`: put a filename here (e.g. "profile.jpg") once you've
-   added an image to the folder. Until then, an initials avatar
-   displays automatically.
+   The site deliberately has no profile photo.
    ------------------------------------------------------------ */
 
 const ABOUT = {
-  photo: "profile.jpg",
   paragraphs: [
     {
       heading: "Who I am",

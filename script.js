@@ -60,14 +60,6 @@
   });
 
   /* ---------------- ABOUT / INTRODUCTION ---------------- */
-  const aboutPhoto = $("#aboutPhoto");
-  if (ABOUT.photo) {
-    aboutPhoto.innerHTML = `<img src="${ABOUT.photo}" alt="${SITE.name}">`;
-  } else {
-    const initials = SITE.name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
-    aboutPhoto.innerHTML = `<span class="about-photo-initials">${initials}</span>`;
-  }
-
   const aboutCopy = $("#aboutCopy");
   (ABOUT.paragraphs || []).forEach(p => {
     const block = document.createElement("div");
