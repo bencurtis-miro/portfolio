@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ben Curtis – Digital Marketing Executive</title>
-<meta name="description" content="Portfolio of Ben Curtis, Digital Marketing Executive at OutsideClinic and co-founder of Mirõ MKT: projects, CV and University KSB evidence.">
+<meta name="description" content="Portfolio of Ben Curtis, Digital Marketing Executive at OutsideClinic and co-founder of Mirõ MKT: projects, experience and CV.">
 <meta name="theme-color" content="#22392D">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
@@ -14,7 +14,7 @@
      If the site moves to a custom domain, update the two URLs below. -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ben Curtis – Digital Marketing Executive">
-<meta property="og:description" content="Multi-channel acquisition, CRM and lifecycle marketing. Projects, CV and University KSB evidence.">
+<meta property="og:description" content="Multi-channel acquisition, CRM and lifecycle marketing. Projects, experience and CV.">
 <meta property="og:url" content="https://bencurtis-miro.github.io/portfolio/">
 <meta property="og:image" content="https://bencurtis-miro.github.io/portfolio/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -24,7 +24,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..800;1,62..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261031c">
+<link rel="stylesheet" href="styles.css?v=20261031d">
+<!-- KSB evidence (University) – remove this line when retiring the section -->
+<link rel="stylesheet" href="ksb.css?v=20261031d">
 </head>
 <body>
 
@@ -40,7 +42,7 @@
     <a href="#about" class="nav-link" data-section="about">Introduction</a>
     <a href="#work" class="nav-link" data-section="work">Projects</a>
     <a href="#cv" class="nav-link" data-section="cv">CV</a>
-    <a href="#evidence" class="nav-link" data-section="evidence">KSB evidence</a>
+    <a href="#evidence" class="nav-link" data-section="evidence" data-ksb>KSB evidence</a>
     <a href="contact.html" class="nav-cta">Get in touch</a>
   </nav>
 </header>
@@ -126,8 +128,9 @@
     </div>
   </section>
 
-  <!-- ============ KSB EVIDENCE ============ -->
-  <section class="section section-alt" id="evidence">
+  <!-- ============ KSB EVIDENCE (University) – start ============
+       Remove from here to "KSB EVIDENCE – end" when retiring the section. -->
+  <section class="section section-alt" id="evidence" data-ksb>
     <div class="section-inner">
       <header class="section-head">
         <h2>KSB evidence</h2>
@@ -169,6 +172,7 @@
       <div class="ksb-groups" id="ksbGrid"></div>
     </div>
   </section>
+  <!-- ============ KSB EVIDENCE – end ============ -->
 
   <footer class="footer">
     <div>
@@ -180,8 +184,8 @@
 
 </main>
 
-<!-- ============ KSB DETAIL MODAL ============ -->
-<div class="modal-backdrop" id="modalBackdrop" hidden>
+<!-- ============ KSB DETAIL POPUP (University) – remove with the section ============ -->
+<div class="modal-backdrop" id="modalBackdrop" data-ksb hidden>
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <button class="modal-close" id="modalClose" aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     <p class="modal-code" id="modalCode"></p>
@@ -193,8 +197,11 @@
 </div>
 
 <!-- ?v= forces browsers to fetch fresh files after each update; change it whenever the files change -->
-<script src="data.js?v=20261031c"></script>
-<script src="script.js?v=20261031c"></script>
-<script src="contours.js?v=20261031c"></script>
+<script src="data.js?v=20261031d"></script>
+<!-- KSB evidence (University) – remove these two lines when retiring the section -->
+<script src="ksb-data.js?v=20261031d"></script>
+<script src="script.js?v=20261031d"></script>
+<script src="ksb.js?v=20261031d"></script>
+<script src="contours.js?v=20261031d"></script>
 </body>
 </html>

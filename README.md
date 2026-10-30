@@ -1,28 +1,44 @@
 # Your Portfolio Site
 
 A self-contained website – no build tools, no npm, no server required.
-Three files do everything:
 
-- **`data.js`** – all your real content (name, KSBs, projects, CV). This is the only file you should need to touch day-to-day.
+**The main site**
+- **`data.js`** – all your real content (name, headline, stats, introduction, projects, CV). This is the file you'll touch day-to-day.
 - **`index.html`** – page structure. Edit only if you want to change what sections exist.
-- **`styles.css`** – visual design (colours, type, layout).
-- **`script.js`** – behaviour (filtering, the KSB detail popup, navigation). You shouldn't need to touch this.
+- **`styles.css`** – visual design (colours, type, layout, animation).
+- **`script.js`** – behaviour (navigation, animations, the short/full CV). You shouldn't need to touch this.
 - **`contact.html`** and **`contact.js`** – the Get in touch page and its form.
 - **`contours.js`** – the drifting contour lines behind the hero. Colours and speed are at the top of the file under Settings.
+
+**The KSB evidence section (University – ST0481 apprenticeship)** – kept apart so it can be removed in one go:
+- **`ksb-data.js`** – every KSB, its status and its evidence.
+- **`ksb.js`** – the progress panel, filters, cards, evidence popup and the KSB pills on project cards.
+- **`ksb.css`** – the section's styles.
 
 ## Editing your content
 
 Open `data.js` in any text editor (VS Code is a good free option). It's split into:
 
-1. **`SITE`** – your name, role, tagline, contact details.
-2. **`KSBS`** – pre-filled with the 14 Knowledge, 15 Skill and 7 Behaviour points from the ST0481 standard, paraphrased into plain language. For each one, as you complete real work:
-   - Change `status` to `"in-progress"` or `"complete"`.
-   - Add entries to the `evidence` array (e.g. `evidence: ["Wrote the Q3 campaign brief", "Presented results to the marketing lead"]`).
-   - Set `linkedProject` to a project's `id` (see below) to connect the two.
-3. **`PROJECTS`** – one entry per real piece of work. Delete the two example entries and add your own. The `ksbs` array should list the KSB codes that project demonstrates – this is what ties your evidence together across the site.
-4. **`CV`** – your experience, education and skills, in the same format as the placeholder entries.
+1. **`SITE`** – your name, role, headline, contact details, and two switches: `contactForm` and `showKsbEvidence`.
+2. **`HERO_STATS`** – the four numbers in the hero.
+3. **`ABOUT`** – the introduction: the opening statement, the paragraphs and the Outside of work tiles.
+4. **`PROJECTS`** – one entry per piece of work, including its `results`.
+5. **`CV`** – the summary (one string per column), experience, education and skills. Entries with `overview: true` appear in the short CV.
 
-Save the file, refresh the page in your browser (just double-click `index.html`), and you'll see your changes.
+KSB evidence lives in **`ksb-data.js`**. For each KSB, set `status` to `"not-started"`, `"in-progress"` or `"complete"` and add entries to its `evidence` list. An evidence entry with `project: "<project id>"` links to that project and adds a KSB pill to its card.
+
+Save, refresh the page in your browser, and you'll see your changes.
+
+## Removing the KSB section
+
+**To hide it** (reversible): set `showKsbEvidence: false` in `SITE` in `data.js`. The section, its navigation links and the KSB pills on project cards all disappear.
+
+**To remove it for good**, once the apprenticeship is finished:
+1. Delete `ksb-data.js`, `ksb.js` and `ksb.css`, and the `evidence/` folder of screenshots.
+2. In `index.html`, delete the three lines marked "KSB evidence (University)" in the head and at the bottom, the block between "KSB EVIDENCE (University) – start" and "KSB EVIDENCE – end", the "KSB DETAIL POPUP" block, and the "KSB evidence" navigation link.
+3. In `contact.html`, delete the "KSB evidence" navigation link.
+
+The rest of the site works without any of these, so if something is missed, nothing breaks.
 
 ## The Get in touch form
 

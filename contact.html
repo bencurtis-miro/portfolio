@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..800;1,62..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261031c">
+<link rel="stylesheet" href="styles.css?v=20261031d">
 </head>
 <body>
 
@@ -30,16 +30,19 @@
     <a href="index.html#about" class="nav-link">Introduction</a>
     <a href="index.html#work" class="nav-link">Projects</a>
     <a href="index.html#cv" class="nav-link">CV</a>
-    <a href="index.html#evidence" class="nav-link">KSB evidence</a>
+    <a href="index.html#evidence" class="nav-link" data-ksb>KSB evidence</a>
   </nav>
 </header>
 
 <main>
-  <section class="contact-hero">
-    <div class="contact-hero-inner">
-      <a class="contact-back" href="index.html">Back to the portfolio</a>
-      <h1 class="contact-title">Get in touch</h1>
-      <p class="contact-intro">Whether it's a role, a project for Mirõ MKT, or a question about my work, leave your email and I'll get back to you.</p>
+  <section class="cover contact-cover">
+    <canvas class="hero-contours" id="heroContours" aria-hidden="true"></canvas>
+    <div class="cover-grid contact-cover-grid">
+      <div class="cover-main">
+        <a class="contact-back" href="index.html">Back to the portfolio</a>
+        <h1 class="cover-name" id="contactTitle">Get in touch</h1>
+        <p class="cover-headline contact-intro">Whether it's a role, a project for Mirõ MKT, or a question about my work, leave your email and I'll get back to you.</p>
+      </div>
     </div>
   </section>
 
@@ -50,7 +53,6 @@
           <legend>What's it about? <span class="field-hint">(optional)</span></legend>
           <label><input type="radio" name="topic" value="A role or opportunity"><span>A role or opportunity</span></label>
           <label><input type="radio" name="topic" value="Working with Mirõ MKT"><span>Working with Mirõ MKT</span></label>
-          <label><input type="radio" name="topic" value="My apprenticeship"><span>My apprenticeship</span></label>
           <label><input type="radio" name="topic" value="Something else"><span>Something else</span></label>
         </fieldset>
 
@@ -93,7 +95,8 @@
   </footer>
 </main>
 
-<script src="data.js?v=20261031c"></script>
-<script src="contact.js?v=20261031c"></script>
+<script src="data.js?v=20261031d"></script>
+<script src="contact.js?v=20261031d"></script>
+<script src="contours.js?v=20261031d"></script>
 </body>
 </html>

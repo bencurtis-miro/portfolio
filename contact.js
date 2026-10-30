@@ -5,6 +5,20 @@
 
   /* ---------------- Names, links and menu ---------------- */
   $("#topbarName").textContent = SITE.name;
+
+  // KSB evidence (University) is optional – hide its nav link when switched off
+  if (SITE.showKsbEvidence === false) document.querySelectorAll("[data-ksb]").forEach(el => el.remove());
+
+  // Same entrance as the home page: the title rises letter by letter, then the intro follows
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const title = $("#contactTitle");
+  const titleText = title.textContent.trim();
+  title.setAttribute("aria-label", titleText);
+  let k = 0;
+  title.innerHTML = titleText.split(" ").map(word =>
+    `<span class="cn-word" aria-hidden="true">${[...word].map(ch => `<span class="cn-letter" style="--k:${k++}">${ch}</span>`).join("")}</span>`
+  ).join(" ");
+  if (!reduceMotion) $(".cover").classList.add("is-entering");
   $("#footerName").textContent = SITE.name;
   $("#footerSub").textContent = SITE.headline || "";
 

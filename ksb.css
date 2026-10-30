@@ -1,0 +1,234 @@
+/* ============================================================
+   KSB EVIDENCE STYLES (University – ST0481 apprenticeship)
+   Everything only the KSB section uses. Removing this file,
+   ksb.js and ksb-data.js removes the section's look entirely.
+   ============================================================ */
+
+/* KSB categories – Knowledge = lake, Skills = ochre, Behaviours = heather */
+:root{
+  --knowledge: var(--lake);
+  --skill: var(--ochre);
+  --behaviour: var(--heather);
+  --knowledge-light: var(--lake-light);
+  --skill-light: var(--ochre-light);
+  --behaviour-light: var(--heather-light);
+}
+
+/* Category colour: Knowledge = lake, Skills = ochre, Behaviours = heather.
+   Status is shown by the circle's shape; its colour shows the category. */
+.cat-knowledge{ --cat: var(--knowledge); --cat-light: var(--knowledge-light); }
+.cat-skill{ --cat: var(--skill); --cat-light: var(--skill-light); }
+.cat-behaviour{ --cat: var(--behaviour); --cat-light: var(--behaviour-light); }
+.cat-knowledge .marker, .cat-skill .marker, .cat-behaviour .marker{ --m: var(--cat); }
+.section-lake .project-ksb .marker{ --m: var(--cat-light); }
+.status-key .marker, .chip[data-filter-status] .marker{ --m: var(--pine); }
+.chip.is-active[data-filter-status] .marker{ --m: var(--sand); }
+
+/* ---------- KSB pills on project cards ---------- */
+.project-ksbs{ margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line-dark); }
+.project-ksbs-label{ font-size: 14px; font-weight: 600; color: var(--lichen); margin-bottom: 10px; }
+.project-ksb-list{ display: flex; flex-wrap: wrap; gap: 6px; }
+.project-ksb{
+  font: inherit; font-size: 13px; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 7px;
+  min-height: 34px; padding: 4px 12px 4px 10px;
+  border-radius: 100px;
+  border: 1px solid var(--line-dark-strong);
+  background: none; color: var(--sand);
+  cursor: pointer;
+}
+.project-ksb .marker{ width: 10px; height: 10px; border-width: 1.5px; }
+.project-ksb:hover{ border-color: var(--sand); }
+
+/* KSB pills pop in after their card lands */
+@keyframes pop{ 0%{ opacity: 0; transform: scale(.6); } 70%{ opacity: 1; transform: scale(1.06); } 100%{ opacity: 1; transform: none; } }
+.project-card.is-in .project-ksb{ animation: pop .4s cubic-bezier(.2,.7,.2,1) backwards; animation-delay: calc(.75s + var(--j) * 45ms); }
+
+/* ---------- KSB evidence ---------- */
+.circuit{
+  background: var(--sand-card);
+  border-radius: 12px;
+  padding: clamp(20px, 3vw, 32px);
+  margin-bottom: 40px;
+}
+.circuit-head{ display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px 32px; margin-bottom: 22px; }
+.circuit-title{ font-size: var(--step-2); }
+.circuit-summary{ color: var(--moss); margin-top: 6px; }
+.status-key{ list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; color: var(--moss); }
+.status-key li{ display: flex; align-items: center; gap: 8px; }
+
+.circuit-groups{ display: flex; flex-wrap: wrap; gap: 20px 44px; }
+.circuit-group-title{ font-size: 14px; font-weight: 700; color: var(--cat, var(--moss)); margin-bottom: 6px; font-variation-settings: 'wdth' 100; }
+.circuit-row{ list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 2px; }
+.circuit-stop{
+  appearance: none; background: none; border: 0; cursor: pointer;
+  color: var(--pine);
+  font: inherit;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  width: 40px; padding: 8px 0 6px;
+  border-radius: 6px;
+  transition: background-color .15s ease;
+}
+.circuit-stop:hover{ background: var(--sand); }
+.circuit-stop .marker{ width: 16px; height: 16px; }
+.circuit-code{ font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* The one orchestrated moment: the circles fill in, one by one, when the panel scrolls into view. */
+@keyframes fill-in{
+  from{ opacity: 0; transform: scale(0.3); }
+  to{ opacity: 1; transform: none; }
+}
+.is-waiting .circuit-stop .marker{ opacity: 0; }
+.js-paint .circuit-stop .marker{
+  animation: fill-in .4s cubic-bezier(.2,.7,.2,1) both;
+  animation-delay: calc(var(--i) * 24ms);
+}
+@media (max-width: 560px){
+  .circuit-stop{ width: 36px; }
+}
+
+.filter-bar{ display: flex; flex-wrap: wrap; gap: 16px 36px; margin-bottom: 36px; }
+.filter-group{ display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.filter-label{ font-size: 14px; font-weight: 600; color: var(--moss); margin-right: 6px; }
+.chip{
+  font: inherit; font-size: 14px; font-weight: 500;
+  display: inline-flex; align-items: center; gap: 7px;
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  color: var(--pine);
+  padding: 7px 14px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color .12s ease, color .12s ease, border-color .12s ease;
+}
+.chip .marker{ width: 11px; height: 11px; }
+.chip:hover{ border-color: var(--pine); }
+.chip.is-active{ background: var(--pine); color: var(--sand); border-color: var(--pine); }
+.cat-dot{ width: 10px; height: 10px; border-radius: 3px; background: var(--cat); }
+.chip.cat-knowledge.is-active, .chip.cat-skill.is-active, .chip.cat-behaviour.is-active{ background: var(--cat); border-color: var(--cat); }
+.chip.is-active .cat-dot{ background: var(--sand); }
+
+.ksb-group + .ksb-group{ margin-top: 44px; }
+.ksb-group-head{ display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; padding-bottom: 12px; margin-bottom: 16px; border-bottom: 3px solid var(--cat, var(--pine)); }
+.ksb-group-title{ font-size: var(--step-3); color: var(--cat, var(--pine)); }
+.ksb-group-count{ color: var(--moss); font-size: 15px; }
+.ksb-grid{ display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+.ksb-card{
+  font: inherit; text-align: left; color: inherit;
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 18px;
+  background: var(--sand-card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color .12s ease;
+}
+.ksb-card.cat-knowledge, .ksb-card.cat-skill, .ksb-card.cat-behaviour{ box-shadow: inset 4px 0 0 var(--cat); }
+.ksb-card{ transition: border-color .2s ease, box-shadow .25s ease, transform .2s ease; }
+.ksb-card:hover{ border-color: var(--cat, var(--pine)); box-shadow: inset 8px 0 0 var(--cat, var(--pine)); }
+.ksb-card:active{ transform: scale(.985); }
+.ksb-top{ display: flex; align-items: center; gap: 10px; }
+.ksb-code{ font-size: var(--step-2); font-weight: 800; font-variation-settings: var(--display); line-height: 1; color: var(--cat, var(--pine)); }
+.ksb-title{ font-size: 15.5px; font-weight: 600; line-height: 1.35; }
+.ksb-meta{ font-size: 13px; color: var(--moss); margin-top: auto; }
+.ksb-empty{ color: var(--moss); }
+
+@media (max-width: 560px){
+  .ksb-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .ksb-card{ padding: 14px; gap: 8px; }
+  .ksb-title{ font-size: 14px; }
+}
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+.modal-backdrop{
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(24,42,33,0.72);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  animation: fade-in .2s ease-out;
+}
+@keyframes fade-in{ from{ opacity: 0; } to{ opacity: 1; } }
+@keyframes fade-out{ to{ opacity: 0; } }
+@keyframes modal-out{ to{ opacity: 0; transform: translateY(6px) scale(.98); } }
+.modal-backdrop.is-closing{ animation: fade-out .18s ease-in forwards; }
+.modal-backdrop.is-closing .modal{ animation: modal-out .18s ease-in forwards; }
+.modal{
+  position: relative;
+  width: 100%; max-width: 580px; max-height: 84vh; overflow-y: auto;
+  background: var(--sand-card);
+  border-radius: 12px;
+  padding: 36px;
+  animation: modal-in .28s cubic-bezier(.2,.7,.2,1);
+}
+@keyframes modal-in{ from{ opacity: 0; transform: translateY(12px) scale(.98); } to{ opacity: 1; transform: none; } }
+.modal-close{
+  position: absolute; top: 14px; right: 14px;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: none; border: 0; cursor: pointer; color: var(--pine);
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-close:hover{ background: var(--sand); }
+.modal-close svg{ width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.modal-code{ display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+.modal-code-id{ font-size: var(--step-3); font-weight: 800; font-variation-settings: var(--display); line-height: 1; color: var(--cat, var(--pine)); }
+.modal-code-cat{ font-size: 14px; font-weight: 600; color: var(--cat, var(--moss)); }
+.modal h3{ font-size: var(--step-3); padding-right: 32px; margin-bottom: 12px; }
+.modal-status{ display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; margin-bottom: 16px; }
+.modal-desc{ font-size: 16px; line-height: 1.6; margin-bottom: 22px; }
+.modal-evidence{ border-top: 1px solid var(--line); padding-top: 18px; }
+.modal-evidence-empty{ color: var(--moss); }
+
+.ev-track{ display: flex; align-items: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; overscroll-behavior-x: contain; }
+.ev-track::-webkit-scrollbar{ display: none; }
+.evidence-item{ flex: 0 0 100%; min-width: 0; scroll-snap-align: start; scroll-snap-stop: always; }
+.ev-nav{ display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+.ev-count{ font-size: 14px; font-weight: 600; color: var(--moss); margin-right: auto; order: -1; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.ev-count::before{ content: "Evidence "; }
+.ev-dots{ display: flex; }
+.ev-dot{ width: 24px; height: 32px; padding: 0; border: 0; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.ev-dot::before{ content: ""; width: 7px; height: 7px; border-radius: 100px; background: var(--line-strong); transition: width .2s ease, background-color .2s ease; }
+.ev-dot.is-active::before{ width: 18px; background: var(--lake); }
+.ev-btn{
+  flex-shrink: 0;
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 1px solid var(--line-strong); background: none; color: var(--pine);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.ev-btn svg{ width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ev-btn:hover:not(:disabled){ border-color: var(--pine); }
+.ev-btn:disabled{ opacity: .3; cursor: default; }
+
+.evidence-meta{ display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; margin-bottom: 10px; }
+.evidence-date{ font-size: 14px; color: var(--moss); font-variant-numeric: tabular-nums; }
+.evidence-project, .evidence-source{ font-size: 15px; font-weight: 600; }
+.evidence-project{ color: var(--lake); text-underline-offset: 3px; }
+.evidence-text{
+  white-space: pre-line;
+  font-size: 15px; line-height: 1.6;
+  margin: 0 0 14px;
+  padding: 12px 16px;
+  background: var(--sand);
+  border-left: 3px solid var(--lake);
+}
+.evidence-images{ display: grid; gap: 12px; }
+.evidence-images.is-multi{ grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.evidence-figure{ margin: 0; }
+.evidence-image-link{ display: block; }
+.evidence-image{ width: 100%; max-width: 260px; display: block; border-radius: 6px; border: 1px solid var(--line); transition: opacity .15s ease; }
+.evidence-images.is-multi .evidence-image{ max-width: none; aspect-ratio: 4 / 3; object-fit: contain; background: var(--sand); }
+.evidence-image-link:hover .evidence-image{ opacity: .85; }
+.evidence-caption{ font-size: 13px; color: var(--moss); margin-top: 6px; }
+
+@media (max-width: 480px){
+  .modal-backdrop{ padding: 12px; }
+  .modal{ padding: 28px 20px; max-height: 88vh; }
+  .ev-count::before{ content: none; }
+  .ev-dot{ width: 20px; }
+}
+
+@media (pointer: coarse){
+  .chip{ padding: 10px 14px; }
+}
