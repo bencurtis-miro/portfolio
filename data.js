@@ -102,9 +102,9 @@ const PROJECTS = [
     summary:
       "Led the end-to-end implementation of HubSpot CRM at OutsideClinic – building live assets, dynamic customer journeys and sales pipelines from scratch, while keeping stakeholders from employee level through to SLT and suppliers informed throughout. Delivered on time, with staff training built in to ensure a smooth handover into day-to-day use.",
     tags: ["CRM Implementation", "Lifecycle Automation", "Stakeholder Management"],
-    // Headline outcomes, shown on the card. Swap the placeholder for a real
-    // figure (rough is fine, e.g. "~30% more webform conversions"). Add more
-    // lines by adding more strings, or leave the list empty to hide the box.
+    // Headline outcomes, shown on the card. Anything in [square brackets] is a
+    // placeholder and stays hidden – swap it for a real figure (rough is fine,
+    // e.g. "~30% more webform conversions") and the Results box appears.
     results: ["[Place result here]"],
     link: "",
   },
@@ -117,24 +117,24 @@ const PROJECTS = [
     summary:
       "Led the redesign and relaunch of the company webform, working alongside an external agency and internal IT to rebuild it from the ground up. Used market-relevant insight and data to inform the new design before implementing it live on the website.",
     tags: ["UX & Conversion", "Landing Pages", "Agency Management"],
-    // Headline outcomes, shown on the card. Swap the placeholder for a real
-    // figure (rough is fine, e.g. "~30% more webform conversions"). Add more
-    // lines by adding more strings, or leave the list empty to hide the box.
+    // Headline outcomes, shown on the card. Anything in [square brackets] is a
+    // placeholder and stays hidden – swap it for a real figure (rough is fine,
+    // e.g. "~30% more webform conversions") and the Results box appears.
     results: ["[Place result here]"],
     link: "",
   },
   {
     id: "website-revamp",
-    status: "in-progress", // "complete" or "in-progress" – shown with a status circle on the card
+    status: "complete", // "complete" or "in-progress" – shown with a status circle on the card
     title: "Website Revamp",
-    period: "2026 – ongoing, launching Oct 2026",
+    period: "2026 – Nov 2026",
     role: "Project Lead",
     summary:
-      "Leading OutsideClinic's full website rebuild alongside a partner design agency – creating and proofing concepts and content, aligning internal stakeholders to secure approvals, and setting and enforcing the delivery timeline to keep the project on track for its October 2026 launch.",
+      "Led OutsideClinic's full website rebuild alongside a partner design agency – creating and proofing concepts and content, aligning internal stakeholders to secure approvals, and setting and enforcing the delivery timeline through to launch in November 2026.",
     tags: ["Website Design", "Agency Management", "Stakeholder Alignment"],
-    // Headline outcomes, shown on the card. Swap the placeholder for a real
-    // figure (rough is fine, e.g. "~30% more webform conversions"). Add more
-    // lines by adding more strings, or leave the list empty to hide the box.
+    // Headline outcomes, shown on the card. Anything in [square brackets] is a
+    // placeholder and stays hidden – swap it for a real figure (rough is fine,
+    // e.g. "~30% more webform conversions") and the Results box appears.
     results: ["[Place result here]"],
     link: "",
   },
@@ -147,9 +147,9 @@ const PROJECTS = [
     summary:
       "Co-led the client side of a full brand identity relaunch for OutsideClinic alongside an external design agency partner. Managed sign-off across internal stakeholders on assets and copy, flagged and requested changes where needed, and held the line on deadlines once designs were locked.",
     tags: ["Brand Identity", "Agency Management", "Stakeholder Alignment"],
-    // Headline outcomes, shown on the card. Swap the placeholder for a real
-    // figure (rough is fine, e.g. "~30% more webform conversions"). Add more
-    // lines by adding more strings, or leave the list empty to hide the box.
+    // Headline outcomes, shown on the card. Anything in [square brackets] is a
+    // placeholder and stays hidden – swap it for a real figure (rough is fine,
+    // e.g. "~30% more webform conversions") and the Results box appears.
     results: ["[Place result here]"],
     link: "",
   },

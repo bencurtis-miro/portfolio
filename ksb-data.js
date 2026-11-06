@@ -107,7 +107,7 @@ const KSBS = [
   ] },
   { code: "S6", category: "skill", title: "Manage & report on projects", description: "Manage, plan, specify, lead and report on digital marketing projects.", status: "in-progress", evidence: [
     { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "I project-managed the end-to-end HubSpot CRM implementation at OutsideClinic: planning the build of live assets, customer journeys and sales pipelines, reporting progress to stakeholders from employee level through to SLT and suppliers, and delivering on time with staff training built in for a smooth handover." },
-    { project: "website-revamp", date: "2026 – ongoing", text: "I'm leading OutsideClinic's website rebuild with a partner design agency – setting and enforcing the delivery timeline and securing stakeholder approvals to keep the project on track for launch." },
+    { project: "website-revamp", date: "2026 – Nov 2026", text: "I led OutsideClinic's website rebuild with a partner design agency – setting and enforcing the delivery timeline and securing stakeholder approvals to keep the project on track through to launch." },
     { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "I led the webform relaunch, coordinating an external agency and our internal IT team through the redesign, build and live launch." },
     { project: "brand-refresh", date: "Mar 2026 – Oct 2026", text: "I co-led the client side of OutsideClinic's brand refresh, managing sign-off across internal stakeholders and holding deadlines through to launch." },
   ] },
@@ -127,7 +127,7 @@ const KSBS = [
       ],
     },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I manage relationships with suppliers and partners including Sagacity, StudioCertain, MBA Group and Paragon, aligning their delivery with OutsideClinic's commercial objectives." },
-    { project: "website-revamp", date: "2026 – ongoing", text: "I'm leading the rebuild of OutsideClinic's website – the main online interface between the business and its customers – with a partner design agency." },
+    { project: "website-revamp", date: "2026 – Nov 2026", text: "I led the rebuild of OutsideClinic's website – the main online interface between the business and its customers – with a partner design agency." },
   ] },
   { code: "S9", category: "skill", title: "Apply the marketing mix", description: "Apply a marketing mix / digital marketing mix to meet customer expectations.", status: "in-progress", evidence: [
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I oversee a multi-channel acquisition mix across Direct Mail, Paid Social, PPC, SEO and CRM, balancing the channels to reach customers in the right place." },
@@ -162,7 +162,7 @@ const KSBS = [
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I oversee OutsideClinic's multi-channel acquisition strategy, adapting the mix across Direct Mail, Paid Social, PPC, SEO and CRM." },
     { project: "brand-refresh", date: "Mar 2026 – Oct 2026", text: "I contributed to OutsideClinic's brand strategy by co-leading the client side of a full brand identity relaunch with an external design agency, guiding internal stakeholders through the change and keeping the project moving to deadline." },
     { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "I led the move to HubSpot CRM, changing how the business manages customer journeys and sales pipelines." },
-    { project: "website-revamp", date: "2026 – ongoing", text: "I'm leading the website rebuild, a major change to how the business presents itself online." },
+    { project: "website-revamp", date: "2026 – Nov 2026", text: "I led the website rebuild, a major change to how the business presents itself online." },
   ] },
   { code: "S14", category: "skill", title: "Read business intelligence", description: "Identify, recognise and understand internal and external business intelligence and factors that may impact future operations.", status: "in-progress", evidence: [
     {
@@ -176,7 +176,7 @@ const KSBS = [
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I analyse internal performance data across channels in GA4, Power BI and Infinity and report on key business KPIs, flagging trends that could affect future plans." },
   ] },
   { code: "S15", category: "skill", title: "Brief stakeholders", description: "Interpret, communicate and brief internal or external stakeholders on digital business requirements.", status: "in-progress", evidence: [
-    { project: "website-revamp", date: "2026 – ongoing", text: "On the website rebuild, I'm the link between our partner design agency and internal stakeholders – creating and proofing concepts and content, communicating them internally and securing approvals." },
+    { project: "website-revamp", date: "2026 – Nov 2026", text: "On the website rebuild, I was the link between our partner design agency and internal stakeholders – creating and proofing concepts and content, communicating them internally and securing approvals." },
     { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "On the webform relaunch, I worked between an external agency and our internal IT team, communicating the business's requirements so the rebuilt form could be implemented live." },
     { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "Throughout the HubSpot implementation, I kept stakeholders from employee level through to SLT and suppliers informed, briefing each group on what the new CRM meant for them." },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I brief suppliers and partners including Sagacity, StudioCertain, MBA Group and Paragon, keeping their delivery aligned with our commercial objectives." },
@@ -259,10 +259,10 @@ const KSBS = [
   { code: "K10", category: "knowledge", title: "Stakeholder & commercial awareness", description: "Stakeholder and customer requirements, commercial awareness and business improvement processes that are relevant to campaign management.", status: "in-progress", evidence: [
     { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "Implementing HubSpot meant balancing the requirements of employees, SLT and suppliers, keeping each group informed throughout so the new CRM met the business's needs and was adopted smoothly through staff training." },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I manage supplier and partner relationships and keep their delivery aligned with OutsideClinic's commercial objectives." },
-    { project: "website-revamp", date: "2026 – ongoing", text: "On the website rebuild, I align internal stakeholders and secure approvals, balancing their requirements with the delivery timeline." },
+    { project: "website-revamp", date: "2026 – Nov 2026", text: "On the website rebuild, I aligned internal stakeholders and secured approvals, balancing their requirements with the delivery timeline." },
   ] },
   { code: "K11", category: "knowledge", title: "Digital & interface design", description: "Digital graphic design, interface design, and authoring.", status: "in-progress", evidence: [
-    { project: "website-revamp", date: "2026 – ongoing", text: "On the website rebuild, I create and proof design concepts and content with our partner agency, applying interface design principles to the new site." },
+    { project: "website-revamp", date: "2026 – Nov 2026", text: "On the website rebuild, I created and proofed design concepts and content with our partner agency, applying interface design principles to the new site." },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I build landing pages in Unbounce and Craft CMS, laying out content and calls to action for each campaign." },
     { project: "brand-refresh", date: "Mar 2026 – Oct 2026", text: "On the brand refresh, I reviewed new design assets and copy, requesting changes where needed before sign-off." },
     {
@@ -278,7 +278,7 @@ const KSBS = [
   { code: "K12", category: "knowledge", title: "User experience", description: "The user experience, and how to maximise engagement.", status: "in-progress", evidence: [
     { project: "webform-relaunch", date: "Dec 2025 – Feb 2026", text: "The webform relaunch put user experience at the centre: I used insight and data to shape a redesigned form, rebuilt from the ground up and implemented live on the website." },
     { source: "Digital Marketing Executive, OutsideClinic", date: "Sep 2024 – present", text: "I improve landing pages through structured testing and UX optimisation to increase engagement and conversions." },
-    { project: "website-revamp", date: "2026 – ongoing", text: "On the website rebuild, I create and proof concepts with our partner agency with the user's experience of the new site in mind." },
+    { project: "website-revamp", date: "2026 – Nov 2026", text: "On the website rebuild, I created and proofed concepts with our partner agency with the user's experience of the new site in mind." },
     {
       source: "University of Portsmouth – UX Design module",
       text: "In my UX Design module, I carried out a UX assessment of the OutsideClinic website, evaluating usability, accessibility and trust for older adults, carers and people with mobility limitations, and recommended improvements.",
@@ -352,7 +352,7 @@ const KSBS = [
   ] },
   { code: "B4", category: "behaviour", title: "Quality & deadlines", description: "Demonstrate business disciplines and compliance with procedures and principles to ensure work is of high quality and fit for purpose, with high attention to detail and the ability to work to deadlines.", status: "in-progress", evidence: [
     { project: "brand-refresh", date: "Mar 2026 – Oct 2026", text: "On the brand refresh, I managed sign-off on assets and copy, flagged and requested changes where needed, and held the line on deadlines once designs were locked." },
-    { project: "website-revamp", date: "2026 – ongoing", text: "On the website rebuild, I set and enforce the delivery timeline with our partner agency to keep the project on track." },
+    { project: "website-revamp", date: "2026 – Nov 2026", text: "On the website rebuild, I set and enforced the delivery timeline with our partner agency to keep the project on track." },
     { project: "hubspot-implementation", date: "Sep 2024 – Feb 2025", text: "I delivered the HubSpot implementation on time, with staff training built in for a smooth handover." },
   ] },
   { code: "B5", category: "behaviour", title: "Integrity & data security", description: "Show integrity and respect for confidentiality and data security in work and personal situations.", status: "in-progress", evidence: [

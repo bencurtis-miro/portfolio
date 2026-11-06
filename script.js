@@ -163,7 +163,8 @@
     card.className = "project-card";
     const statusBadge = p.status && STATUS_LABEL[p.status]
       ? `<p class="project-status">${marker(p.status)}${statusLabel(p.status)}</p>` : "";
-    const results = (p.results || []).filter(Boolean);
+    // Placeholders like "[Place result here]" stay hidden until replaced with a real result
+    const results = (p.results || []).filter(r => r && !/^\s*\[.*\]\s*$/.test(r));
     card.dataset.project = p.id;
     card.innerHTML = `
       <div class="project-top">
